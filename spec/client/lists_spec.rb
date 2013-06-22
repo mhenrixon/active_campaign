@@ -1,17 +1,12 @@
 # -*- encoding: utf-8 -*-
-require 'spec_helper'
+require 'helper'
 
 # need this to filter the data
 require 'json'
 require 'date'
-describe ActiveCampaign::Client::Contacts do
-  before do
-    ActiveCampaign.configure do |config|
-      config.api_endpoint    = "https://rushplay.activehosted.com/"
-      config.api_key    = "f202df2a5fdb710ffdf709d91bf29bf64d269c1b1ca91cced5ca656522518daec5f03633"
-      config.api_output = "json"
-    end
-  end
+describe ActiveCampaign::Client::Lists do
+
+  initialize_new_client
 
   pending "add a list" do
     params = {
@@ -28,14 +23,16 @@ describe ActiveCampaign::Client::Contacts do
       "listid"    => 1
     }.stringify_keys
 
-
     list = ActiveCampaign.list_add params
-    binding.pry
   end
 
-  it "views a contact" do
-    reply = ActiveCampaign.list_view id: 1
-    binding.pry
-  end
+  describe ".list_view" do
+    it "returns the right list" do
+      stub_get("list_view", id: 1).
+        to_return json_response("list_view.json")
 
+      list = @client.list_view id: 1
+      expect(list.name).to eq "Swedish Players"
+    end
+  end
 end

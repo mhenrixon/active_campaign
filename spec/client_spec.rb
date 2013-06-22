@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'helper'
 
 module ActiveCampaign
   describe Client do
