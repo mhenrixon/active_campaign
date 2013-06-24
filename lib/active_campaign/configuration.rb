@@ -18,6 +18,7 @@ module ActiveCampaign
       :request_host,
       :auto_traversal,
       :adapter,
+      :log_requests,
       :per_page].freeze
 
     DEFAULT_ADAPTER             = Faraday.default_adapter
@@ -55,17 +56,18 @@ module ActiveCampaign
     end
 
     def reset
-      self.adapter             = DEFAULT_ADAPTER
-      self.api_version         = DEFAULT_API_VERSION
-      self.api_endpoint        = DEFAULT_API_ENDPOINT
-      self.api_path            = DEFAULT_API_PATH
-      self.api_output          = DEFAULT_API_OUTPUT
-      self.list_id             = nil
-      self.proxy               = nil
-      # self.url_params          = {}
-      self.request_host        = nil
-      self.user_agent          = DEFAULT_USER_AGENT
-      self.auto_traversal      = DEFAULT_AUTO_TRAVERSAL
+      self.adapter         = DEFAULT_ADAPTER
+      self.api_version     = DEFAULT_API_VERSION
+      self.api_endpoint    = DEFAULT_API_ENDPOINT
+      self.api_path        = DEFAULT_API_PATH
+      self.api_output      = DEFAULT_API_OUTPUT
+      self.list_id         = nil
+      self.proxy           = nil
+      # self.url_params      = {}
+      self.request_host    = nil
+      self.user_agent      = DEFAULT_USER_AGENT
+      self.auto_traversal  = DEFAULT_AUTO_TRAVERSAL
+      self.log_requests    = false
     end
   end
 end

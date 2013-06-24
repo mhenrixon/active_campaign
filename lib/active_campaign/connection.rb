@@ -33,8 +33,10 @@ module ActiveCampaign
         conn.response :mashify, content_type: /\bjson$/
         conn.response :json, content_type: /\bjson$/
         faraday_config_block.call(conn) if faraday_config_block
-        conn.use :instrumentation
-        conn.response :body_logger
+        if log_requests
+          conn.response :body_logger
+          conn.use :instrumentation
+        end
 
         conn.adapter *adapter
       end

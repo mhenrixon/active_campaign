@@ -14,6 +14,7 @@ require 'webmock/rspec'
 WebMock.disable_net_connect!(:allow => 'coveralls.io')
 
 RSpec.configure do |config|
+  config.treat_symbols_as_metadata_keys_with_true_values = true
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
@@ -102,5 +103,6 @@ def initialize_active_campaign
     config.api_endpoint = "https://rushplay.activehosted.com/"
     config.api_key      = "f202df2a5fdb710ffdf709d91bf29bf64d269c1b1ca91cced5ca656522518daec5f03633"
     config.api_output   = "json"
+    config.log_requests = true
   end
 end

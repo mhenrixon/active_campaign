@@ -8,24 +8,21 @@ describe ActiveCampaign::Client::Contacts do
 
   initialize_new_client
 
-  it "syncs a contact" do
-    stub_post("contact_sync").
-      with(body: "id=1&email=mhenrixon%40me.com&first_name=Mikael&last_name=Henriksson&p%5B1%5D=1&status%5B1%5D=1&instantresponders%5B1%5D=1&field%5B%25BALANCE%25%2C0%5D=100&ip4=127.0.0.1&status%5B2%5D=2&listid=1").
-      to_return json_response("contact_sync.json")
-
+  it "syncs a contact", :focus do
     params = {
       id: 1,
       email: 'mhenrixon@me.com',
       first_name: 'Mikael',
       last_name: 'Henriksson',
-      "p[1]" => 1,
-      "status[1]" => 1,
-      "instantresponders[1]" => 1,
+      "p" => {"1" => 1, "2" => 2},
+      "status" => {"1" => 1, "2" => 2},
+      "instantresponders" => {"1" => 1, "2" => 2},
       "field[%BALANCE%,0]" => 100,
       ip4: '127.0.0.1',
-      "status[2]" => 2,
-      listid: 1
     }.stringify_keys
+
+    stub_post("contact_sync").
+      to_return json_response("contact_sync.json")
 
     @client.contact_sync params
   end
