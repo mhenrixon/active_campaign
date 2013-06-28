@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = ActiveCampaign::VERSION
   spec.authors       = ["Mikael Henriksson"]
   spec.email         = ["mikael@zoolutions.se"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{A simple ruby wrapper for the ActiveCampaign API}
+  spec.summary       = %q{See http://www.activecampaign.com/api/overview.php for more information}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "httpclient",         "~> 2.3"
   spec.add_dependency "hashie",             "~> 2.0"
-  spec.add_dependency "activesupport",      ">= 4.0.0.rc2"
+  spec.add_dependency "activesupport",      ">= 4.0.0"
   spec.add_dependency "faraday",            "~> 0.8"
   spec.add_dependency "faraday_middleware", "~> 0.9"
   spec.add_dependency "multi_json",         "~> 1.7"
