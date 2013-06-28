@@ -1,6 +1,7 @@
 require 'faraday_middleware'
 require 'faraday/response/raise_active_campaign_error'
 require 'faraday/response/body_logger'
+require 'faraday/response/json_normalizer'
 
 module ActiveCampaign
 
@@ -32,6 +33,7 @@ module ActiveCampaign
         conn.use FaradayMiddleware::FollowRedirects
         if api_output == 'json'
           conn.response :mashify, content_type: /\bjson$/
+          conn.response :json_normalizer
           conn.response :json, content_type: /\bjson$/
         end
         faraday_config_block.call(conn) if faraday_config_block

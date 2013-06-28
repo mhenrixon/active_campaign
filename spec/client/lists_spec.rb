@@ -40,9 +40,9 @@ describe ActiveCampaign::Client::Lists do
       # stub_get("list_view", name: "Swedish Players").
       #   to_return json_response("list_view.json")
 
-      list = @client.list_list "ids" => 'all'
+      lists = @client.list_list "ids" => 'all'
       binding.pry
-      expect(list["0"].name).to eq "Swedish Players"
+      expect(lists.results[0].name).to eq "Swedish Players"
     end
   end
 end
