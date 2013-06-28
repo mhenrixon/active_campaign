@@ -30,8 +30,10 @@ module ActiveCampaign
 
         conn.use Faraday::Response::RaiseActiveCampaignError
         conn.use FaradayMiddleware::FollowRedirects
-        conn.response :mashify, content_type: /\bjson$/
-        conn.response :json, content_type: /\bjson$/
+        if api_output == 'json'
+          conn.response :mashify, content_type: /\bjson$/
+          conn.response :json, content_type: /\bjson$/
+        end
         faraday_config_block.call(conn) if faraday_config_block
         if log_requests
           conn.response :body_logger

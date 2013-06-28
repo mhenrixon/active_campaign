@@ -34,13 +34,15 @@ describe ActiveCampaign::Client::Lists do
       list = @client.list_view id: 1
       expect(list.name).to eq "Swedish Players"
     end
-    it "returns the right list" do
+
+    it "returns the right list list", :focus do
       WebMock.allow_net_connect!
       # stub_get("list_view", name: "Swedish Players").
       #   to_return json_response("list_view.json")
 
-      list = @client.list_list filters: { stringid: "swedish-players" }
-      expect(list.name).to eq "Swedish Players"
+      list = @client.list_list "ids" => 'all'
+      binding.pry
+      expect(list["0"].name).to eq "Swedish Players"
     end
   end
 end

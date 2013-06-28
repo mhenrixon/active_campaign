@@ -51,7 +51,7 @@ module ActiveCampaign
 
       def request(method, api_method, options={})
 
-        force_urlencoded = options.delete(:force_urlencoded) || true
+        force_urlencoded = options.delete(:force_urlencoded) || false
         url = options.delete(:endpoint) || api_endpoint
 
         conn_options = {

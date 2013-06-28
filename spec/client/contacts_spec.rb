@@ -8,7 +8,7 @@ describe ActiveCampaign::Client::Contacts do
 
   initialize_new_client
 
-  it "syncs a contact", :focus do
+  it "syncs a contact" do
     params = {
       id: 1,
       email: 'mhenrixon@me.com',

@@ -212,7 +212,7 @@
   ],
   "analytics_domains_list": [],
   "facebook_oauth_logout_url": "",
-  "facebook_oauth_login_url": "https:\/\/www.facebook.com\/dialog\/oauth?client_id=118506481555093&redirect_uri=https%3A%2F%2Frushplay.activehosted.com%2Fadmin%2Fmain.php%3Faction%3Dlist%26formid%3D1&scope=publish_stream,manage_pages",
+  "facebook_oauth_login_url": "https:\/\/www.facebook.com\/dialog\/oauth?client_id=118506481555093&redirect_uri=https%3A%2F%2Fyourdomain.activehosted.com%2Fadmin%2Fmain.php%3Faction%3Dlist%26formid%3D1&scope=publish_stream,manage_pages",
   "facebook_oauth_me": null,
   "result_code": 1,
   "result_message": "Success: Something is returned",

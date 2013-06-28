@@ -15,6 +15,9 @@ WebMock.disable_net_connect!(:allow => 'coveralls.io')
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
+  config.filter_run focus: true
+  config.order = "random"
+  config.run_all_when_everything_filtered = true
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
@@ -85,7 +88,7 @@ def active_campaign_url(url, options = {})
   if url =~ /^http/
     url
   else
-    uri = "https://rushplay.activehosted.com/admin/api.php?api_action=#{url}&api_key=f202df2a5fdb710ffdf709d91bf29bf64d269c1b1ca91cced5ca656522518daec5f03633&api_output=json"
+    uri = "https://yourdomain.activehosted.com/admin/api.php?api_action=#{url}&api_key=YOURAPIKEY&api_output=serialize"
     params = options.map{|k,v| "#{k}=#{v}" }.join("&")
     "#{uri}&#{params}"
   end
@@ -100,8 +103,8 @@ end
 
 def initialize_active_campaign
   ActiveCampaign.configure do |config|
-    config.api_endpoint = "https://rushplay.activehosted.com/"
-    config.api_key      = "f202df2a5fdb710ffdf709d91bf29bf64d269c1b1ca91cced5ca656522518daec5f03633"
+    config.api_endpoint = "https://yourdomain.activehosted.com/"
+    config.api_key      = "YOURAPIKEY"
     config.api_output   = "json"
     config.log_requests = true
   end
