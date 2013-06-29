@@ -74,7 +74,7 @@ All responses are wrapped under `results` so
   "result_message" => "Success: Something is returned",
    "result_output" => "json",
          "results" => [
-    [0] {
+    {
                     "id" => "1",
                   "name" => "One list",
                  "cdate" => "2013-05-22 10:07:36",
@@ -82,7 +82,7 @@ All responses are wrapped under `results` so
                 "userid" => "1",
       "subscriber_count" => 2
     },
-    [1] {
+    {
                     "id" => "2",
                   "name" => "Another List,
                  "cdate" => "2013-05-22 10:09:15",
