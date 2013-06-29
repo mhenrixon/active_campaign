@@ -45,12 +45,12 @@ ActiveCampaign.contact_sync({
 
 list_params = {
   "#{user.active_campaign_list_id}" => user.active_campaign_list_id,
-             "#{user.other_list_id" => user.other_list_id,
+             "#{user.other_list_id}" => user.other_list_id,
 }
 
 status_params = {
   "#{user.active_campaign_list_id}" => user.receive_emails ? 1 : 2,
-             "#{user.other_list_id" => true ? 1 : 2,
+             "#{user.other_list_id}" => true ? 1 : 2,
 }
 
 ActiveCampaign.contact_sync({
