@@ -84,7 +84,7 @@ All responses are wrapped under `results` so
     },
     {
                     "id" => "2",
-                  "name" => "Another List,
+                  "name" => "Another List",
                  "cdate" => "2013-05-22 10:09:15",
                "private" => "0",
                 "userid" => "1",
