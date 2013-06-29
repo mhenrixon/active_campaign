@@ -40,6 +40,27 @@ ActiveCampaign.contact_sync({
     "p[#{user.active_campaign_list_id}]" => user.active_campaign_list_id,
 "status[#{user.active_campaign_list_id}" => user.receive_emails ? 1 : 2
 })
+
+# Another example of syncing a contact:
+
+list_params = {
+  "#{user.active_campaign_list_id}" => user.active_campaign_list_id,
+             "#{user.other_list_id" => user.other_list_id,
+}
+
+status_params = {
+  "#{user.active_campaign_list_id}" => user.receive_emails ? 1 : 2,
+             "#{user.other_list_id" => true ? 1 : 2,
+}
+
+ActiveCampaign.contact_sync({
+        "id" => user.active_campaign_contact_id,
+     "email" => user.email,
+"first_name" => user.first,
+ "last_name" => user.last,
+         "p" => list_params
+    "status" => status_params
+})
 ```
 
 ## Response
