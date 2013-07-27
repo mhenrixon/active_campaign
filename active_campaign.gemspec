@@ -29,5 +29,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'json', '~> 1.7'
   spec.add_development_dependency 'rspec', '>= 2.14'
   spec.add_development_dependency 'webmock'
-  spec.add_development_dependency "pry"
 end
