@@ -19,11 +19,18 @@ module Faraday
 
       def normalize(response)
         keys, values = keys_values(response)
-        response[:results] = values
-        keys.each do |key|
-          response.delete(key)
+
+        if keys.all?{|key| is_numeric?(key) }
+          response[:results] = values
+          keys.each do |key|
+            response.delete(key)
+          end
         end
         response
+      end
+
+      def is_numeric?(string)
+        string.to_s.match(/\A[+-]?\d+\Z/) == nil ? false : true
       end
 
       def keys_values(response)

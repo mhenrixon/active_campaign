@@ -35,7 +35,7 @@ describe ActiveCampaign::Client::Lists do
       expect(list.name).to eq "Swedish Players"
     end
 
-    it "returns the right list list", :focus do
+    pending "returns the right list list" do
       WebMock.allow_net_connect!
       # stub_get("list_view", name: "Swedish Players").
       #   to_return json_response("list_view.json")

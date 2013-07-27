@@ -1,15 +1,16 @@
-require 'simplecov'
-require 'coveralls'
+# require 'simplecov'
+# require 'coveralls'
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-SimpleCov.start
+# SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+#   SimpleCov::Formatter::HTMLFormatter,
+#   Coveralls::SimpleCov::Formatter
+# ]
+# SimpleCov.start
 
 require "active_campaign"
 require 'rspec'
 require 'webmock/rspec'
+require 'pry'
 
 WebMock.disable_net_connect!(:allow => 'coveralls.io')
 
@@ -88,7 +89,7 @@ def active_campaign_url(url, options = {})
   if url =~ /^http/
     url
   else
-    uri = "https://yourdomain.activehosted.com/admin/api.php?api_action=#{url}&api_key=YOURAPIKEY&api_output=serialize"
+    uri = "https://yourdomain.activehosted.com/admin/api.php?api_action=#{url}&api_key=YOURAPIKEY&api_output=json"
     params = options.map{|k,v| "#{k}=#{v}" }.join("&")
     "#{uri}&#{params}"
   end

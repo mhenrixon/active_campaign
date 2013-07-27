@@ -21,6 +21,7 @@ describe ActiveCampaign do
   describe ".delegate" do
     it "delegates missing methods to ActiveCampaign::Client" do
       initialize_active_campaign
+
       stub_get("contact_view", email: "mikael@zoolutions.se").
         to_return json_response('contact_view.json')
       contact = ActiveCampaign.contact_view(email: "mikael@zoolutions.se")
