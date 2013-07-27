@@ -2,9 +2,6 @@ source 'https://rubygems.org'
 gem 'rake'
 gem 'yard'
 
-group :development do
-  gem 'pry', require: false
-end
 
 group :test do
   gem 'coveralls', require: false
