@@ -5,9 +5,6 @@ require 'active_campaign/configuration'
 require 'active_campaign/error'
 require 'active_campaign/client'
 
-
-require "pry" rescue nil
-
 module ActiveCampaign
 
   extend Configuration
