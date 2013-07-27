@@ -6,7 +6,7 @@ require 'active_campaign/error'
 require 'active_campaign/client'
 
 
-require "pry"
+require "pry" rescue nil
 
 module ActiveCampaign
 

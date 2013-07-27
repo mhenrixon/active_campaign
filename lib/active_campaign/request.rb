@@ -19,7 +19,6 @@ module ActiveCampaign
       request(:post, api_method, options).body
     rescue => e
       puts e, e.backtrace
-      binding.pry
     end
 
     def put(api_method, options={})

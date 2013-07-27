@@ -41,7 +41,6 @@ describe ActiveCampaign::Client::Lists do
       #   to_return json_response("list_view.json")
 
       lists = @client.list_list "ids" => 'all'
-      binding.pry
       expect(lists.results[0].name).to eq "Swedish Players"
     end
   end
