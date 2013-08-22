@@ -47,11 +47,8 @@ module ActiveCampaign
           api_output: api_output,
         }
 
-        if listid = options.delete(:list_id) { nil }
-          params.merge!({ listid: listid  })
-        end
-
-        params
+        listid = options.delete('list_id') { nil }
+        listid ? params.merge({ listid: listid  }) : params
       end
 
       def request(method, api_method, options={})
