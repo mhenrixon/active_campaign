@@ -15,7 +15,7 @@ module ActiveCampaign
       # TODO: Create proper methods with parameter validation and possible naming fixes since this is one the worst APIs I have ever worked with.
       included do
         CONTACT_METHODS.each do |method|
-          define_method "contact_#{method}" do |options|
+          define_method "campaign_#{method}" do |options|
             if CONTACT_POST_METHODS.include?(method)
               post __method__, options
             else

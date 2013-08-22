@@ -3,18 +3,18 @@ require 'helper'
 describe ActiveCampaign do
 
   after do
-    ActiveCampaign.reset
+    ActiveCampaign.setup
   end
 
   describe ".respond_to?" do
     it "is true if method exists" do
-      expect(ActiveCampaign.respond_to?(:new, true)).to eq(true)
+      expect(ActiveCampaign.respond_to?(:client, true)).to eq(true)
     end
   end
 
   describe ".new" do
     it "is a ActiveCampaign::Client" do
-      expect(ActiveCampaign.new).to be_a ActiveCampaign::Client
+      expect(ActiveCampaign.client).to be_a ActiveCampaign::Client
     end
   end
 

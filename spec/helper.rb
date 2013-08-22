@@ -106,6 +106,6 @@ def initialize_active_campaign
     config.api_endpoint = "https://yourdomain.activehosted.com/"
     config.api_key      = "YOURAPIKEY"
     config.api_output   = "json"
-    config.log_requests = true
+    config.debug        = true
   end
 end

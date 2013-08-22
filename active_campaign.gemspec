@@ -18,15 +18,10 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "httpclient",         "~> 2.3"
-  spec.add_dependency "hashie",             "~> 2.0"
-  spec.add_dependency "activesupport",      ">= 4.0.0"
-  spec.add_dependency "faraday",            "~> 0.8"
-  spec.add_dependency "faraday_middleware", "~> 0.9"
-  spec.add_dependency "multi_json",         "~> 1.7"
-  spec.add_dependency 'rake'
-
-  spec.add_development_dependency 'json', '~> 1.7'
-  spec.add_development_dependency 'rspec', '>= 2.14'
-  spec.add_development_dependency 'webmock'
+  spec.add_dependency "faraday", ">= 0.8.8"
+  spec.add_dependency "activesupport", ">= 4.0.0"
+  spec.add_dependency "uri_template"
+  spec.add_dependency "hashie"
+  spec.add_dependency "oj"
+  spec.add_development_dependency 'bundler', '~> 1.0'
 end
