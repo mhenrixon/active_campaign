@@ -41,23 +41,22 @@ module ActiveCampaign
       end
 
       def url_params(api_method, options = {})
-        {
+        params = {
           api_key: api_key,
           api_action: api_method,
           api_output: api_output,
-        }.merge(list_id(options))
-      end
+        }
 
-      def list_id(options = {})
         if options.has_key?(:list_id)
-          {
-            listid: options.delete(:list_id) { nil }
-          }
+          params.merge!({ listid: options.delete(:list_id) })
         end
-      end
 
+        params
+      end
 
       def request(method, api_method, options={})
+
+        options.stringify_keys!
 
         force_urlencoded = options.delete(:force_urlencoded) || false
         url = options.delete(:endpoint) || api_endpoint
