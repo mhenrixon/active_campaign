@@ -40,13 +40,22 @@ module ActiveCampaign
         "#{api_path}?#{url_params(api_method).map{|k,v| "#{k}=#{v}" }.join('&')}"
       end
 
-      def url_params(api_method)
+      def url_params(api_method, options = {})
         {
           api_key: api_key,
           api_action: api_method,
           api_output: api_output,
-        }
+        }.merge(list_id(options))
       end
+
+      def list_id(options = {})
+        if options.has_key?(:list_id)
+          {
+            listid: options.delete(:list_id) { nil }
+          }
+        end
+      end
+
 
       def request(method, api_method, options={})
 
@@ -61,10 +70,10 @@ module ActiveCampaign
         response = connection(conn_options).send(method) do |request|
           case method
           when :get, :delete, :head
-            options.reverse_merge!(url_params(api_method))
+            options.reverse_merge!(url_params(api_method, options))
             request.url(api_path, options)
           when :patch, :post, :put
-            request.url(api_path, url_params(api_method))
+            request.url(api_path, url_params(api_method, options))
             if force_urlencoded
               request.body = options unless options.empty?
             else

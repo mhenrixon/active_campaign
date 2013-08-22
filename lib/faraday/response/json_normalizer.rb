@@ -43,4 +43,4 @@ module Faraday
       end
   end
 end
-Faraday.register_middleware :response, json_normalizer: lambda { Faraday::Response::JsonNormalizer }
+Faraday.register_middleware :response, json_normalizer: -> { Faraday::Response::JsonNormalizer }

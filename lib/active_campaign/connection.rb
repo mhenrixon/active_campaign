@@ -31,18 +31,21 @@ module ActiveCampaign
 
         conn.use Faraday::Response::RaiseActiveCampaignError
         conn.use FaradayMiddleware::FollowRedirects
+
         if api_output == 'json'
           conn.response :mashify, content_type: /\bjson$/
           conn.response :json_normalizer
           conn.response :json, content_type: /\bjson$/
         end
+
         faraday_config_block.call(conn) if faraday_config_block
+
         if log_requests
           conn.response :body_logger
           conn.use :instrumentation
         end
 
-        conn.adapter *adapter
+        conn.adapter(*adapter)
       end
 
       connection.headers[:user_agent] = user_agent
