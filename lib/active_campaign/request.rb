@@ -47,8 +47,8 @@ module ActiveCampaign
           api_output: api_output,
         }
 
-        if options.has_key?(:list_id)
-          params.merge!({ listid: options.delete(:list_id) })
+        if listid = options.delete(:list_id) { nil }
+          params.merge!({ listid: listid  })
         end
 
         params
