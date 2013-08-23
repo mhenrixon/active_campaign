@@ -1,32 +1,40 @@
-require 'rubygems'
 require 'active_support/core_ext'
-require "active_campaign/version"
-require 'active_campaign/configuration'
-require 'active_campaign/error'
 require 'active_campaign/client'
+require 'active_campaign/default'
 
 module ActiveCampaign
 
-  extend Configuration
-
   class << self
+    include ActiveCampaign::Configurable
 
-    # Alias for ActiveCampaign::Client.new
+    # API client based on configured options {Configurable}
     #
-    # @return [ActiveCampaign::Client]
-    def new(options={})
-      ActiveCampaign::Client.new(options)
+    # @return [ActiveCampaign::Client] API wrapper
+    def client
+      unless defined?(@client) && @client.same_options?(options)
+        @client = ActiveCampaign::Client.new(options)
+      end
+
+      @client
     end
 
-    # Delegate to ActiveCampaign::Client.new
-    def method_missing(method, *args, &block)
-      return super unless new.respond_to?(method)
-      new.send(method, *args, &block)
-    end
+    # @private
+    def respond_to_missing?(method_name, include_private=false)
+      client.respond_to?(method_name, include_private)
+    end if RUBY_VERSION >= "1.9"
 
-    def respond_to?(method, include_private=false)
-      new.respond_to?(method, include_private) ||
-        super(method, include_private)
+    # @private
+    def respond_to?(method_name, include_private=false)
+      client.respond_to?(method_name, include_private) || super
+    end if RUBY_VERSION < "1.9"
+
+  private
+
+    def method_missing(method_name, *args, &block)
+      return super unless client.respond_to?(method_name)
+      client.send(method_name, *args, &block)
     end
   end
+
+  ActiveCampaign.setup
 end
