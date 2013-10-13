@@ -1,3 +1,4 @@
+[![Build Status](https://circleci.com/gh/RushPlay/active_campaign.png?circle-token=908def2d4311fcbe28d2caabccaa703e2835cf37)] [![Coverage Status](https://coveralls.io/repos/RushPlay/active_campaign/badge.png?branch=master)](https://coveralls.io/r/RushPlay/active_campaign?branch=master)
 # Active::Campaign::Ruby
 
 A simple wrapper for the ActiveCampaign API. Since their API seems to be
