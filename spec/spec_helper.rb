@@ -1,11 +1,11 @@
-# require 'simplecov'
-# require 'coveralls'
+require 'simplecov'
+require 'coveralls'
 
-# SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-#   SimpleCov::Formatter::HTMLFormatter,
-#   Coveralls::SimpleCov::Formatter
-# ]
-# SimpleCov.start
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+SimpleCov.start
 
 require "active_campaign"
 require 'rspec'
@@ -21,6 +21,24 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+end
+
+require 'vcr'
+VCR.configure do |c|
+  c.configure_rspec_metadata!
+  c.filter_sensitive_data('<API_KEY>') do
+      ENV['ACTIVE_CAMPAIGN_API_KEY']
+  end
+
+  c.default_cassette_options = {
+    serialize_with: :json,
+    # TODO: Track down UTF-8 issue and remove
+    preserve_exact_body_bytes: true,
+    decode_compressed_response: true,
+    record: ENV['TRAVIS'] ? :none : :once
+  }
+  c.cassette_library_dir = 'spec/cassettes'
+  c.hook_into :webmock
 end
 
 def a_delete(url, options = {})
@@ -97,7 +115,7 @@ end
 def initialize_new_client
   before do
     initialize_active_campaign
-    @client = ActiveCampaign::Client.new
+    @client = ActiveCampaign::Client.new mash: true, debug: true
   end
 end
 
@@ -107,5 +125,6 @@ def initialize_active_campaign
     config.api_key      = "YOURAPIKEY"
     config.api_output   = "json"
     config.debug        = true
+    config.mash         = true
   end
 end

@@ -1,9 +1,6 @@
 # -*- encoding: utf-8 -*-
-require 'helper'
+require 'spec_helper'
 
-# need this to filter the data
-require 'json'
-require 'date'
 describe ActiveCampaign::Client::Lists do
 
   initialize_new_client

@@ -4,49 +4,24 @@ module ActiveCampaign
   # in {Default}
   module Configurable
 
-    # @!attribute connection_options
-    #   @see https://github.com/lostisland/faraday
-    #   @return [Hash] Configure connection options for Faraday
-    # @!attribute middleware
-    #   @see https://github.com/lostisland/faraday
-    #   @return [Faraday::Builder] Configure middleware for Faraday
-    # @!attribute per_page
-    #   @return [String] Configure page size for paginated results. API default: 30
-    # @!attribute user_agent
-    #   @return [String] Configure User-Agent header for requests.
-    # @!attribute web_endpoint
-    #   @return [String] Base URL for web URLs. default: https://github.com/
+    CONFIG_KEYS = [
+      :api_key,
+      :api_path,
+      :api_output,
+      :api_endpoint,
+      :user_agent,
+      :debug,
+      :mash,
+    ]
 
-    attr_accessor :api_url, :api_key, :api_output, :api_path, :api_action,
-      :list_id, :api_endpoint, :proxy, :user_agent,
-      :debug, :per_page, :connection_options,
-      :api_endpoint, :auto_paginate,
-      :default_media_type, :connection_options,
-      :middleware, :user_agent, :web_endpoint
-
-    attr_writer :client_secret, :password
+    attr_accessor(*CONFIG_KEYS)
 
     class << self
 
       # List of configurable keys for {ActiveCampaign::Client}
       # @return [Array] of option keys
       def keys
-        @keys ||= [
-          :api_key,
-          :api_path,
-          :api_output,
-          :api_endpoint,
-          :user_agent,
-          :debug,
-          :per_page,
-          :connection_options,
-          :auto_paginate,
-          :default_media_type,
-          :connection_options,
-          :middleware,
-          :user_agent,
-          :web_endpoint
-        ]
+        @keys ||= CONFIG_KEYS
       end
     end
 

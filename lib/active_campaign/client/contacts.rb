@@ -1,3 +1,4 @@
+require 'active_support/core_ext'
 module ActiveCampaign
   class Client
     module Contacts

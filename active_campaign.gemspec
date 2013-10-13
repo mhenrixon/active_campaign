@@ -18,10 +18,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "faraday", ">= 0.8.8"
-  spec.add_dependency "activesupport", ">= 4.0.0"
-  spec.add_dependency "uri_template"
-  spec.add_dependency "hashie"
+  spec.add_dependency "httpi"
   spec.add_dependency "oj"
+  spec.add_dependency "hashie"
   spec.add_development_dependency 'bundler', '~> 1.0'
 end
