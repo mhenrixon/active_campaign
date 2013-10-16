@@ -45,6 +45,18 @@ module ActiveCampaign
         ENV['ACTIVE_CAMPAIGN_API_KEY']
       end
 
+      def log
+        false
+      end
+
+      def logger
+        nil
+      end
+
+      def log_level
+        :warn
+      end
+
       def debug
         false
       end

@@ -17,12 +17,6 @@ module ActiveCampaign
         instance_variable_set(:"@#{key}", options[key] ||
           ActiveCampaign.instance_variable_get(:"@#{key}"))
       end
-
-      unless debug
-        HTTPI.log       = false
-        HTTPI.log_level = :info
-        HTTPI.logger = Rails.logger
-      end
     end
 
     # Compares client options to a Hash of requested options
@@ -55,6 +49,7 @@ module ActiveCampaign
 
       def request(method, api_method, data)
         req = create_request method, api_method, data
+
         response = HTTPI.send(method, req)
         response = JSON.parse(response.body)
         normalize(response)
@@ -64,15 +59,25 @@ module ActiveCampaign
       def create_request(method, api_method, options = {})
         request = HTTPI::Request.new :url => File.join(api_endpoint, api_path)
         request.headers = {"User-Agent" => user_agent}
-        request.query = {
+        request.query = query(method, api_method, options)
+        request.body  = options.to_query if method == :post
+
+        request
+      end
+
+      def query(method, api_method, options = {})
+        q = options.delete(:query) { Hash.new }
+        q.merge!({
           :api_key => api_key,
           :api_action => api_method.to_s,
           :api_output => api_output
-        }.merge(options.delete(:query))
+        })
 
-        request.body = options.to_query if method == :post
+        if method == :get
+          q.merge!(options)
+        end
 
-        request
+        q
       end
 
       def normalize(response)

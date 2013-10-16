@@ -10,7 +10,9 @@ module ActiveCampaign
       :api_output,
       :api_endpoint,
       :user_agent,
-      :debug,
+      :log,
+      :log_level,
+      :logger,
       :mash,
     ]
 
@@ -35,6 +37,11 @@ module ActiveCampaign
       ActiveCampaign::Configurable.keys.each do |key|
         instance_variable_set(:"@#{key}", ActiveCampaign::Default.options[key])
       end
+
+      HTTPI.logger    = self.logger if self.logger
+      HTTPI.log       = self.log
+      HTTPI.log_level = self.log_level
+
       self
     end
     alias setup reset!
