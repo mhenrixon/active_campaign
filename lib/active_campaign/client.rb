@@ -21,6 +21,7 @@ module ActiveCampaign
       unless debug
         HTTPI.log       = false
         HTTPI.log_level = :info
+        HTTPI.logger = Rails.logger
       end
     end
 
@@ -67,7 +68,9 @@ module ActiveCampaign
           :api_key => api_key,
           :api_action => api_method.to_s,
           :api_output => api_output
-        }.merge(options)
+        }.merge(options.delete(:query))
+
+        request.body = options.to_query if method == :post
 
         request
       end
