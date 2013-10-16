@@ -19,7 +19,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "httpi"
-  spec.add_dependency "oj"
   spec.add_dependency "hashie"
-  spec.add_development_dependency 'bundler', '~> 1.0'
 end

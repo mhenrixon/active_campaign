@@ -56,7 +56,7 @@ module ActiveCampaign
       def request(method, api_method, data)
         req = create_request method, api_method, data
         response = HTTPI.send(method, req)
-        response = Oj.load(response.body)
+        response = JSON.parse(response.body)
         normalize(response)
       end
 
