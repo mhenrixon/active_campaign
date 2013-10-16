@@ -5,6 +5,7 @@ require 'active_campaign/default'
 module ActiveCampaign
 
   class << self
+
     include ActiveCampaign::Configurable
 
     # API client based on configured options {Configurable}
