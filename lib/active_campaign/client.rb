@@ -60,7 +60,7 @@ module ActiveCampaign
         request = HTTPI::Request.new :url => File.join(api_endpoint, api_path)
         request.headers = {"User-Agent" => user_agent}
         request.query = query(method, api_method, options)
-        request.body  = options.to_query if method == :post
+        request.body  = body(method, api_method, options)
 
         request
       end
@@ -78,6 +78,17 @@ module ActiveCampaign
         end
 
         q
+      end
+
+      def body(method, api_method, options = {})
+        return nil unless method == :post
+
+        fields = options.delete(:fields){ Hash.new }
+        options[:field] = fields.inject({}) do |hash, (k,v)|
+          hash.merge("%#{k}%,0" => v)
+        end
+
+        options.to_query
       end
 
       def normalize(response)
