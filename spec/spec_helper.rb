@@ -1,17 +1,21 @@
 require 'simplecov'
 require 'coveralls'
+require "codeclimate-test-reporter"
+formatters =  [SimpleCov::Formatter::HTMLFormatter, Coveralls::SimpleCov::Formatter]
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
+if ENV['CODECLIMATE_REPO_TOKEN']
+  formatters << CodeClimate::TestReporter::Formatter
+  CodeClimate::TestReporter.start
+end
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[*formatters]
 SimpleCov.start
 
 require "active_campaign"
 require 'rspec'
 require 'webmock/rspec'
 
-WebMock.disable_net_connect!(:allow => 'coveralls.io')
+WebMock.disable_net_connect!(:allow => ['coveralls.io', 'codeclimate.com'])
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
@@ -39,6 +43,7 @@ VCR.configure do |c|
   }
   c.cassette_library_dir = 'spec/cassettes'
   c.hook_into :webmock
+  c.ignore_hosts 'codeclimate.com'
 end
 
 def a_delete(url, options = {})
