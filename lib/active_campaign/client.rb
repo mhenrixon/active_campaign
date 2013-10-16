@@ -3,7 +3,6 @@ require 'active_campaign/client/contacts'
 require 'active_campaign/client/lists'
 require 'active_campaign/client/campaigns'
 require 'httpi'
-require 'oj'
 require 'hashie'
 
 module ActiveCampaign
