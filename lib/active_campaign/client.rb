@@ -31,7 +31,7 @@ module ActiveCampaign
     #
     # @param url [String] The path, relative to {#api_endpoint}
     # @param options [Hash] Query and header params for request
-    # @return [Sawyer::Resource]
+    # @return [Hash]
     def get(api_method, options = {})
       request :get, api_method, options
     end
@@ -40,7 +40,7 @@ module ActiveCampaign
     #
     # @param url [String] The path, relative to {#api_endpoint}
     # @param options [Hash] Body and header params for request
-    # @return [Sawyer::Resource]
+    # @return [Hash]
     def post(api_method, options = {})
       request :post, api_method, options
     end

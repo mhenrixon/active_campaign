@@ -14,9 +14,9 @@ describe ActiveCampaign::Client::Contacts, :vcr do
           email: 'mhenrixon@me.com',
           first_name: 'Mikael',
           last_name: 'Henriksson',
-          "p" => {"1" => 1},
-          "status" => {"1" => 1},
-          "instantresponders" => {"1" => 1},
+          "p" => {1 => 1},
+          "status" => {1 => 1},
+          "instantresponders" => {1 => 1},
           ip4: '127.0.0.1',
         }.stringify_keys
       end
