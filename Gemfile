@@ -18,7 +18,7 @@ group :test do
   gem 'simplecov', :require => false
   gem 'test-queue', '~> 0.1.3'
   gem 'vcr', '~> 2.6.0'
-  gem 'webmock', '~> 1.14.0'
+  gem 'webmock', '~> 1.13.0'
 end
 
 gemspec
