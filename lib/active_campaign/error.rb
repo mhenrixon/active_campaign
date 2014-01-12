@@ -42,19 +42,21 @@ module ActiveCampaign
     private
 
     def data
-      @data ||=
-        if (body = @response[:body]) && !body.empty?
-          if body.is_a?(String) &&
-            @response[:response_headers] &&
-            @response[:response_headers][:content_type] =~ /json/
+      @data ||= parse_body
+    end
 
-            Sawyer::Agent.serializer.decode(body)
-          else
-            body
-          end
-        else
-          nil
-        end
+    def parse_body
+      body = @response[:body]
+
+      if body.present? && body.is_a?(String)
+        return Sawyer::Agent.serializer.decode(body) if is_json?
+      end
+
+      body
+    end
+
+    def is_json?
+      @response[:response_headers] && @response[:response_headers][:content_type] =~ /json/
     end
 
     def response_message
@@ -94,41 +96,41 @@ module ActiveCampaign
     end
   end
 
-  # Raised when GitHub returns a 400 HTTP status code
+  # Raised when ActiveCampaign returns a 400 HTTP status code
   class BadRequest < Error; end
 
-  # Raised when GitHub returns a 401 HTTP status code
+  # Raised when ActiveCampaign returns a 401 HTTP status code
   class Unauthorized < Error; end
 
-  # Raised when GitHub returns a 403 HTTP status code
+  # Raised when ActiveCampaign returns a 403 HTTP status code
   class Forbidden < Error; end
 
-  # Raised when GitHub returns a 403 HTTP status code
+  # Raised when ActiveCampaign returns a 403 HTTP status code
   # and body matches 'rate limit exceeded'
   class TooManyRequests < Forbidden; end
 
-  # Raised when GitHub returns a 403 HTTP status code
+  # Raised when ActiveCampaign returns a 403 HTTP status code
   # and body matches 'login attempts exceeded'
   class TooManyLoginAttempts < Forbidden; end
 
-  # Raised when GitHub returns a 404 HTTP status code
+  # Raised when ActiveCampaign returns a 404 HTTP status code
   class NotFound < Error; end
 
-  # Raised when GitHub returns a 406 HTTP status code
+  # Raised when ActiveCampaign returns a 406 HTTP status code
   class NotAcceptable < Error; end
 
-  # Raised when GitHub returns a 422 HTTP status code
+  # Raised when ActiveCampaign returns a 422 HTTP status code
   class UnprocessableEntity < Error; end
 
-  # Raised when GitHub returns a 500 HTTP status code
+  # Raised when ActiveCampaign returns a 500 HTTP status code
   class InternalServerError < Error; end
 
-  # Raised when GitHub returns a 501 HTTP status code
+  # Raised when ActiveCampaign returns a 501 HTTP status code
   class NotImplemented < Error; end
 
-  # Raised when GitHub returns a 502 HTTP status code
+  # Raised when ActiveCampaign returns a 502 HTTP status code
   class BadGateway < Error; end
 
-  # Raised when GitHub returns a 503 HTTP status code
+  # Raised when ActiveCampaign returns a 503 HTTP status code
   class ServiceUnavailable < Error; end
 end

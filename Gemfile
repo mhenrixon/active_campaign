@@ -16,8 +16,8 @@ group :test do
   gem 'coveralls', require: false
   gem 'rb-fsevent', '~> 0.9'
   gem 'rspec', '~> 2.14.0'
-  gem 'vcr', '~> 2.6.0'
-  gem 'webmock', '~> 1.13.0'
+  gem 'vcr', '~> 2.8.0'
+  gem 'webmock', '~> 1.15.0'
 end
 
 gemspec

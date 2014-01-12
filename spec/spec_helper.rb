@@ -41,7 +41,7 @@ VCR.configure do |c|
 
   c.default_cassette_options = {
     serialize_with: :json,
-    # TODO: Track down UTF-8 issue and remove
+
     preserve_exact_body_bytes: true,
     decode_compressed_response: true,
     record: ENV['CI'] ? :none : :once
@@ -61,14 +61,14 @@ end
 
 def initialize_new_client
   before do
-    @client = ActiveCampaign::Client.new({
+    @client = ActiveCampaign::Client.new(
       mash: true,
       debug: true,
       api_endpoint: test_api_endpoint,
       api_key: test_api_key,
       log_level: :debug,
       log: true
-    })
+    )
   end
 end
 
