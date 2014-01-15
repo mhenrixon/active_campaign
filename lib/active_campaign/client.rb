@@ -57,10 +57,12 @@ module ActiveCampaign
 
 
       def create_request(method, api_method, options = {})
-        request = HTTPI::Request.new :url => File.join(api_endpoint, api_path)
-        request.headers = {"User-Agent" => user_agent}
-        request.query = query(method, api_method, options)
-        request.body  = body(method, api_method, options)
+        request = HTTPI::Request.new url: File.join(api_endpoint, api_path)
+
+        request.headers              = { "User-Agent" => user_agent }
+        request.auth.ssl.verify_mode = :none
+        request.query                = query(method, api_method, options)
+        request.body                 = body(method, api_method, options)
 
         request
       end
