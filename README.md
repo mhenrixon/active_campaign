@@ -34,12 +34,12 @@ ActiveCampaign.list_list ids: 'all'
 # you have to resort to some really ugly hacks. Due to the form serialization # type of API (read not a object oriented REST API) you need to translate
 # something pretty into something horrific when it comes to the parameters.
 ActiveCampaign.contact_sync({
-                                    "id" => user.active_campaign_contact_id,
-                                 "email" => user.email,
-                            "first_name" => user.first,
-                             "last_name" => user.last,
-    "p[#{user.active_campaign_list_id}]" => user.active_campaign_list_id,
-"status[#{user.active_campaign_list_id}" => user.receive_emails ? 1 : 2
+                                     "id" => user.active_campaign_contact_id,
+                                  "email" => user.email,
+                             "first_name" => user.first,
+                              "last_name" => user.last,
+     "p[#{user.active_campaign_list_id}]" => user.active_campaign_list_id,
+"status[#{user.active_campaign_list_id}]" => user.receive_emails ? 1 : 2
 })
 
 # Another example of syncing a contact:
