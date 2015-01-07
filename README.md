@@ -29,18 +29,26 @@ Read their [API documentation](http://www.activecampaign.com/api/overview.php)fo
 client = ::ActiveCampaign::Client.new(
         api_endpoint: 'YOUR-ENDPOINT', # e.g. 'https://yourendpoint.api-us1.com'
         api_key: 'YOUR-API-KEY') # e.g. 'a4e60a1ba200595d5cc37ede5732545184165e'
+
+# or configure globally for all clients
+::ActiveCampaign.configure do |config|
+  config.api_endpoint = 'YOUR-ENDPOINT', # e.g. 'https://yourendpoint.api-us1.com'
+  config.api_key = 'YOUR-API-KEY') # e.g. 'a4e60a1ba200595d5cc37ede5732545184165e'
+end
+
 ```
+
 
 ```ruby
 # To fetch all lists
-client.list_list ids: 'all'
+ActiveCampaign.list_list ids: 'all'
 ```
 
 ```ruby
 # To sync a contact (create if doesn't exist or update if matching email)
 # you have to resort to some really ugly hacks. Due to the form serialization # type of API (read not a object oriented REST API) you need to translate
 # something pretty into something horrific when it comes to the parameters.
-client.contact_sync({
+ActiveCampaign.contact_sync({
                                      "id" => user.active_campaign_contact_id,
                                   "email" => user.email,
                              "first_name" => user.first,
@@ -61,7 +69,7 @@ status_params = {
              "#{user.other_list_id}" => true ? 1 : 2,
 }
 
-client.contact_sync({
+ActiveCampaign.contact_sync({
         "id" => user.active_campaign_contact_id,
      "email" => user.email,
 "first_name" => user.first,
@@ -74,7 +82,7 @@ client.contact_sync({
 ## Response
 
 All responses are wrapped under `results` so
-`client.list_list ids: 'all'` returns
+`ActiveCampaign.list_list ids: 'all'` returns
 
 ```ruby
 {
