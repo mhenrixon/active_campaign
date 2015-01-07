@@ -61,6 +61,7 @@ module ActiveCampaign
 
         request.headers              = { "User-Agent" => user_agent }
         request.auth.ssl.verify_mode = :none
+        request.auth.ssl.ssl_version = :TLSv1
         request.query                = query(method, api_method, options)
         request.body                 = body(method, api_method, options)
 
