@@ -1,0 +1,39 @@
+machine:
+  ruby:
+    version: 2.2.2
+  java:
+    version: 'openjdk7'
+  environment:
+    JRUBY_OPTS: '-J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -J-noverify -X-C -Xcompile.invokedynamic=false --1.9 -J-Xmx1g'
+
+dependencies:
+  bundler:
+      without: [production, staging, benchmarking]
+    cache_directories:
+      - vendor/bundle_java
+      - vendor/bundle
+  pre:
+    - chmod 600 spec/fixtures/.netrc
+    - rvm install 1.8.7
+    - rvm install 1.9.2
+    - rvm install 1.9.3
+    - rvm install 2.0.0
+    - rvm install 2.1.6
+    - rvm install jruby-1.7.19
+  override:
+    - rvm-exec 1.8.7 bundle install
+    - rvm-exec 1.9.2 bundle install
+    - rvm-exec 1.9.3 bundle install
+    - rvm-exec 2.0.0 bundle install
+    - rvm-exec 2.1.6 bundle install
+    - rvm-exec 2.2.2 bundle install
+    - rvm-exec jruby-1.7.19 bundle install
+test:
+  override:
+    - rvm-exec 1.8.7 bundle exec rspec
+    - rvm-exec 1.9.2 bundle exec rspec
+    - rvm-exec 1.9.3 bundle exec rspec
+    - rvm-exec 2.0.0 bundle exec rspec
+    - rvm-exec 2.1.6 bundle exec rspec
+    - rvm-exec 2.2.2 bundle exec rspec
+    - rvm-exec jruby-1.7.19 bundle exec rspec
