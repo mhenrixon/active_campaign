@@ -13,14 +13,12 @@ dependencies:
     - vendor/bundle_java
     - vendor/bundle
   pre:
-    - rvm install 1.8.7
     - rvm install 1.9.2
     - rvm install 1.9.3
     - rvm install 2.0.0
     - rvm install 2.1.6
     - rvm install jruby-1.7.19
   override:
-    - rvm-exec 1.8.7 bundle install
     - rvm-exec 1.9.2 bundle install
     - rvm-exec 1.9.3 bundle install
     - rvm-exec 2.0.0 bundle install
@@ -29,7 +27,6 @@ dependencies:
     - rvm-exec jruby-1.7.19 bundle install
 test:
   override:
-    - rvm-exec 1.8.7 bundle exec rspec
     - rvm-exec 1.9.2 bundle exec rspec
     - rvm-exec 1.9.3 bundle exec rspec
     - rvm-exec 2.0.0 bundle exec rspec
