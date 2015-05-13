@@ -1,0 +1,19 @@
+# AllCops:
+  # Include:
+  # Exclude:
+
+Documentation:
+  Enabled: false
+
+ParameterLists:
+  Enabled: true
+  Max: 5
+  CountKeywordArgs: false
+
+LineLength:
+  Enabled: true
+  Max: 107
+
+IfUnlessModifier:
+  Enabled: false
+  MaxLineLength: 79

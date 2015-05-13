@@ -1,39 +1,51 @@
-require 'active_campaign/configurable'
-require 'active_campaign/client/contacts'
-require 'active_campaign/client/lists'
-require 'active_campaign/client/campaigns'
 require 'httpi'
 require 'hashie'
 
+require 'active_campaign/client/contacts'
+require 'active_campaign/client/lists'
+require 'active_campaign/client/campaigns'
+
 module ActiveCampaign
   class Client
-    include ActiveCampaign::Configurable
+    include Comparable
     include ActiveCampaign::Client::Contacts
     include ActiveCampaign::Client::Lists
     include ActiveCampaign::Client::Campaigns
 
-    def initialize(options = {})
-      ActiveCampaign::Configurable.keys.each do |key|
-        instance_variable_set(:"@#{key}", options[key] ||
-          ActiveCampaign.instance_variable_get(:"@#{key}"))
-      end
+    delegate :api_key, :api_output, :api_endpoint, :user_agent, :log, :log_level,
+             :logger, :mash, :debug, to: :config
+
+    attr_accessor :config
+
+    def initialize(configuration = nil)
+      self.config = configuration
+      self.config ||= ActiveCampaign.configuration
     end
 
     # Compares client options to a Hash of requested options
     #
     # @param opts [Hash] Options to compare with current client options
     # @return [Boolean]
-    def same_options?(opts)
-      opts.hash == options.hash
+    def same_options?(other_config)
+      config.to_h.sort == other_config.to_h.sort
     end
 
-      # Make a HTTP GET request
+    # Make a HTTP GET request
     #
     # @param url [String] The path, relative to {#api_endpoint}
     # @param options [Hash] Query and header params for request
     # @return [Hash]
     def get(api_method, options = {})
       request :get, api_method, options
+    end
+
+    def hash
+      [config, Client].hash
+    end
+
+    def <=>(other)
+      other.is_a?(ActiveCampaign::Client) &&
+        config.to_h.sort <=> other.config.to_h.sort
     end
 
     # Make a HTTP POST request
@@ -47,82 +59,70 @@ module ActiveCampaign
 
     private
 
-      def request(method, api_method, data)
-        req = create_request method, api_method, data
+    def request(method, api_method, data)
+      req = create_request method, api_method, data
 
-        response = HTTPI.send(method, req)
-        response = JSON.parse(response.body)
-        normalize(response)
-      end
+      response = HTTPI.send(method, req)
+      response = JSON.parse(response.body)
+      normalize(response)
+    end
 
+    def create_request(method, api_method, options = {})
+      request = HTTPI::Request.new url: File.join(api_endpoint)
 
-      def create_request(method, api_method, options = {})
-        request = HTTPI::Request.new url: File.join(api_endpoint, api_path)
-
-        request.headers              = { "User-Agent" => user_agent }
+      request.headers              = { "User-Agent" => user_agent }
         request.auth.ssl.verify_mode = :none
         request.auth.ssl.ssl_version = :TLSv1
         request.query                = query(method, api_method, options)
         request.body                 = body(method, api_method, options)
 
         request
+    end
+
+    def query(method, api_method, options = {})
+      q = options.delete(:query) { Hash.new }
+      q.merge!(api_key: api_key,
+               api_action: api_method.to_s,
+               api_output: api_output)
+
+      q.merge!(options) if method == :get
+
+      q
+    end
+
+    def body(method, _api_method, options = {})
+      return nil unless method == :post
+
+      fields = options.delete(:fields) { Hash.new }
+      options[:field] = fields.inject({}) do |hash, (k, v)|
+        hash.merge("%#{k}%,0" => v)
       end
 
-      def query(method, api_method, options = {})
-        q = options.delete(:query) { Hash.new }
-        q.merge!({
-          :api_key => api_key,
-          :api_action => api_method.to_s,
-          :api_output => api_output
-        })
+      options.to_query
+    end
 
-        if method == :get
-          q.merge!(options)
-        end
-
-        q
+    def normalize(response)
+      keys, values = keys_values(response)
+      if keys.all? { |key| numeric?(key) }
+        response[:results] = values
+        keys.each { |key| response.delete(key) }
       end
 
-      def body(method, api_method, options = {})
-        return nil unless method == :post
+      return Hashie::Mash.new response if mash
+      ActiveSupport::HashWithIndifferentAccess.new(response)
+    end
 
-        fields = options.delete(:fields){ Hash.new }
-        options[:field] = fields.inject({}) do |hash, (k,v)|
-          hash.merge("%#{k}%,0" => v)
-        end
+    def numeric?(string)
+      string.to_s.match(/\A[+-]?\d+\Z/).nil? ? false : true
+    end
 
-        options.to_query
-      end
+    def keys_values(response)
+      results = results(response)
+      [results.keys, results.values]
+    end
 
-      def normalize(response)
-        keys, values = keys_values(response)
-
-        if keys.all?{|key| is_numeric?(key) }
-          response[:results] = values
-          keys.each do |key|
-            response.delete(key)
-          end
-        end
-
-        if mash
-          Hashie::Mash.new response
-        else
-          ActiveSupport::HashWithIndifferentAccess.new(response)
-        end
-
-      end
-
-      def is_numeric?(string)
-        string.to_s.match(/\A[+-]?\d+\Z/) == nil ? false : true
-      end
-
-      def keys_values(response)
-        results = results(response)
-        [results.keys, results.values]
-      end
-
-      def results(response)
-        response.reject{|k,v| %w(result_code result_message result_output).include?(k) }
-      end
+    def results(response)
+      response.reject { |k, _v| %w(result_code result_message result_output).include?(k) }
+    end
   end
 end

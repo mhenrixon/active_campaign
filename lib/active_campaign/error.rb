@@ -1,40 +1,48 @@
 module ActiveCampaign
   # Custom error class for rescuing from all GitHub errors
   class Error < StandardError
+    ERRORS = {
+      400 => ActiveCampaign::BadRequest,
+      401 => ActiveCampaign::Unauthorized,
+      403 => (lambda do |body|
+        if body =~ /rate limit exceeded/i
+          ActiveCampaign::TooManyRequests
+        elsif body =~ /login attempts exceeded/i
+          ActiveCampaign::TooManyLoginAttempts
+        else
+          ActiveCampaign::Forbidden
+        end
+      end),
+      404 => ActiveCampaign::NotFound,
+      406 => ActiveCampaign::NotAcceptable,
+      422 => ActiveCampaign::UnprocessableEntity,
+      500 => ActiveCampaign::InternalServerError,
+      501 => ActiveCampaign::NotImplemented,
+      502 => ActiveCampaign::BadGateway,
+      503 => ActiveCampaign::ServiceUnavailable
+    }
 
     # Returns the appropriate ActiveCampaign::Error sublcass based
     # on status and response message
     #
     # @param [Hash]
     # @returns [ActiveCampaign::Error]
+    # rubocop:disable MethodLength
     def self.from_response(response)
       status = response[:status].to_i
       body  = response[:body].to_s
+      klass = error_class(status)
+      klass.new(response, body)
+    end
+    # rubocop:disable MethodLength
 
-      if klass =  case status
-                  when 400 then ActiveCampaign::BadRequest
-                  when 401 then ActiveCampaign::Unauthorized
-                  when 403
-                    if body =~ /rate limit exceeded/i
-                      ActiveCampaign::TooManyRequests
-                    elsif body =~ /login attempts exceeded/i
-                      ActiveCampaign::TooManyLoginAttempts
-                    else
-                      ActiveCampaign::Forbidden
-                    end
-                  when 404 then ActiveCampaign::NotFound
-                  when 406 then ActiveCampaign::NotAcceptable
-                  when 422 then ActiveCampaign::UnprocessableEntity
-                  when 500 then ActiveCampaign::InternalServerError
-                  when 501 then ActiveCampaign::NotImplemented
-                  when 502 then ActiveCampaign::BadGateway
-                  when 503 then ActiveCampaign::ServiceUnavailable
-                  end
-        klass.new(response)
-      end
+    def self.error_class(status, body)
+      klass = ERRORS[status]
+      return klass[body] if status == 403
+      klass
     end
 
-    def initialize(response=nil)
+    def initialize(response = nil)
       @response = response
       super(build_error_message)
     end
@@ -49,13 +57,13 @@ module ActiveCampaign
       body = @response[:body]
 
       if body.present? && body.is_a?(String)
-        return Sawyer::Agent.serializer.decode(body) if is_json?
+        return Sawyer::Agent.serializer.decode(body) if json?
       end
 
       body
     end
 
-    def is_json?
+    def json?
       @response[:response_headers] && @response[:response_headers][:content_type] =~ /json/
     end
 
@@ -77,23 +85,25 @@ module ActiveCampaign
 
       summary = "\nError summary:\n"
       summary << data[:errors].map do |hash|
-        hash.map { |k,v| "  #{k}: #{v}" }
+        hash.map { |k, v| "  #{k}: #{v}" }
       end.join("\n")
 
       summary
     end
 
+    # rubocop:disable AbcSize
     def build_error_message
       return nil if @response.nil?
 
       message =  "#{@response[:method].to_s.upcase} "
-      message << "#{@response[:url].to_s}: "
+      message << "#{@response[:url]}: "
       message << "#{@response[:status]} - "
       message << "#{response_message}" unless response_message.nil?
       message << "#{response_error}" unless response_error.nil?
       message << "#{response_error_summary}" unless response_error_summary.nil?
       message
     end
+    # rubocop:enable AbcSize
   end
 
   # Raised when ActiveCampaign returns a 400 HTTP status code

@@ -1,23 +1,22 @@
 source 'https://rubygems.org'
 
-gem 'rake'
-gem 'activesupport'
 gem 'rubysl', '~> 2', platform: :rbx
 
 group :development do
-  gem 'awesome_print', require: 'ap'
-  gem 'pry'
+  gem 'pry', platform: :mri
 end
 
 group :test do
-  gem 'simplecov', ">= 0.9.4"
-  gem "rubinius-coverage", platform: :rbx
-  gem "codeclimate-test-reporter", require: false
+  gem 'simplecov', '>= 0.9.4'
+  gem 'rubinius-coverage', platform: :rbx
+  gem 'codeclimate-test-reporter', require: false
   gem 'coveralls', require: false
-  gem 'rb-fsevent', '~> 0.9'
+  gem 'rb-fsevent'
   gem 'rspec', '~> 3.2.0'
-  gem 'vcr', '~> 2.8'
-  gem 'webmock', '~> 1.15'
+  gem 'vcr'
+  gem 'webmock'
+  gem 'rubocop'
+  gem 'fuubar'
 end
 
 gemspec

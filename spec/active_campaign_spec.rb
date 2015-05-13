@@ -9,12 +9,6 @@ describe ActiveCampaign do
     ActiveCampaign.reset!
   end
 
-  it 'sets defaults' do
-    ActiveCampaign::Configurable.keys.each do |key|
-      expect(ActiveCampaign.instance_variable_get(:"@#{key}")).to eq ActiveCampaign::Default.send(key)
-    end
-  end
-
   describe '.client' do
     it 'creates an ActiveCampaign::Client' do
       expect(ActiveCampaign.client).to be_kind_of ActiveCampaign::Client
@@ -26,21 +20,21 @@ describe ActiveCampaign do
 
     it 'returns a fresh client when options are not the same' do
       client = ActiveCampaign.client
-      ActiveCampaign.api_key = 'somekey'
+      ActiveCampaign.config.api_key = 'somekey'
       client_two = ActiveCampaign.client
       client_three = ActiveCampaign.client
-      expect(client).to_not eq client_two
-      expect(client_three).to eq client_two
+      expect(client_three).to eql client_two
+      expect(client).to_not eql client_two
     end
   end
 
   describe '.configure' do
-    ActiveCampaign::Configurable.keys.each do |key|
+    ActiveCampaign.config.to_h.keys.each do |key|
       it "sets the #{key.to_s.gsub('_', ' ')}" do
         ActiveCampaign.configure do |config|
           config.send("#{key}=", key)
         end
-        expect(ActiveCampaign.instance_variable_get(:"@#{key}")).to eq key
+        expect(ActiveCampaign.configuration[key]).to eq key
       end
     end
   end
