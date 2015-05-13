@@ -2,8 +2,8 @@ require 'active_support/core_ext'
 module ActiveCampaign
   class Client
     module Contacts
-      CONTACT_METHODS = %w[add automation_list delete_list delete edit list paginator sync view view_email view_hash]
-      CONTACT_POST_METHODS = %w[add edit sync]
+      CONTACT_METHODS = %w[add automation_list delete_list delete edit list paginator sync view view_email view_hash tag_add tag_remove]
+      CONTACT_POST_METHODS = %w[add edit sync tag_add tag_remove]
 
       extend ActiveSupport::Concern
 
