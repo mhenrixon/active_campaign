@@ -1,16 +1,32 @@
 require 'httpi'
 require 'hashie'
 
-require 'active_campaign/client/contacts'
-require 'active_campaign/client/lists'
+require 'active_campaign/method_creator'
+
 require 'active_campaign/client/campaigns'
+require 'active_campaign/client/contacts'
+require 'active_campaign/client/deals'
+require 'active_campaign/client/forms'
+require 'active_campaign/client/groups'
+require 'active_campaign/client/lists'
+require 'active_campaign/client/messages'
+require 'active_campaign/client/tracks'
+require 'active_campaign/client/users'
 
 module ActiveCampaign
   class Client
     include Comparable
-    include ActiveCampaign::Client::Contacts
-    include ActiveCampaign::Client::Lists
+    extend ActiveCampaign::MethodCreator
+
     include ActiveCampaign::Client::Campaigns
+    include ActiveCampaign::Client::Contacts
+    include ActiveCampaign::Client::Deals
+    include ActiveCampaign::Client::Forms
+    include ActiveCampaign::Client::Groups
+    include ActiveCampaign::Client::Lists
+    include ActiveCampaign::Client::Messages
+    include ActiveCampaign::Client::Tracks
+    include ActiveCampaign::Client::Users
 
     delegate :api_key, :api_output, :api_endpoint, :user_agent, :log, :log_level,
              :logger, :mash, :debug, to: :config

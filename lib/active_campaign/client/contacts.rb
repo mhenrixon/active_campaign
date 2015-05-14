@@ -3,11 +3,15 @@ require 'active_support'
 module ActiveCampaign
   class Client
     module Contacts
-      CONTACT_METHODS = %w(
-        add automation_list delete_list delete edit list paginator
-        sync view view_email view_hash tag_add tag_remove
-      )
-      CONTACT_POST_METHODS = %w(add edit sync tag_add tag_remove)
+      GET_METHODS = %w(
+        automation_list delete_list delete list paginator view view_email
+        view_hash note_delete
+      ).freeze unless defined?(GET_METHODS)
+
+      POST_METHODS = %w(
+        add edit sync tag_add tag_remove
+        note_edit note_add
+      ).freeze unless defined?(POST_METHODS)
 
       extend ActiveSupport::Concern
 
@@ -15,15 +19,7 @@ module ActiveCampaign
       #       fixes since this is one the worst APIs I have ever worked with.
       included do
         %w(contact subscriber).each do |name|
-          CONTACT_METHODS.each do |method|
-            define_method "#{name}_#{method}" do |options|
-              if CONTACT_POST_METHODS.include?(method)
-                post __method__, options
-              else
-                get __method__, options
-              end
-            end
-          end
+          define_api_calls(name, GET_METHODS, POST_METHODS)
         end
       end
     end

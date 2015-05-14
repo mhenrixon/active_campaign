@@ -1,24 +1,17 @@
 module ActiveCampaign
   class Client
     module Lists
-      LIST_API_METHODS = %w(
-        add delete_list delete edit field_add field_delete
+      GET_METHODS = %w(
+        delete_list delete field_add field_delete
         field_edit field_view list paginator view
-      )
-      LIST_POST_METHODS = %w(add edit)
+      ).freeze unless defined?(GET_METHODS)
+      POST_METHODS = %w(add edit).freeze unless defined?(POST_METHODS)
+      DELETE_METHODS = [].freeze unless defined?(DELETE_METHODS)
 
       extend ActiveSupport::Concern
 
       included do
-        LIST_API_METHODS.each do |method|
-          define_method "list_#{method}" do |options|
-            if LIST_POST_METHODS.include?(method)
-              post __method__, options
-            else
-              get __method__, options
-            end
-          end
-        end
+        define_api_calls(:list, GET_METHODS, POST_METHODS, DELETE_METHODS)
       end
     end
   end
