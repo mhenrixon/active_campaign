@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rake'
 gem 'rubysl', '~> 2', platform: :rbx
 
 group :development do
