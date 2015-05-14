@@ -46,7 +46,8 @@ ActiveCampaign.list_list ids: 'all'
 
 ```ruby
 # To sync a contact (create if doesn't exist or update if matching email)
-# you have to resort to some really ugly hacks. Due to the form serialization # type of API (read not a object oriented REST API) you need to translate
+# you have to resort to some really ugly hacks. Due to the form serialization 
+# type of API (read not a object oriented REST API) you need to translate
 # something pretty into something horrific when it comes to the parameters.
 ActiveCampaign.contact_sync({
                                      "id" => user.active_campaign_contact_id,
