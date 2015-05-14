@@ -34,7 +34,7 @@ module ActiveCampaign
     attr_accessor :config
 
     def initialize(configuration = nil)
-      self.config = configuration
+      self.config = configuration.is_a?(OpenStruct) ? configuration : OpenStruct.new(configuration)
       self.config ||= ActiveCampaign.configuration
     end
 

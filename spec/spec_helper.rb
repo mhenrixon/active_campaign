@@ -28,19 +28,14 @@ end
 
 def initialize_new_client
   before do
-    initialize_active_campaign
-    @client = ActiveCampaign::Client.new
-  end
-end
-
-def initialize_active_campaign
-  ActiveCampaign.configure do |config|
-    config.api_endpoint = test_api_endpoint
-    config.api_key      = test_api_key
-    config.api_output   = 'json'
-    config.debug        = false
-    config.log_level    = :fatal
-    config.log          = false
-    config.mash         = true
+    @client = ActiveCampaign::Client.new(
+      api_endpoint: test_api_endpoint,
+      api_key: test_api_key,
+      api_output: 'json',
+      debug: false,
+      log_level: :fatal,
+      log: false,
+      mash: true
+    )
   end
 end
