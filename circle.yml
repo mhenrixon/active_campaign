@@ -6,7 +6,6 @@ dependencies:
   bundler:
     without: [production, staging, benchmarking]
   cache_directories:
-    - vendor/bundle_java
     - vendor/bundle
   override:
     - rvm-exec 2.2.2 bundle install
