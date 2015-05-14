@@ -3,11 +3,8 @@ source 'https://rubygems.org'
 gem 'rake'
 gem 'rubysl', '~> 2', platform: :rbx
 
-group :development do
-  gem 'pry', platform: :mri
-end
-
 group :test do
+  gem 'pry'
   gem 'simplecov', '>= 0.9.4'
   gem 'rubinius-coverage', platform: :rbx
   gem 'codeclimate-test-reporter', require: false
