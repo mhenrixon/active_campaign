@@ -1,3 +1,6 @@
+# 0.1.12
+- Allow ActiveCampaign::Client.new to accept a Hash
+
 # 0.1.11
 - Adds Deals
 - Adds Forms
