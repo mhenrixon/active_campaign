@@ -111,6 +111,16 @@ All responses are wrapped under `results` so
 }
 ```
 
+For using tags_list action do the following
+
+```ruby
+ActiveCampaign.get('tags_list')
+```
+The response of method is an array of tags
+
+```ruby
+[{"id":1,"name":"test_tag","count":1}]
+```
 
 ## Contributing
 
