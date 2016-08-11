@@ -1,4 +1,4 @@
-[![Circle CI](https://circleci.com/gh/RushPlay/active_campaign.png?circle-token=908def2d4311fcbe28d2caabccaa703e2835cf37)](https://circleci.com/gh/RushPlay/active_campaign/tree/master)[![Coverage Status](https://coveralls.io/repos/mhenrixon/active_campaign/badge.svg)](https://coveralls.io/r/mhenrixon/active_campaign) [![Code Climate](https://codeclimate.com/repos/525d012ec7f3a335f101a3d6/badges/74d14b105bf9f769f10f/gpa.png)](https://codeclimate.com/repos/525d012ec7f3a335f101a3d6/feed)
+[![Build Status](https://travis-ci.org/mhenrixon/active_campaign.svg?branch=master)](https://travis-ci.org/mhenrixon/active_campaign)[![Code Climate](https://codeclimate.com/github/mhenrixon/active_campaign/badges/gpa.svg)](https://codeclimate.com/github/mhenrixon/active_campaign)[![Test Coverage](https://codeclimate.com/github/mhenrixon/active_campaign/badges/coverage.svg)](https://codeclimate.com/github/mhenrixon/active_campaign/coverage)
 # Active::Campaign::Ruby
 
 A simple wrapper for the ActiveCampaign API. Since their API seems to be
