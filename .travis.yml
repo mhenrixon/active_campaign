@@ -9,7 +9,7 @@ before_install:
 language: ruby
 
 rvm:
-  - jruby-19mode
+  - jruby
   - rbx-3
   - 2.1.8
   - 2.2.4
