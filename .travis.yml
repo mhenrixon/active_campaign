@@ -5,13 +5,30 @@ before_install:
   - rvm get head
   - gem update --system
   - gem install bundler
-
+install:
+  - bundle install -j8 -r3
+script:
+  - if [[ "${STYLE}" = "true" ]]; then bundle exec rubocop; fi;
+  - bundle exec rspec spec
+rvm:
+  - jruby-19mode
+  - jruby-9.0.4.0
+  - jruby-9.1.2.0
+  - rbx-3.9
+  - 2.1.8
+  - 2.2.4
+env: STYLE=false
 rvm:
   - jruby-9.0.5.0
   - rbx-3
   - 2.1.9
   - 2.2.4
-  - 2.3.1
+
+matrix:
+  fast_finish: true
+  include:
+    - rvm: 2.3.1
+      env: STYLE=true
 
 addons:
   code_climate:
