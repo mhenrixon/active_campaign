@@ -19,7 +19,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'httpi'
-  spec.add_dependency 'hashie'
-  spec.add_dependency 'activesupport'
   spec.add_dependency 'multi_json'
 end

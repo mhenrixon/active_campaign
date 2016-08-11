@@ -5,12 +5,13 @@ gem 'rubysl', '~> 2', platform: :rbx
 
 group :test do
   gem 'pry'
-  gem 'simplecov', '>= 0.9.4'
+  gem 'simplecov'
+  gem 'simplecov-json'
   gem 'rubinius-coverage', platform: :rbx
   gem 'codeclimate-test-reporter', require: false
   gem 'coveralls', require: false
   gem 'rb-fsevent'
-  gem 'rspec', '~> 3.2.0'
+  gem 'rspec', '>= 3.2'
   gem 'vcr'
   gem 'webmock'
   gem 'rubocop'

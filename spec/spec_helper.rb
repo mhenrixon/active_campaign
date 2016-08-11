@@ -1,8 +1,13 @@
-require_relative 'support/coverage'
+require 'simplecov'
 
 require 'pry'
 require 'rspec'
 require 'active_campaign'
+require_relative 'support/webmock'
+require_relative 'support/vcr'
+
+TEST_API_ENDPOINT ||= 'https://zoolutions.api-us1.com/admin/api.php'.freeze
+TEST_API_KEY ||= '1b85f597c38b74fc842a04efe00f10d547a839487dcb05e2c639e92c450d53a366d96f84'.freeze
 
 RSpec.configure do |config|
   config.filter_run focus: true
@@ -13,29 +18,22 @@ RSpec.configure do |config|
   end
 
   config.before(:suite) do
-    HTTPI.log = false
+    HTTPI.log       = false
+    HTTPI.logger    = nil
     HTTPI.log_level = :fatal
   end
 end
 
-def test_api_endpoint
-  ENV.fetch 'ACTIVE_CAMPAIGN_API_ENDPOINT'
-end
-
-def test_api_key
-  ENV.fetch 'ACTIVE_CAMPAIGN_API_KEY'
-end
-
-def initialize_new_client
+def initialize_new_client # rubocop:disable MethodLength
   before do
     @client = ActiveCampaign::Client.new(
-      api_endpoint: test_api_endpoint,
-      api_key: test_api_key,
+      api_endpoint: TEST_API_ENDPOINT,
+      api_key: TEST_API_KEY,
       api_output: 'json',
       debug: false,
       log_level: :fatal,
       log: false,
-      mash: true
+      mash: false
     )
   end
 end

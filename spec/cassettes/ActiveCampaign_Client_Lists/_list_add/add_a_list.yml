@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<API_ENDPOINT>?api_action=list_add&api_key=<API_KEY>&api_output=json"
+    body:
+      encoding: UTF-8
+      string: carboncopy=mikael%40zoolutions.se&get_unsubscribe_reason=1&name=Swedish+Players&p_use_captcha=0&private=0&require_name=1&send_last_broadcast=1&sender_addr1=%25C3%2596sterv%25C3%25A5ngsplan%252015&sender_city=Landskrona&sender_country=Sweden&sender_name=Zoolutions%2520AB&sender_zip=26144&stringid=swedish-players&subscription_notify=mikael%40zoolutions.se&to_name=Recipient&unsubscription_notify=mikael%40zoolutions.se
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Gem 0.1.13
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - PHP/5.3.3
+      Set-Cookie:
+      - PHPSESSID=5b0o8l8b4jqn8sr51ahnngdbi2; path=/
+      - em_acp_globalauth_cookie=c6ead9798fb11b728939168ee2d579611; path=/; domain=zoolutions.api-us1.com;
+        secure
+      - em_acp_globalauth_cookie=deleted; expires=Wed, 12-Aug-2015 08:19:05 GMT; path=/;
+        domain=zoolutions.api-us1.com
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-store, max-age=0, must-revalidate
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 11 Aug 2016 08:19:06 GMT
+      Server:
+      - lighttpd/1.4.37
+    body:
+      encoding: UTF-8
+      string: '{"id":11,"result_code":1,"result_message":"List added","result_output":"json"}'
+    http_version: 
+  recorded_at: Thu, 11 Aug 2016 08:19:06 GMT
+recorded_with: VCR 3.0.3

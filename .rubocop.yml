@@ -1,6 +1,12 @@
-# AllCops:
-  # Include:
-  # Exclude:
+AllCops:
+  Include:
+    - '**/Rakefile'
+    - '**/lib'
+    - '**/bin'
+    - '**/spec'
+  Exclude:
+    - 'Gemfile.lock'
+    - 'gemfiles/**/*'
 
 Documentation:
   Enabled: false

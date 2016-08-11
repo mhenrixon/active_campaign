@@ -11,7 +11,7 @@ describe ActiveCampaign::Client::Contacts, :vcr do
       'email' => 'mhenrixon@me.com',
       'first_name' => 'Mikael',
       'last_name' => 'Henriksson',
-      'p' => { 1 => 1 },
+      'p' => { 1 => 7 },
       'status' => { 1 => 1 },
       'instantresponders' => { 1 => 1 },
       'ip4' => '127.0.0.1'
@@ -23,18 +23,28 @@ describe ActiveCampaign::Client::Contacts, :vcr do
       subject(:response) { @client.contact_sync params }
 
       it 'returns 1 for result_code' do
-        expect(response.result_code).to eq 1
+        expect(response['result_code']).to eq 1
+      end
+    end
+  end
+
+  describe '.contact_add' do
+    context 'when successful' do
+      subject(:response) { @client.contact_add params }
+
+      it 'returns 1 for result_code' do
+        expect(response['result_code']).to eq 1
       end
     end
   end
 
   describe '.contact_view' do
-    let(:subscriber_id) { @client.contact_sync(params).subscriber_id }
+    let(:subscriber_id) { @client.contact_sync(params)['subscriber_id'] }
 
     it 'can find contact by id' do
       contact = @client.contact_view id: subscriber_id
-      expect(contact.first_name).to eq 'Mikael'
-      expect(contact.last_name).to eq 'Henriksson'
+      expect(contact['first_name']).to eq 'Mikael'
+      expect(contact['last_name']).to eq 'Henriksson'
     end
   end
 end

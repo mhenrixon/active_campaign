@@ -1,21 +1,17 @@
-require 'active_support'
-require 'active_support/core_ext'
-require 'active_support/core_ext/module/delegation'
 require 'active_campaign/version'
 require 'active_campaign/client'
 require 'active_campaign/configuration'
+require 'active_campaign/core_ext'
 
 module ActiveCampaign
-  extend Configuration
-
   module_function
 
   # API client based on configured options {Configurable}
   #
   # @return [ActiveCampaign::Client] API wrapper
   def client
-    unless defined?(@client) && @client.same_options?(configuration)
-      @client = ActiveCampaign::Client.new(configuration)
+    unless defined?(@client) && @client.same_options?(config)
+      @client = ActiveCampaign::Client.new(config)
     end
 
     @client
@@ -24,12 +20,24 @@ module ActiveCampaign
   # @private
   def respond_to_missing?(method_name, include_private = false)
     client.respond_to?(method_name, include_private)
-  end if RUBY_VERSION >= '1.9'
+  end
 
   # @private
   def respond_to?(method_name, include_private = false)
     client.respond_to?(method_name, include_private) || super
   end if RUBY_VERSION < '1.9'
+
+  def config
+    @config ||= Configuration.new
+  end
+
+  def configure
+    yield config if block_given?
+  end
+
+  def reset!
+    @config = Configuration.new
+  end
 
   private
 

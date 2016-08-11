@@ -1,6 +1,4 @@
 require 'httpi'
-require 'hashie'
-
 require 'active_campaign/method_creator'
 
 require 'active_campaign/client/campaigns'
@@ -17,6 +15,7 @@ module ActiveCampaign
   class Client
     include Comparable
     extend ActiveCampaign::MethodCreator
+    extend Forwardable
 
     include ActiveCampaign::Client::Campaigns
     include ActiveCampaign::Client::Contacts
@@ -28,14 +27,11 @@ module ActiveCampaign
     include ActiveCampaign::Client::Tracks
     include ActiveCampaign::Client::Users
 
-    delegate :api_key, :api_output, :api_endpoint, :user_agent, :log, :log_level,
-             :logger, :mash, :debug, to: :config
+    def_delegators :@config, :api_key, :api_output, :api_endpoint,
+                   :user_agent, :log, :log_level, :logger, :mash, :debug
 
-    attr_accessor :config
-
-    def initialize(configuration = nil)
-      self.config = configuration.is_a?(OpenStruct) ? configuration : OpenStruct.new(configuration)
-      self.config ||= ActiveCampaign.configuration
+    def initialize(options = {})
+      @config ||= ActiveCampaign.config.merge(options)
     end
 
     # Compares client options to a Hash of requested options
@@ -43,7 +39,7 @@ module ActiveCampaign
     # @param opts [Hash] Options to compare with current client options
     # @return [Boolean]
     def same_options?(other_config)
-      config.to_h.sort == other_config.to_h.sort
+      @config.to_h.sort == other_config.to_h.sort
     end
 
     # Make a HTTP GET request
@@ -56,12 +52,12 @@ module ActiveCampaign
     end
 
     def hash
-      [config, Client].hash
+      [@config, Client].hash
     end
 
     def <=>(other)
       other.is_a?(ActiveCampaign::Client) &&
-        config.to_h.sort <=> other.config.to_h.sort
+        @config.to_h.sort <=> other.config.to_h.sort
     end
 
     # Make a HTTP POST request
@@ -79,6 +75,7 @@ module ActiveCampaign
       req = create_request method, api_method, data
       response = HTTPI.send(method, req)
       response = JSON.parse(response.body)
+
       normalize(response)
     end
 
@@ -119,12 +116,11 @@ module ActiveCampaign
     def normalize(response)
       keys, values = keys_values(response)
       if keys.all? { |key| numeric?(key) }
-        response[:results] = values
+        response['results'] = values
         keys.each { |key| response.delete(key) }
       end
 
-      return Hashie::Mash.new response if mash
-      ActiveSupport::HashWithIndifferentAccess.new(response)
+      response
     end
 
     def numeric?(string)

@@ -1,4 +1,5 @@
 require 'vcr'
+
 VCR.configure do |c|
   c.configure_rspec_metadata!
   c.default_cassette_options = {
@@ -8,20 +9,21 @@ VCR.configure do |c|
         :timestamp, :body_md5, :auth_signature, :auth_timestamp, :auth_key
       )
     ],
-    serialize_with: :json,
-    preserve_exact_body_bytes: true,
+    allow_playback_repeats: true,
+    serialize_with: :yaml,
     decode_compressed_response: true,
-    record: ENV['RECORD_VCR'] || ENV['CI'] ? :none : :once
+    record: (ENV['VCR'] || ENV['CI'] ? :none : :new_episodes).to_sym
   }
   c.ignore_localhost = true
   c.cassette_library_dir = 'spec/cassettes'
   c.hook_into :webmock
   c.ignore_hosts 'codeclimate.com'
+  c.debug_logger = File.open('/tmp/vcr.log', 'w')
   c.filter_sensitive_data('<API_KEY>') do
-    ENV['ACTIVE_CAMPAIGN_API_KEY']
+    TEST_API_KEY
   end
 
   c.filter_sensitive_data('<API_ENDPOINT>') do
-    ENV['ACTIVE_CAMPAIGN_API_ENDPOINT']
+    TEST_API_ENDPOINT
   end
 end

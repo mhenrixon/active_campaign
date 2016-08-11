@@ -50,11 +50,11 @@ describe ActiveCampaign do
 
   describe '.configure' do
     ActiveCampaign.config.to_h.keys.each do |key|
-      it "sets the #{key.to_s.gsub('_', ' ')}" do
+      it "sets the #{key.to_s.tr('_', ' ')}" do
         ActiveCampaign.configure do |config|
           config.send("#{key}=", key)
         end
-        expect(ActiveCampaign.configuration[key]).to eq key
+        expect(ActiveCampaign.config.send(key)).to eq key
       end
     end
   end

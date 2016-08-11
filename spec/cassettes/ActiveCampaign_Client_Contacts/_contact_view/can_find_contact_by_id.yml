@@ -1,0 +1,150 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<API_ENDPOINT>/?api_action=contact_sync&api_key=<API_KEY>&api_output=json"
+    body:
+      encoding: UTF-8
+      string: email=mhenrixon%40me.com&first_name=Mikael&id=1&instantresponders%5B1%5D=1&ip4=127.0.0.1&last_name=Henriksson&p%5B1%5D=1&query%5Blistid%5D=1&status%5B1%5D=1
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Gem 0.1.13
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      X-Powered-By:
+      - PHP/5.3.3
+      Set-Cookie:
+      - PHPSESSID=f0s9ooo96i0ps16d3tovvklf81; path=/
+      - em_acp_globalauth_cookie=deleted; expires=Wed, 12-Aug-2015 07:54:04 GMT; path=/;
+        domain=zoolutions.api-us1.com
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      Location:
+      - http://zoolutions.activehosted.com
+      Vary:
+      - Accept-Encoding
+      Content-Type:
+      - text/html
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 11 Aug 2016 07:54:05 GMT
+      Server:
+      - lighttpd/1.4.37
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    http_version: 
+  recorded_at: Thu, 11 Aug 2016 07:54:05 GMT
+- request:
+    method: post
+    uri: "<API_ENDPOINT>?api_action=contact_sync&api_key=<API_KEY>&api_output=json"
+    body:
+      encoding: UTF-8
+      string: email=mhenrixon%40me.com&first_name=Mikael&id=1&instantresponders%5B1%5D=1&ip4=127.0.0.1&last_name=Henriksson&p%5B1%5D=7&query%5Blistid%5D=1&status%5B1%5D=1
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Gem 0.1.13
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - PHP/5.3.3
+      Set-Cookie:
+      - PHPSESSID=ggdlu1cg0lfrkbhe1s4dr2ltv3; path=/
+      - em_acp_globalauth_cookie=c6ead9798fb11b728939168ee2d579611; path=/; domain=zoolutions.api-us1.com;
+        secure
+      - em_acp_globalauth_cookie=deleted; expires=Wed, 12-Aug-2015 08:19:00 GMT; path=/;
+        domain=zoolutions.api-us1.com
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-store, max-age=0, must-revalidate
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 11 Aug 2016 08:19:01 GMT
+      Server:
+      - lighttpd/1.4.37
+    body:
+      encoding: UTF-8
+      string: '{"subscriber_id":1,"sendlast_should":0,"sendlast_did":0,"result_code":1,"result_message":"Contact
+        updated","result_output":"json"}'
+    http_version: 
+  recorded_at: Thu, 11 Aug 2016 08:19:01 GMT
+- request:
+    method: get
+    uri: "<API_ENDPOINT>?api_action=contact_view&api_key=<API_KEY>&api_output=json&id=1"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Gem 0.1.13
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - PHP/5.3.3
+      Set-Cookie:
+      - PHPSESSID=2ok853204j37ga8cloeaii74j3; path=/
+      - em_acp_globalauth_cookie=c6ead9798fb11b728939168ee2d579611; path=/; domain=zoolutions.api-us1.com;
+        secure
+      - em_acp_globalauth_cookie=deleted; expires=Wed, 12-Aug-2015 08:19:01 GMT; path=/;
+        domain=zoolutions.api-us1.com
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-store, max-age=0, must-revalidate
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 11 Aug 2016 08:19:02 GMT
+      Server:
+      - lighttpd/1.4.37
+    body:
+      encoding: UTF-8
+      string: '{"id":"1","subscriberid":"1","listid":"1","formid":"0","seriesid":"0","sdate":"2016-08-11
+        10:18:01","udate":null,"status":"1","responder":"1","sync":"0","unsubreason":null,"unsubcampaignid":"0","unsubmessageid":"0","first_name":"Mikael","last_name":"Henriksson","ip4_sub":"2130706433","sourceid":"4","sourceid_autosync":"0","ip4_last":"2130706433","ip4_unsub":"0","listname":"Swedish
+        Players","lid":"1","ip4":"127.0.0.1","a_unsub_time":"","a_unsub_date":"","cdate":"2016-08-11
+        03:18:01","email":"mhenrixon@me.com","phone":"","orgid":"0","orgname":"","segmentio_id":"","bounced_hard":"0","bounced_soft":"0","bounced_date":null,"ip":"0.0.0.0","ua":null,"hash":"29230192814d84659315d9a164c36784","socialdata_lastcheck":null,"email_local":"","email_domain":"","sentcnt":"0","rating":"0","rating_tstamp":null,"gravatar":"0","deleted":"0","name":"Mikael
+        Henriksson","lists":{"1":{"id":"1","subscriberid":"1","listid":"1","formid":"0","seriesid":"0","sdate":"2016-08-11
+        10:18:01","udate":null,"status":"1","responder":"1","sync":"0","unsubreason":null,"unsubcampaignid":"0","unsubmessageid":"0","first_name":"Mikael","last_name":"Henriksson","ip4_sub":"2130706433","sourceid":"4","sourceid_autosync":"0","ip4_last":"2130706433","ip4_unsub":"0","listname":"Swedish
+        Players"},"7":{"id":"2","subscriberid":"1","listid":"7","formid":"0","seriesid":"0","sdate":"2016-08-11
+        10:19:00","udate":null,"status":"1","responder":"1","sync":"0","unsubreason":null,"unsubcampaignid":"0","unsubmessageid":"0","first_name":"Mikael","last_name":"Henriksson","ip4_sub":"2130706433","sourceid":"4","sourceid_autosync":"0","ip4_last":"2130706433","ip4_unsub":"0","listname":"Swedish
+        Players"}},"listslist":"1-7","fields":[],"actions":[],"campaign_history":[],"bounces":{"mailing":[],"mailings":0,"responder":[],"responders":0},"bouncescnt":0,"tags":[],"result_code":1,"result_message":"Success:
+        Something is returned","result_output":"json"}'
+    http_version: 
+  recorded_at: Thu, 11 Aug 2016 08:19:02 GMT
+recorded_with: VCR 3.0.3
