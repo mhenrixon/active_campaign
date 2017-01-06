@@ -84,7 +84,10 @@ module ActiveCampaign
     def create_request(method, api_method, options = {})
       req = HTTPI::Request.new(
         url: File.join(api_endpoint),
-        headers: { 'User-Agent' => user_agent },
+        headers: {
+          'User-Agent' => user_agent,
+          'Content-Type' => 'application/x-www-form-urlencoded'
+        },
         query: query(method, api_method, options),
         body: body(method, api_method, options)
       )
