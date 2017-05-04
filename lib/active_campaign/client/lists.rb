@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 module ActiveCampaign
   class Client
     module Lists
-      GET_METHODS ||= %w(
+      GET_METHODS ||= %w[
         delete_list delete field_delete
         field_view list paginator view
-      ).freeze
-      POST_METHODS ||= %w(
+      ].freeze
+      POST_METHODS ||= %w[
         add edit field_add field_edit
-      ).freeze
+      ].freeze
       DELETE_METHODS ||= [].freeze
 
       def self.included(base)

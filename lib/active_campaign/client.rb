@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'httpi'
 require 'active_campaign/method_creator'
 
@@ -92,7 +94,7 @@ module ActiveCampaign
     end
 
     def query(method, api_method, options = {})
-      q = options.delete(:query) { Hash.new }
+      q = options.delete(:query) { {} }
       q.merge!(api_key: api_key,
                api_action: api_method.to_s,
                api_output: api_output)
@@ -105,7 +107,7 @@ module ActiveCampaign
     def body(method, _api_method, options = {})
       return nil unless method == :post
 
-      fields = options.delete(:fields) { Hash.new }
+      fields = options.delete(:fields) { {} }
       options[:field] = fields.inject({}) do |hash, (k, v)|
         hash.merge("%#{k}%,0" => v)
       end
@@ -133,7 +135,7 @@ module ActiveCampaign
     end
 
     def results(response)
-      response.reject { |k, _v| %w(result_code result_message result_output).include?(k) }
+      response.reject { |k, _v| %w[result_code result_message result_output].include?(k) }
     end
   end
 end

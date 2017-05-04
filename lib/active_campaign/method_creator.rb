@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ActiveCampaign
   module MethodCreator
     def define_api_calls(resource, gets = [], posts = [], deletes = [], puts = [])

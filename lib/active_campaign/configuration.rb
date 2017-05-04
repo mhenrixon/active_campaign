@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module ActiveCampaign
   class Configuration
-    API_ENDPOINT ||= 'https://subdomain.activehosted.com/admin/api.php'.freeze
-    USER_AGENT   ||= "ActiveCampaign Ruby Gem #{ActiveCampaign::VERSION}".freeze
-    API_OUTPUT   ||= 'json'.freeze
+    API_ENDPOINT ||= 'https://subdomain.activehosted.com/admin/api.php'
+    USER_AGENT   ||= "ActiveCampaign Ruby Gem #{ActiveCampaign::VERSION}"
+    API_OUTPUT   ||= 'json'
 
     attr_accessor :api_key, :api_endpoint, :api_output, :user_agent,
                   :log, :logger, :log_level, :mash, :debug

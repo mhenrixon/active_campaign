@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'simplecov'
 
 require 'pry'
@@ -6,8 +8,8 @@ require 'active_campaign'
 require_relative 'support/webmock'
 require_relative 'support/vcr'
 
-TEST_API_ENDPOINT ||= 'https://zoolutions.api-us1.com/admin/api.php'.freeze
-TEST_API_KEY ||= '1b85f597c38b74fc842a04efe00f10d547a839487dcb05e2c639e92c450d53a366d96f84'.freeze
+TEST_API_ENDPOINT ||= 'https://zoolutions.api-us1.com/admin/api.php'
+TEST_API_KEY ||= '1b85f597c38b74fc842a04efe00f10d547a839487dcb05e2c639e92c450d53a366d96f84'
 
 RSpec.configure do |config|
   config.filter_run focus: true

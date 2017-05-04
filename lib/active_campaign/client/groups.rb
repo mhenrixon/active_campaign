@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 module ActiveCampaign
   class Client
     module Groups
-      GET_METHODS ||= %w(
+      GET_METHODS ||= %w[
         delete delete_list list view
-      ).freeze
+      ].freeze
 
-      POST_METHODS ||= %w(add edit).freeze
+      POST_METHODS ||= %w[add edit].freeze
 
       # TODO: Create proper methods with parameter validation and possible
       # naming fixes since this is one the worst APIs I have ever worked with.

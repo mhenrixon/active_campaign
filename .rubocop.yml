@@ -1,25 +1,32 @@
 AllCops:
   Include:
-    - '**/Rakefile'
-    - '**/lib'
-    - '**/bin'
-    - '**/spec'
+    - 'Rakefile'
+    - 'lib/**/*'
+    - 'bin/**/*'
+    - 'spec/**'
   Exclude:
     - 'Gemfile.lock'
+    - 'Gemfile'
     - 'gemfiles/**/*'
+  TargetRubyVersion: 2.4
 
 Documentation:
   Enabled: false
 
-ParameterLists:
+Metrics/BlockLength:
+  Enabled: true
+  Exclude:
+    - 'spec/**/*_spec.rb'
+
+Metrics/ParameterLists:
   Enabled: true
   Max: 5
   CountKeywordArgs: false
 
-LineLength:
+Metrics/LineLength:
   Enabled: true
-  Max: 107
+  Max: 120
 
-IfUnlessModifier:
+Style/IfUnlessModifier:
   Enabled: false
-  MaxLineLength: 79
+  MaxLineLength: 80

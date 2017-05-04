@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'active_campaign/version'
 require 'active_campaign/client'
 require 'active_campaign/configuration'
@@ -23,9 +25,11 @@ module ActiveCampaign
   end
 
   # @private
-  def respond_to?(method_name, include_private = false)
-    client.respond_to?(method_name, include_private) || super
-  end if RUBY_VERSION < '1.9'
+  if RUBY_VERSION < '1.9'
+    def respond_to?(method_name, include_private = false)
+      client.respond_to?(method_name, include_private) || super
+    end
+  end
 
   def config
     @config ||= Configuration.new

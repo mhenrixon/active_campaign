@@ -10,15 +10,15 @@ install:
 script:
   - if [[ "${STYLE}" = "true" ]]; then bundle exec rubocop; fi;
   - bundle exec rspec spec
+  - if [[ "${STYLE}" = "true" ]]; then CODECLIMATE_REPO_TOKEN=e199bdc9d2cf5ceaa7e46425f118470e43880940098f815a4c972a923102b12b bundle exec codeclimate-test-reporter; fi;
 rvm:
-  - jruby-9.0.5.0
-  - 2.2.4
+  - jruby-9.1.8.0
 env: STYLE=false
 
 matrix:
   fast_finish: true
   include:
-    - rvm: 2.3.1
+    - rvm: 2.4.1
       env: STYLE=true
 
 addons:

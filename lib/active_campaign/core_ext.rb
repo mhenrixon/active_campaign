@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Hash
   def to_query(namespace = nil)
     collect do |key, value|
