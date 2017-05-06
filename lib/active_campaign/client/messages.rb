@@ -3,20 +3,66 @@
 module ActiveCampaign
   class Client
     module Messages
-      GET_METHODS ||= %w[
-        delete_list delete list template_add template_delete_list
-        template_delete template_edit template_export template_import
-        template_list template_view view
-      ].freeze
+      #
+      # POST methods
+      #
+      def message_add(options = {})
+        post __method__, options
+      end
 
-      POST_METHODS ||= %w[add edit].freeze
+      def message_edit(options = {})
+        post __method__, options
+      end
 
-      # TODO: Create proper methods with parameter validation and possible
-      # naming fixes since this is one the worst APIs I have ever worked with.
-      def self.included(base)
-        base.class_exec do
-          define_api_calls(:message, GET_METHODS, POST_METHODS)
-        end
+      #
+      # GET methods
+      #
+      def message_delete_list(options = {})
+        get(__method__, options)
+      end
+
+      def message_delete(options = {})
+        get(__method__, options)
+      end
+
+      def message_list(options = {})
+        get(__method__, options)
+      end
+
+      def message_template_add(options = {})
+        get(__method__, options)
+      end
+
+      def message_template_delete_list(options = {})
+        get(__method__, options)
+      end
+
+      def message_template_delete(options = {})
+        get(__method__, options)
+      end
+
+      def message_template_edit(options = {})
+        get(__method__, options)
+      end
+
+      def message_template_export(options = {})
+        get(__method__, options)
+      end
+
+      def message_template_import(options = {})
+        get(__method__, options)
+      end
+
+      def message_template_list(options = {})
+        get(__method__, options)
+      end
+
+      def message_template_view(options = {})
+        get(__method__, options)
+      end
+
+      def message_view(options = {})
+        get(__method__, options)
       end
     end
   end

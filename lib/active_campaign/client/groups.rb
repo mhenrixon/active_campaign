@@ -3,18 +3,28 @@
 module ActiveCampaign
   class Client
     module Groups
-      GET_METHODS ||= %w[
-        delete delete_list list view
-      ].freeze
+      def group_delete(options = {})
+        get __method__, options
+      end
 
-      POST_METHODS ||= %w[add edit].freeze
+      def group_delete_list(options = {})
+        get __method__, options
+      end
 
-      # TODO: Create proper methods with parameter validation and possible
-      # naming fixes since this is one the worst APIs I have ever worked with.
-      def self.included(base)
-        base.class_exec do
-          define_api_calls(:group, GET_METHODS, POST_METHODS)
-        end
+      def group_list(options = {})
+        get __method__, options
+      end
+
+      def group_view(options = {})
+        get __method__, options
+      end
+
+      def group_add(options = {})
+        post __method__, options
+      end
+
+      def group_edit(options = {})
+        post __method__, options
       end
     end
   end

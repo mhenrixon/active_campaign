@@ -3,21 +3,90 @@
 module ActiveCampaign
   class Client
     module Campaigns
-      GET_METHODS ||= %w[
-        create delete_list delete list paginator report_bounce_list
-        report_bounce_totals report_forward_list report_forward_totals
-        report_link_list report_link_totals report_open_list report_open_totals
-        report_totals report_unopen_list report_unsubscription_list
-        report_unsubscription_totals send status
-      ].freeze
-      POST_METHODS ||= %w[create].freeze
+      #
+      # POST methods
+      #
+      def campaign_edit(options = {})
+        post __method__, options
+      end
 
-      # TODO: Create proper methods with parameter validation and possible
-      #       naming fixes since this is one the worst APIs I have ever worked with.
-      def self.included(base)
-        base.class_exec do
-          define_api_calls(:campaign, GET_METHODS, POST_METHODS)
-        end
+      def campaign_create(options = {})
+        post __method__, options
+      end
+
+      #
+      # GET methods
+      #
+      def campaign_delete_list(options = {})
+        get __method__, options
+      end
+
+      def campaign_delete(options = {})
+        get __method__, options
+      end
+
+      def campaign_list(options = {})
+        get __method__, options
+      end
+
+      def campaign_paginator(options = {})
+        get __method__, options
+      end
+
+      def campaign_report_bounce_list(options = {})
+        get __method__, options
+      end
+
+      def campaign_report_bounce_totals(options = {})
+        get __method__, options
+      end
+
+      def campaign_report_forward_list(options = {})
+        get __method__, options
+      end
+
+      def campaign_report_forward_totals(options = {})
+        get __method__, options
+      end
+
+      def campaign_report_link_list(options = {})
+        get __method__, options
+      end
+
+      def campaign_report_link_totals(options = {})
+        get __method__, options
+      end
+
+      def campaign_report_open_list(options = {})
+        get __method__, options
+      end
+
+      def campaign_report_open_totals(options = {})
+        get __method__, options
+      end
+
+      def campaign_report_totals(options = {})
+        get __method__, options
+      end
+
+      def campaign_report_unopen_list(options = {})
+        get __method__, options
+      end
+
+      def campaign_report_unsubscription_list(options = {})
+        get __method__, options
+      end
+
+      def campaign_report_unsubscription_totals(options = {})
+        get __method__, options
+      end
+
+      def campaign_send(options = {})
+        get __method__, options
+      end
+
+      def campaign_status(options = {})
+        get __method__, options
       end
     end
   end

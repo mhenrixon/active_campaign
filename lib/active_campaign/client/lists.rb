@@ -3,19 +3,56 @@
 module ActiveCampaign
   class Client
     module Lists
-      GET_METHODS ||= %w[
-        delete_list delete field_delete
-        field_view list paginator view
-      ].freeze
-      POST_METHODS ||= %w[
-        add edit field_add field_edit
-      ].freeze
-      DELETE_METHODS ||= [].freeze
+      #
+      # POST methods
+      #
 
-      def self.included(base)
-        base.class_exec do
-          define_api_calls(:list, GET_METHODS, POST_METHODS, DELETE_METHODS)
-        end
+      def list_add(options = {})
+        post __method__, options
+      end
+
+      def list_edit(options = {})
+        post __method__, options
+      end
+
+      def list_field_add(options = {})
+        post __method__, options
+      end
+
+      def list_field_edit(options = {})
+        post __method__, options
+      end
+
+      #
+      # GET methods
+      #
+
+      def list_delete_list(options = {})
+        get __method__, options
+      end
+
+      def list_delete(options = {})
+        get __method__, options
+      end
+
+      def list_field_delete(options = {})
+        get __method__, options
+      end
+
+      def list_field_view(options = {})
+        get __method__, options
+      end
+
+      def list_list(options = {})
+        get __method__, options
+      end
+
+      def list_paginator(options = {})
+        get __method__, options
+      end
+
+      def list_view(options = {})
+        get __method__, options
       end
     end
   end

@@ -3,17 +3,52 @@
 module ActiveCampaign
   class Client
     module Tracks
-      GET_METHODS ||= %w[event_list site_list].freeze
-      PUT_METHODS ||= %w[site_whitelist_add].freeze
-      POST_METHODS ||= %w[event_status_edit site_status_edit event_add].freeze
-      DELETE_METHODS ||= %w[event_delete site_whitelist_delete].freeze
+      #
+      # POST methods
+      #
 
-      # TODO: Create proper methods with parameter validation and possible
-      # naming fixes since this is one the worst APIs I have ever worked with.
-      def self.included(base)
-        base.class_exec do
-          define_api_calls(:track, GET_METHODS, POST_METHODS, DELETE_METHODS, PUT_METHODS)
-        end
+      def track_event_status_edit(options = {})
+        post __method__, options
+      end
+
+      def track_site_status_edit(options = {})
+        post __method__, options
+      end
+
+      def track_event_add(options = {})
+        post __method__, options
+      end
+
+      #
+      # PUT methods
+      #
+
+      def track_site_whitelist_add(options = {})
+        put __method__, options
+      end
+
+      #
+      # GET methods
+      #
+
+      def track_event_list(options = {})
+        get __method__, options
+      end
+
+      def track_site_list(options = {})
+        get __method__, options
+      end
+
+      #
+      # DELETE methods
+      #
+
+      def track_event_delete(options = {})
+        delete __method__, options
+      end
+
+      def track_site_whitelist_delete(options = {})
+        delete __method__, options
       end
     end
   end

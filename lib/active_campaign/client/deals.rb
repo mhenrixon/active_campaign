@@ -3,20 +3,84 @@
 module ActiveCampaign
   class Client
     module Deals
-      GET_METHODS ||= %w[get list pipeline_list stage_list].freeze
+      def deal_get(options = {})
+        get __method__, options
+      end
 
-      POST_METHODS ||= %w[
-        add delete edit note_add note_edit pipeline_add pipeline_delete
-        pipeline_edit stage_add stage_delete stage_edit task_add task_edit
-        tasktype_add tasktype_delete tasktype_edit
-      ].freeze
+      def deal_list(options = {})
+        get __method__, options
+      end
 
-      # TODO: Create proper methods with parameter validation and possible
-      # naming fixes since this is one the worst APIs I have ever worked with.
-      def self.included(base)
-        base.class_exec do
-          define_api_calls(:deal, GET_METHODS, POST_METHODS)
-        end
+      def deal_pipeline_list(options = {})
+        get __method__, options
+      end
+
+      def deal_stage_list(options = {})
+        get __method__, options
+      end
+
+      def deal_add(options = {})
+        post __method__, options
+      end
+
+      def deal_delete(options = {})
+        post __method__, options
+      end
+
+      def deal_edit(options = {})
+        post __method__, options
+      end
+
+      def deal_note_add(options = {})
+        post __method__, options
+      end
+
+      def deal_note_edit(options = {})
+        post __method__, options
+      end
+
+      def deal_pipeline_add(options = {})
+        post __method__, options
+      end
+
+      def deal_pipeline_delete(options = {})
+        post __method__, options
+      end
+
+      def deal_pipeline_edit(options = {})
+        post __method__, options
+      end
+
+      def deal_stage_add(options = {})
+        post __method__, options
+      end
+
+      def deal_stage_delete(options = {})
+        post __method__, options
+      end
+
+      def deal_stage_edit(options = {})
+        post __method__, options
+      end
+
+      def deal_task_add(options = {})
+        post __method__, options
+      end
+
+      def deal_task_edit(options = {})
+        post __method__, options
+      end
+
+      def deal_tasktype_add(options = {})
+        post __method__, options
+      end
+
+      def deal_tasktype_delete(options = {})
+        post __method__, options
+      end
+
+      def deal_tasktype_edit(options = {})
+        post __method__, options
       end
     end
   end

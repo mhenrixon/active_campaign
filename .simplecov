@@ -5,4 +5,5 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::JSONFormatter,
 ]
 
+SimpleCov.command_name 'RSpec'
 SimpleCov.start

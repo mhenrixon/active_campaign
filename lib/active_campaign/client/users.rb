@@ -3,15 +3,48 @@
 module ActiveCampaign
   class Client
     module Users
-      GET_METHODS ||= %w[delete delete_list list me view view_email view_username].freeze
-      POST_METHODS ||= %w[add edit].freeze
+      #
+      # POST methods
+      #
 
-      # TODO: Create proper methods with parameter validation and possible naming
-      #       fixes since this is one the worst APIs I have ever worked with.
-      def self.included(base)
-        base.class_exec do
-          define_api_calls(:user, GET_METHODS, POST_METHODS)
-        end
+      def user_add(options = {})
+        post __method__, options
+      end
+
+      def user_edit(options = {})
+        post __method__, options
+      end
+
+      #
+      # GET methods
+      #
+
+      def user_delete(options = {})
+        get __method__, options
+      end
+
+      def user_delete_list(options = {})
+        get __method__, options
+      end
+
+      def user_list(options = {})
+        get __method__, options
+      end
+
+      def user_me(options = {})
+        get __method__, options
+      end
+
+      def user_view(options = {})
+        get __method__, options
+      end
+
+      def user_view_email(options = {})
+        get __method__, options
+      end
+
+      def user_view_username(options = {})
+        get __method__, options
       end
     end
   end

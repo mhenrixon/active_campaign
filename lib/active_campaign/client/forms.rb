@@ -3,14 +3,12 @@
 module ActiveCampaign
   class Client
     module Forms
-      GET_METHODS ||= %w[getforms html].freeze
+      def form_getforms(options = {})
+        get(__method__, options)
+      end
 
-      # TODO: Create proper methods with parameter validation and possible
-      # naming fixes since this is one the worst APIs I have ever worked with.
-      def self.included(base)
-        base.class_exec do
-          define_api_calls(:form, GET_METHODS)
-        end
+      def form_html(options = {})
+        get(__method__, options)
       end
     end
   end
