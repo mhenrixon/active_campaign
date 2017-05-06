@@ -1,4 +1,26 @@
-languages:
-  Ruby: true
+---
+engines:
+  bundler-audit:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+        - ruby
+  fixme:
+    enabled: true
+  rubocop:
+    enabled: true
+ratings:
+  paths:
+    - Gemfile.lock
+    - "**.css"
+    - "**.inc"
+    - "**.js"
+    - "**.jsx"
+    - "**.module"
+    - "**.php"
+    - "**.py"
+    - "**.rb"
 exclude_paths:
-  - 'spec/cassettes/**'
+  - spec/

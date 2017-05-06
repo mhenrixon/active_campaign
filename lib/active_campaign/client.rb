@@ -81,13 +81,17 @@ module ActiveCampaign
       normalize(response)
     end
 
+    def request_headers
+      {
+        'User-Agent' => user_agent,
+        'Content-Type' => 'application/x-www-form-urlencoded'
+      }
+    end
+
     def create_request(method, api_method, options = {})
       req = HTTPI::Request.new(
         url: File.join(api_endpoint),
-        headers: {
-          'User-Agent' => user_agent,
-          'Content-Type' => 'application/x-www-form-urlencoded'
-        },
+        headers: request_headers,
         query: query(method, api_method, options),
         body: body(method, api_method, options)
       )
@@ -102,9 +106,9 @@ module ActiveCampaign
                api_action: api_method.to_s,
                api_output: api_output)
 
-      q.merge!(options) if method == :get
+      return q unless method == :get
 
-      q
+      q.merge(options)
     end
 
     def body(method, _api_method, options = {})

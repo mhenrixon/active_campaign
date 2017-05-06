@@ -3,11 +3,13 @@ AllCops:
     - 'Rakefile'
     - 'lib/**/*'
     - 'bin/**/*'
-    - 'spec/**'
+    - 'spec/**/*'
   Exclude:
     - 'Gemfile.lock'
     - 'Gemfile'
     - 'gemfiles/**/*'
+    - '**/*.json'
+    - '**/*.yml'
   TargetRubyVersion: 2.4
 
 Documentation:
