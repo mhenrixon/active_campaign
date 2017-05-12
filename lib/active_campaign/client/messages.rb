@@ -14,6 +14,10 @@ module ActiveCampaign
         post __method__, options
       end
 
+      def message_template_edit(options = {})
+        post __method__, options
+      end
+
       #
       # GET methods
       #
@@ -38,10 +42,6 @@ module ActiveCampaign
       end
 
       def message_template_delete(options = {})
-        get(__method__, options)
-      end
-
-      def message_template_edit(options = {})
         get(__method__, options)
       end
 
