@@ -27,12 +27,12 @@ Read their [API documentation](http://www.activecampaign.com/api/overview.php)fo
 ```ruby
 # To setup the client
 client = ::ActiveCampaign::Client.new(
-        api_endpoint: 'YOUR-ENDPOINT', # e.g. 'https://yourendpoint.api-us1.com'
+        api_endpoint: 'YOUR-ENDPOINT', # e.g. 'https://yourendpoint.api-us1.com/admin/api.php'
         api_key: 'YOUR-API-KEY') # e.g. 'a4e60a1ba200595d5cc37ede5732545184165e'
 
 # or configure globally for all clients
 ::ActiveCampaign.configure do |config|
-  config.api_endpoint = 'YOUR-ENDPOINT', # e.g. 'https://yourendpoint.api-us1.com'
+  config.api_endpoint = 'YOUR-ENDPOINT', # e.g. 'https://yourendpoint.api-us1.com/admin/api.php'
   config.api_key = 'YOUR-API-KEY' # e.g. 'a4e60a1ba200595d5cc37ede5732545184165e'
 end
 
