@@ -42,8 +42,9 @@ module ActiveCampaign
       self
     end
 
-    def <=>(other) # rubocop:disable AbcSize, CyclomaticComplexity, PerceivedComplexity
-      api_key == other.api_key &&
+    def ==(other)
+      other.is_a?(ActiveCampaign::Configuration) &&
+        api_key == other.api_key &&
         api_endpoint == other.api_endpoint &&
         api_output == other.api_output &&
         user_agent == other.user_agent &&
@@ -52,6 +53,23 @@ module ActiveCampaign
         log_level == other.log_level &&
         mash == other.mash &&
         debug == other.debug
+    end
+    alias_method :eql?, :==
+
+
+    def hash
+      [
+        api_key,
+        api_endpoint,
+        api_output,
+        user_agent,
+        log,
+        logger,
+        log_level,
+        mash,
+        debug,
+        ActiveCampaign::Configuration
+      ].hash
     end
   end
 end

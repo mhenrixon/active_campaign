@@ -41,15 +41,6 @@ describe ActiveCampaign do
     it 'caches the client when the same options are passed' do
       expect(ActiveCampaign.client).to eq ActiveCampaign.client
     end
-
-    it 'returns a fresh client when options are not the same' do
-      client = ActiveCampaign.client
-      ActiveCampaign.config.api_key = 'somekey'
-      client_two = ActiveCampaign.client
-      client_three = ActiveCampaign.client
-      expect(client_three).to eql client_two
-      expect(client).to_not eql client_two
-    end
   end
 
   describe '.configure' do

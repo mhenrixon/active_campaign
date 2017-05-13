@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'httpi'
-require 'active_campaign/method_creator'
 
 require 'active_campaign/client/campaigns'
 require 'active_campaign/client/contacts'
@@ -15,8 +14,6 @@ require 'active_campaign/client/users'
 
 module ActiveCampaign
   class Client
-    include Comparable
-    extend ActiveCampaign::MethodCreator
     extend Forwardable
 
     include ActiveCampaign::Client::Campaigns
@@ -29,19 +26,12 @@ module ActiveCampaign
     include ActiveCampaign::Client::Tracks
     include ActiveCampaign::Client::Users
 
-    def_delegators :@config, :api_key, :api_output, :api_endpoint,
+    attr_reader :config
+    def_delegators :config, :api_key, :api_output, :api_endpoint,
                    :user_agent, :log, :log_level, :logger, :mash, :debug
 
     def initialize(options = {})
-      @config ||= ActiveCampaign.config.merge(options)
-    end
-
-    # Compares client options to a Hash of requested options
-    #
-    # @param opts [Hash] Options to compare with current client options
-    # @return [Boolean]
-    def same_options?(other_config)
-      @config.to_h.sort == other_config.to_h.sort
+      @config = ActiveCampaign.config.dup.merge(options)
     end
 
     # Make a HTTP GET request
@@ -53,15 +43,6 @@ module ActiveCampaign
       request :get, api_method, options
     end
 
-    def hash
-      [@config, Client].hash
-    end
-
-    def <=>(other)
-      other.is_a?(ActiveCampaign::Client) &&
-        @config.to_h.sort <=> other.config.to_h.sort
-    end
-
     # Make a HTTP POST request
     #
     # @param url [String] The path, relative to {#api_endpoint}
@@ -70,6 +51,17 @@ module ActiveCampaign
     def post(api_method, options = {})
       request :post, api_method, options
     end
+
+    def hash
+      [config.hash, Client].hash
+    end
+
+    def ==(other)
+      other.is_a?(ActiveCampaign::Client) &&
+        self.hash == other.hash
+    end
+
+    alias_method :eql?, :==
 
     private
 
