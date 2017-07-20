@@ -6,6 +6,10 @@ module ActiveCampaign
       #
       # POST methods
       #
+      def automation_contact_remove(options = {})
+        post __method__, options
+      end
+
       def contact_add(options = {})
         post __method__, options
       end
