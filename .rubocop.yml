@@ -31,4 +31,3 @@ Metrics/LineLength:
 
 Style/IfUnlessModifier:
   Enabled: false
-  MaxLineLength: 80
