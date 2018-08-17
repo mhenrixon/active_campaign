@@ -32,12 +32,15 @@ module ActiveCampaign
     @config = Configuration.new
   end
 
-  private
-
   class << self
+    # rubocop:disable Style/MissingRespondToMissing
     def method_missing(method_name, *args, &block)
-      return super unless client.respond_to?(method_name)
-      client.send(method_name, *args, &block)
+      if client.respond_to?(method_name)
+        client.send(method_name, *args, &block)
+      else
+        super
+      end
     end
+    # rubocop:enable Style/MissingRespondToMissing
   end
 end

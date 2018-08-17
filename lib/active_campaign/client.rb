@@ -58,10 +58,10 @@ module ActiveCampaign
 
     def ==(other)
       other.is_a?(ActiveCampaign::Client) &&
-        self.hash == other.hash
+        hash == other.hash
     end
 
-    alias_method :eql?, :==
+    alias eql? ==
 
     private
 

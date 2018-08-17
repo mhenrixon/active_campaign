@@ -20,6 +20,10 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*_spec.rb'
 
+Metrics/MethodLength:
+  CountComments: false  # count full line comments?
+  Max: 12
+
 Metrics/ParameterLists:
   Enabled: true
   Max: 5
