@@ -21,7 +21,7 @@ module ActiveCampaign
       @debug = false
     end
 
-    def to_h # rubocop:disable MethodLength
+    def to_h
       {
         api_key: api_key,
         api_endpoint: api_endpoint,
@@ -54,8 +54,7 @@ module ActiveCampaign
         mash == other.mash &&
         debug == other.debug
     end
-    alias_method :eql?, :==
-
+    alias eql? ==
 
     def hash
       [
