@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 class Hash
+  # unless respo?(:to_query)
   def to_query(namespace = nil)
     collect do |key, value|
       unless (value.is_a?(Hash) || value.is_a?(Array)) && value.empty?
         value.to_query(namespace ? "#{namespace}[#{key}]" : key)
       end
     end.compact.sort! * '&'
-  end # unless respo?(:to_query)
+  end
 end
 
 class Array
@@ -15,6 +16,7 @@ class Array
     collect(&:to_param).join '/'
   end
 
+  # unless respo?(:to_query)
   def to_query(key)
     prefix = "#{key}[]"
 
@@ -23,13 +25,14 @@ class Array
     else
       collect { |value| value.to_query(prefix) }.join '&'
     end
-  end # unless defined?(:to_query)
+  end
 end
 
 class Object
+  # unless respo?(:to_query)
   def to_query(key)
     "#{CGI.escape(key.to_param)}=#{CGI.escape(to_param.to_s)}"
-  end # unless defined?(:to_query)
+  end
 
   def to_param
     to_s

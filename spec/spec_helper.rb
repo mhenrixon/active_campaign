@@ -26,7 +26,7 @@ RSpec.configure do |config|
   end
 end
 
-def initialize_new_client # rubocop:disable MethodLength
+def initialize_new_client
   before do
     @client = ActiveCampaign::Client.new(
       api_endpoint: TEST_API_ENDPOINT,
