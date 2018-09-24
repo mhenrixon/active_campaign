@@ -44,13 +44,9 @@ module ActiveCampaign
 
     def ==(other)
       other.is_a?(ActiveCampaign::Configuration) &&
-        api_key == other.api_key &&
-        api_endpoint == other.api_endpoint &&
-        api_output == other.api_output &&
+        all_api_info_equal &&
         user_agent == other.user_agent &&
-        log == other.log &&
-        logger == other.logger &&
-        log_level == other.log_level &&
+        all_log_info_equal &&
         mash == other.mash &&
         debug == other.debug
     end
@@ -69,6 +65,20 @@ module ActiveCampaign
         debug,
         ActiveCampaign::Configuration
       ].hash
+    end
+
+    private
+
+    def all_api_info_equal
+      api_key == other.api_key &&
+        api_endpoint == other.api_endpoint &&
+        api_output == other.api_output
+    end
+
+    def all_log_info_equal
+      log == other.log &&
+        logger == other.logger &&
+        log_level == other.log_level
     end
   end
 end
