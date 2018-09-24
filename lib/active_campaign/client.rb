@@ -116,6 +116,7 @@ module ActiveCampaign
 
     def normalize(response)
       return response if response.is_a? Array
+
       keys, values = keys_values(response)
       if keys.all? { |key| numeric?(key) }
         response['results'] = values
