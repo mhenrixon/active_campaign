@@ -17,7 +17,6 @@ module ActiveCampaign
       @log = false
       @logger = nil
       @log_level = :info
-      @mash = false
       @debug = false
     end
 
@@ -30,7 +29,6 @@ module ActiveCampaign
         log: log,
         logger: logger,
         log_level: log_level,
-        mash: mash,
         debug: debug
       }
     end
@@ -47,7 +45,6 @@ module ActiveCampaign
         all_api_info_equal &&
         user_agent == other.user_agent &&
         all_log_info_equal &&
-        mash == other.mash &&
         debug == other.debug
     end
     alias eql? ==
@@ -61,7 +58,6 @@ module ActiveCampaign
         log,
         logger,
         log_level,
-        mash,
         debug,
         ActiveCampaign::Configuration
       ].hash

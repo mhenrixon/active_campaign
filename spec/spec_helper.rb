@@ -35,7 +35,6 @@ def initialize_new_client
       debug: false,
       log_level: :fatal,
       log: false,
-      mash: false
     )
   end
 end
