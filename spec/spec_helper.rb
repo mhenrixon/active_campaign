@@ -34,8 +34,7 @@ def initialize_new_client
       api_output: 'json',
       debug: false,
       log_level: :fatal,
-      log: false,
-      mash: false
+      log: false
     )
   end
 end

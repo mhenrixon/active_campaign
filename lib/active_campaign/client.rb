@@ -28,7 +28,7 @@ module ActiveCampaign
 
     attr_reader :config
     def_delegators :config, :api_key, :api_output, :api_endpoint,
-                   :user_agent, :log, :log_level, :logger, :mash, :debug
+                   :user_agent, :log, :log_level, :logger, :debug
 
     def initialize(options = {})
       @config = ActiveCampaign.config.dup.merge(options)

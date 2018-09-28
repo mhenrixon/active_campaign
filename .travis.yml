@@ -1,26 +1,40 @@
-sudo: false
+env:
+  matrix:
+    - COV=false
+  global:
+    - CC_TEST_REPORTER_ID=88e524e8f638efe690def7a6e2c72b1a9db5cdfa74548921b734d609a5858ee5
+    - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
+dist: trusty
+sudo: required
 language: ruby
 cache: bundler
+
 before_install:
   - rvm get head
   - gem update --system
   - gem install bundler
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
 install:
   - bundle install -j8 -r3
+before_script:
+  - ./cc-test-reporter before-build
 script:
-  - if [[ "${STYLE}" = "true" ]]; then bundle exec rubocop; fi;
+  - if [[ "${COV}" = "true" ]]; then bundle exec rubocop; fi;
   - bundle exec rspec spec
-  - if [[ "${STYLE}" = "true" ]]; then CODECLIMATE_REPO_TOKEN=e199bdc9d2cf5ceaa7e46425f118470e43880940098f815a4c972a923102b12b bundle exec codeclimate-test-reporter; fi;
+after_script:
+  - if [[ "${COV}" = "true" ]]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi;
 rvm:
   - jruby-9.1.8.0
-env: STYLE=false
+env: COV=false
 
 matrix:
   fast_finish: true
   include:
-    - rvm: 2.4.1
-      env: STYLE=true
+    - rvm: 2.5.1
+      env: COV=true
 
-addons:
-  code_climate:
-    repo_token: e199bdc9d2cf5ceaa7e46425f118470e43880940098f815a4c972a923102b12b
+notifications:
+  email:
+    recipients:
+      - mikael@zoolutions.se
