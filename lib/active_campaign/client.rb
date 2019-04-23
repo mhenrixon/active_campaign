@@ -88,7 +88,7 @@ module ActiveCampaign
         body: body(method, api_method, options)
       )
       req.auth.ssl.verify_mode = :none
-      req.auth.ssl.ssl_version = :TLSv1
+      req.auth.ssl.ssl_version = :TLSv1_2
       req
     end
 
