@@ -45,3 +45,27 @@ RSpec.shared_context 'with existing contact' do
     client.delete_contact(contact_id)
   end
 end
+
+RSpec.shared_context 'with existing account_contact' do
+  include_context 'with existing account'
+  include_context 'with existing contact'
+
+  let!(:account_contact) do
+    response = client.create_account_contact(account_contact_params)
+    response.fetch(:account_contact) { raise 'HELL (account_contact creation failed)' }
+  end
+
+  let(:account_contact_id) { account_contact[:id] }
+  let(:job_title)          { 'Señor Developer' }
+  let(:account_contact_params) do
+    {
+      contact: contact_id,
+      account: account_id,
+      job_title: job_title
+    }
+  end
+
+  after(:each) do
+    client.delete_account_contact(account_contact[:id])
+  end
+end
