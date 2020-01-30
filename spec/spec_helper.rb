@@ -8,7 +8,7 @@ require 'rspec/json_expectations'
 
 require 'active_campaign'
 
-# require_relative 'support/shared_contexts'
+require_relative 'support/shared_contexts'
 require_relative 'support/webmock'
 require_relative 'support/vcr'
 

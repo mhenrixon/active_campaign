@@ -10,7 +10,7 @@ module ActiveCampaign
     include API
     include TransformHash
 
-    # endpoint :accounts
+    endpoint :accounts
     # endpoint :contacts
     # endpoint :account_contacts
 
