@@ -4,7 +4,7 @@ module ActiveCampaign
   #
   # Class Configuration provides configuration of ActiveCampaign
   #
-  # @author Mikael Henriksson <mikael@zoolutions.se>
+  # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
   class Configuration
     API_URL   = 'https://account.api-us1.com/api/3'
@@ -44,12 +44,18 @@ module ActiveCampaign
     attr_reader :debug
     alias debug? debug
 
+    #
+    # @!attribute [r] logger
+    #   @return [Logger] a configured logger
+    attr_reader :logger
+
     def initialize
       self.adapter         = :net_http
       self.api_url         = API_URL
       self.api_timeout     = 5
       self.api_token       = API_TOKEN
       self.debug           = false
+      self.logger          = Logger.new(STDOUT)
       @request_middleware  = {}
       @response_middleware = {}
     end
@@ -84,6 +90,14 @@ module ActiveCampaign
       end
 
       @debug = obj
+    end
+
+    def logger=(obj)
+      unless (%i[debug info error warn fatal] - obj.public_methods).empty?
+        raise ArgumentError, "debug (#{obj}) must be an object that responds to :debug, :info, :warn, :error and :fatal"
+      end
+
+      @logger = obj
     end
 
     def to_h

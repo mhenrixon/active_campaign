@@ -13,7 +13,7 @@ require 'active_campaign/client'
 #
 # API Client for the Active Campaign API v3
 #
-# @author Mikael Henriksson <mikael@zoolutions.se>
+# @author Mikael Henriksson <mikael@mhenrixon.com>
 #
 module ActiveCampaign
   module_function
@@ -43,6 +43,26 @@ module ActiveCampaign
   #
   def reset!
     @config = Configuration.new
+  end
+
+  #
+  # Quick access to set a new logger
+  #
+  # @param [Logger] obj any object that responds to :debug, :info, :warn, :error and :fatal
+  #
+  # @return [Logger]
+  #
+  def logger=(obj)
+    config.logger = obj
+  end
+
+  #
+  # The configured logger
+  #
+  # @return [Logger] any object that responds to :debug, :info, :warn, :error and :fatal
+  #
+  def logger
+    config.logger
   end
 
   #

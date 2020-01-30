@@ -6,7 +6,7 @@ module ActiveCampaign
   #
   # Utility module for manipulating hashes, arrays and values
   #
-  # @author Mikael Henriksson <mikael@zoolutions.se>
+  # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
   module TransformHash
     #

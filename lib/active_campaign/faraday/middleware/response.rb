@@ -9,7 +9,7 @@ module ActiveCampaign
       #
       # Gem specific response middleware for Faraday
       #
-      # @author Mikael Henriksson <mikael@zoolutions.se>
+      # @author Mikael Henriksson <mikael@mhenrixon.com>
       #
       class Response < ::Faraday::Response::Middleware
         dependency 'oj'

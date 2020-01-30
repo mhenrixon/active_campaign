@@ -4,13 +4,15 @@ module ActiveCampaign
   #
   # Provides http request functionality
   #
-  # @author Mikael Henriksson <mikael@zoolutions.se>
+  # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
   class Client
     include API
     include TransformHash
 
-    endpoints :accounts, :contacts, :account_contacts
+    # endpoint :accounts
+    # endpoint :contacts
+    # endpoint :account_contacts
 
     attr_reader :config
 

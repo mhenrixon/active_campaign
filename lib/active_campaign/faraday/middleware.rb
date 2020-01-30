@@ -8,7 +8,7 @@ module ActiveCampaign
     #
     # Utility functions for managing Faraday middlewares
     #
-    # @author Mikael Henriksson <mikael@zoolutions.se>
+    # @author Mikael Henriksson <mikael@mhenrixon.com>
     #
     module Middleware
       def self.add_request_middleware(faraday, config = {})

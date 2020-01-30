@@ -6,7 +6,7 @@ module ActiveCampaign
       #
       # Gem specific request middleware for Faraday
       #
-      # @author Mikael Henriksson <mikael@zoolutions.se>
+      # @author Mikael Henriksson <mikael@mhenrixon.com>
       #
       class Request < ::Faraday::Middleware
         dependency 'oj'

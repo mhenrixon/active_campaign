@@ -2,9 +2,21 @@
 
 module ActiveCampaign
   #
+  # Raised when a dependency couldn't be loaded
+  #
+  # @author Mikael Henriksson <mikael@mhenrixon.com>
+  #
+  class DependencyMissing < StandardError
+    def initialize(endpoint)
+      @endpoint = endpoint
+      super("The endpoint :#{endpoint} couldn't be loaded")
+    end
+  end
+
+  #
   # Base class error for almost all exceptions
   #
-  # @author Mikael Henriksson <mikael@zoolutions.se>
+  # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
   class Error < StandardError
     def initialize(response = nil, exception = nil)
@@ -39,7 +51,7 @@ module ActiveCampaign
   #
   # Proxy an exception to allow nil to be passed in
   #
-  # @author Mikael Henriksson <mikael@zoolutions.se>
+  # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
   class ErrorProxy < StandardError
     def initialize(error = nil)
@@ -58,7 +70,7 @@ module ActiveCampaign
   #
   # Wraps Faraday::ParsingError
   #
-  # @author Mikael Henriksson <mikael@zoolutions.se>
+  # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
   class ParsingError < ErrorProxy
   end
@@ -66,7 +78,7 @@ module ActiveCampaign
   #
   # Wraps Faraday::ClientError
   #
-  # @author Mikael Henriksson <mikael@zoolutions.se>
+  # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
   class ClientError < Error
   end
@@ -74,7 +86,7 @@ module ActiveCampaign
   #
   # Wraps Faraday::BadRequestError
   #
-  # @author Mikael Henriksson <mikael@zoolutions.se>
+  # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
   class BadRequestError < ClientError
   end
@@ -82,7 +94,7 @@ module ActiveCampaign
   #
   # Wraps Faraday::UnauthorizedError
   #
-  # @author Mikael Henriksson <mikael@zoolutions.se>
+  # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
   class UnauthorizedError < ClientError
   end
@@ -90,7 +102,7 @@ module ActiveCampaign
   #
   # Wraps Faraday::ForbiddenError
   #
-  # @author Mikael Henriksson <mikael@zoolutions.se>
+  # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
   class ForbiddenError < ClientError
   end
@@ -98,7 +110,7 @@ module ActiveCampaign
   #
   # Wraps Faraday::ResourceNotFound
   #
-  # @author Mikael Henriksson <mikael@zoolutions.se>
+  # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
   class ResourceNotFound < ClientError
   end
@@ -106,7 +118,7 @@ module ActiveCampaign
   #
   # Wraps Faraday::ProxyAuthError
   #
-  # @author Mikael Henriksson <mikael@zoolutions.se>
+  # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
   class ProxyAuthError < ClientError
   end
@@ -114,7 +126,7 @@ module ActiveCampaign
   #
   # Wraps Faraday::ConflictError
   #
-  # @author Mikael Henriksson <mikael@zoolutions.se>
+  # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
   class ConflictError < ClientError
   end
@@ -122,7 +134,7 @@ module ActiveCampaign
   #
   # Wraps Faraday::UnprocessableEntityError
   #
-  # @author Mikael Henriksson <mikael@zoolutions.se>
+  # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
   class UnprocessableEntityError < ClientError
   end
@@ -130,7 +142,7 @@ module ActiveCampaign
   #
   # Wraps Faraday::ServerError
   #
-  # @author Mikael Henriksson <mikael@zoolutions.se>
+  # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
   class ServerError < Error
   end
@@ -138,7 +150,7 @@ module ActiveCampaign
   #
   # Wraps Faraday::TimeoutError
   #
-  # @author Mikael Henriksson <mikael@zoolutions.se>
+  # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
   class TimeoutError < ServerError
     def initialize(exc = 'timeout', response = nil)
@@ -149,7 +161,7 @@ module ActiveCampaign
   #
   # Wraps Faraday::NilStatusError
   #
-  # @author Mikael Henriksson <mikael@zoolutions.se>
+  # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
   class NilStatusError < ServerError
     def initialize(exc, response = nil)
@@ -161,7 +173,7 @@ module ActiveCampaign
   #
   # Wraps Faraday::ConnectionFailed
   #
-  # @author Mikael Henriksson <mikael@zoolutions.se>
+  # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
   class ConnectionFailed < Error
   end
@@ -169,7 +181,7 @@ module ActiveCampaign
   #
   # Wraps Faraday::SSLError
   #
-  # @author Mikael Henriksson <mikael@zoolutions.se>
+  # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
   class SSLError < Error
   end
