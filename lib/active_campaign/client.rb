@@ -11,7 +11,7 @@ module ActiveCampaign
     include TransformHash
 
     endpoint :accounts
-    # endpoint :contacts
+    endpoint :contacts
     # endpoint :account_contacts
 
     attr_reader :config
