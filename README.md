@@ -14,112 +14,49 @@ Add this line to your application's Gemfile:
 
 And then execute:
 
-    $ bundle
+    bundle
 
 Or install it yourself as:
 
-    $ gem install active_campaign
+    gem install active_campaign
 
 ## Usage
 
-Read their [API documentation](http://www.activecampaign.com/api/overview.php)for how to use this gem.
+- [API documentation](https://developers.activecampaign.com/reference)
+- [Gem documentation](https://mhenrixon.github.io/active_campaign)
 
 ```ruby
 # To setup the client
 client = ::ActiveCampaign::Client.new(
-        api_endpoint: 'YOUR-ENDPOINT', # e.g. 'https://yourendpoint.api-us1.com/admin/api.php'
-        api_key: 'YOUR-API-KEY') # e.g. 'a4e60a1ba200595d5cc37ede5732545184165e'
+        api_url: 'YOUR-ENDPOINT', # e.g. 'https://youraccount.api-us1.com/api/3'
+        api_token: 'YOUR-API-KEY') # e.g. 'a4e60a1ba200595d5cc37ede5732545184165e'
 
 # or configure globally for all clients
 ::ActiveCampaign.configure do |config|
-  config.api_endpoint = 'YOUR-ENDPOINT', # e.g. 'https://yourendpoint.api-us1.com/admin/api.php'
-  config.api_key = 'YOUR-API-KEY' # e.g. 'a4e60a1ba200595d5cc37ede5732545184165e'
+  config.api_url = 'YOUR-ENDPOINT', # e.g. 'https://youraccount.api-us1.com/api/3'
+  config.api_token = 'YOUR-API-KEY' # e.g. 'a4e60a1ba200595d5cc37ede5732545184165e'
 end
 
 ```
 
-
 ```ruby
-# To fetch all lists
-ActiveCampaign.list_list ids: 'all'
+# To create a contact
+ActiveCampaign.create_contact(
+  email: "mik@el.com", 
+  first_name: "Mika",
+  last_name: "El",
+  phone: "bogusnumber",
+)
 ```
 
 ```ruby
 # To sync a contact (create if doesn't exist or update if matching email)
-# you have to resort to some really ugly hacks. Due to the form serialization 
-# type of API (read not a object oriented REST API) you need to translate
-# something pretty into something horrific when it comes to the parameters.
-ActiveCampaign.contact_sync({
-                                     "id" => user.active_campaign_contact_id,
-                                  "email" => user.email,
-                             "first_name" => user.first,
-                              "last_name" => user.last,
-     "p[#{user.active_campaign_list_id}]" => user.active_campaign_list_id,
-"status[#{user.active_campaign_list_id}]" => user.receive_emails ? 1 : 2
-})
-
-# Another example of syncing a contact:
-
-list_params = {
-  "#{user.active_campaign_list_id}" => user.active_campaign_list_id,
-             "#{user.other_list_id}" => user.other_list_id,
-}
-
-status_params = {
-  "#{user.active_campaign_list_id}" => user.receive_emails ? 1 : 2,
-             "#{user.other_list_id}" => true ? 1 : 2,
-}
-
-ActiveCampaign.contact_sync({
-        "id" => user.active_campaign_contact_id,
-     "email" => user.email,
-"first_name" => user.first,
- "last_name" => user.last,
-         "p" => list_params
-    "status" => status_params
-})
-```
-
-## Response
-
-All responses are wrapped under `results` so
-`ActiveCampaign.list_list ids: 'all'` returns
-
-```ruby
-{
-     "result_code" => 1,
-  "result_message" => "Success: Something is returned",
-   "result_output" => "json",
-         "results" => [
-    {
-                    "id" => "1",
-                  "name" => "One list",
-                 "cdate" => "2013-05-22 10:07:36",
-               "private" => "0",
-                "userid" => "1",
-      "subscriber_count" => 2
-    },
-    {
-                    "id" => "2",
-                  "name" => "Another List",
-                 "cdate" => "2013-05-22 10:09:15",
-               "private" => "0",
-                "userid" => "1",
-      "subscriber_count" => 0
-    }
-  ]
-}
-```
-
-For using tags_list action do the following
-
-```ruby
-ActiveCampaign.get('tags_list')
-```
-The response of method is an array of tags
-
-```ruby
-[{"id":1,"name":"test_tag","count":1}]
+ActiveCampaign.sync_contact(
+  email: "mik@el.com", 
+  first_name: "Mika",
+  last_name: "El",
+  phone: "bogusnumber",
+)
 ```
 
 ## Contributing

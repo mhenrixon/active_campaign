@@ -10,10 +10,7 @@ AllCops:
     - 'gemfiles/**/*'
     - '**/*.json'
     - '**/*.yml'
-  TargetRubyVersion: 2.4
-
-Documentation:
-  Enabled: false
+  TargetRubyVersion: 2.5
 
 Metrics/BlockLength:
   Enabled: true
@@ -29,9 +26,6 @@ Metrics/ParameterLists:
   Max: 5
   CountKeywordArgs: false
 
-Metrics/LineLength:
+Layout/LineLength:
   Enabled: true
-  Max: 120
-
-Style/IfUnlessModifier:
-  Enabled: false
+  Max: 125

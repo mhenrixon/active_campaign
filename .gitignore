@@ -20,3 +20,4 @@ tmp
 .idea
 /.ruby-version
 .watsonrc
+/.rspec_status

@@ -4,37 +4,39 @@ require 'simplecov'
 
 require 'pry'
 require 'rspec'
+require 'rspec/json_expectations'
+
 require 'active_campaign'
+
+require_relative 'support/shared_contexts'
 require_relative 'support/webmock'
 require_relative 'support/vcr'
 
-TEST_API_ENDPOINT ||= 'https://zoolutions.api-us1.com/admin/api.php'
-TEST_API_KEY ||= '1b85f597c38b74fc842a04efe00f10d547a839487dcb05e2c639e92c450d53a366d96f84'
+ActiveCampaign.configure do |config|
+  config.api_url   = ENV['ACTIVE_CAMPAIGN_URL']
+  config.api_token = ENV['ACTIVE_CAMPAIGN_TOKEN']
+  config.debug     = ENV.fetch('ACTIVE_CAMPAIGN_DEBUG') { 'false' } == 'true'
+end
 
 RSpec.configure do |config|
-  config.filter_run focus: true
-  config.order = 'random'
+  config.define_derived_metadata do |meta|
+    meta[:aggregate_failures] = true
+  end
+  config.expect_with :rspec do |expectations|
+    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+  end
+  config.mock_with :rspec do |mocks|
+    mocks.verify_partial_doubles = true
+  end
+  config.example_status_persistence_file_path = '.rspec_status'
+  config.filter_run :focus unless ENV['CI']
   config.run_all_when_everything_filtered = true
-  config.expect_with :rspec do |c|
-    c.syntax = :expect
-  end
+  config.disable_monkey_patching!
+  config.warnings = false
+  config.default_formatter = 'doc' if config.files_to_run.one?
+  config.order = :random
 
-  config.before(:suite) do
-    HTTPI.log       = false
-    HTTPI.logger    = nil
-    HTTPI.log_level = :fatal
-  end
+  Kernel.srand config.seed
 end
 
-def initialize_new_client
-  before do
-    @client = ActiveCampaign::Client.new(
-      api_endpoint: TEST_API_ENDPOINT,
-      api_key: TEST_API_KEY,
-      api_output: 'json',
-      debug: false,
-      log_level: :fatal,
-      log: false
-    )
-  end
-end
+RSpec::Support::ObjectFormatter.default_instance.max_formatted_output_length = 10_000

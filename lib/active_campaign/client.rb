@@ -1,142 +1,98 @@
 # frozen_string_literal: true
 
-require 'httpi'
-
-require 'active_campaign/client/campaigns'
-require 'active_campaign/client/contacts'
-require 'active_campaign/client/deals'
-require 'active_campaign/client/forms'
-require 'active_campaign/client/groups'
-require 'active_campaign/client/lists'
-require 'active_campaign/client/messages'
-require 'active_campaign/client/tracks'
-require 'active_campaign/client/users'
-
 module ActiveCampaign
+  #
+  # Provides http request functionality
+  #
+  # @author Mikael Henriksson <mikael@zoolutions.se>
+  #
   class Client
-    extend Forwardable
+    include API
+    include TransformHash
 
-    include ActiveCampaign::Client::Campaigns
-    include ActiveCampaign::Client::Contacts
-    include ActiveCampaign::Client::Deals
-    include ActiveCampaign::Client::Forms
-    include ActiveCampaign::Client::Groups
-    include ActiveCampaign::Client::Lists
-    include ActiveCampaign::Client::Messages
-    include ActiveCampaign::Client::Tracks
-    include ActiveCampaign::Client::Users
+    endpoints :accounts, :contacts, :account_contacts
 
     attr_reader :config
-    def_delegators :config, :api_key, :api_output, :api_endpoint,
-                   :user_agent, :log, :log_level, :logger, :debug
 
-    def initialize(options = {})
-      @config = ActiveCampaign.config.dup.merge(options)
+    def initialize(conf = {})
+      @config = conf
     end
 
-    # Make a HTTP GET request
-    #
-    # @param url [String] The path, relative to {#api_endpoint}
-    # @param options [Hash] Query and header params for request
-    # @return [Hash]
-    def get(api_method, options = {})
-      request :get, api_method, options
+    def connection # rubocop:disable Metrics/AbcSize
+      @connection ||= ::Faraday.new(url: config[:api_url]) do |faraday|
+        ActiveCampaign::Faraday::Middleware.add_request_middleware(faraday, config)
+        ActiveCampaign::Faraday::Middleware.add_response_middleware(faraday, config[:response_middleware])
+
+        faraday.adapter config[:adapter]
+
+        if (options = faraday.options)
+          options.timeout      = config[:api_timeout]
+          options.open_timeout = options.timeout
+        end
+
+        faraday
+      end
     end
 
-    # Make a HTTP POST request
-    #
-    # @param url [String] The path, relative to {#api_endpoint}
-    # @param options [Hash] Body and header params for request
-    # @return [Hash]
-    def post(api_method, options = {})
-      request :post, api_method, options
+    def post(*args)
+      safe_http_call do
+        connection.post(*args)
+      end
     end
 
-    def hash
-      [config.hash, Client].hash
+    def put(*args)
+      safe_http_call do
+        connection.put(*args)
+      end
     end
 
-    def ==(other)
-      other.is_a?(ActiveCampaign::Client) &&
-        hash == other.hash
+    def delete(*args)
+      safe_http_call do
+        connection.delete(*args)
+      end
     end
 
-    alias eql? ==
+    def get(*args)
+      safe_http_call do
+        connection.get(*args)
+      end
+    end
 
     private
 
-    def request(method, api_method, data)
-      req = create_request method, api_method, data
-      response = HTTPI.send(method, req)
-      response = JSON.parse(response.body)
-
-      normalize(response)
-    end
-
-    def request_headers
-      {
-        'User-Agent' => user_agent,
-        'Content-Type' => 'application/x-www-form-urlencoded'
-      }
-    end
-
-    def create_request(method, api_method, options = {})
-      req = HTTPI::Request.new(
-        url: File.join(api_endpoint),
-        headers: request_headers,
-        query: query(method, api_method, options),
-        body: body(method, api_method, options)
-      )
-      req.auth.ssl.verify_mode = :none
-      req.auth.ssl.ssl_version = :TLSv1_2
-      req
-    end
-
-    def query(method, api_method, options = {})
-      q = options.delete(:query) { {} }
-      q.merge!(api_key: api_key,
-               api_action: api_method.to_s,
-               api_output: api_output)
-
-      return q unless method == :get
-
-      q.merge(options)
-    end
-
-    def body(method, _api_method, options = {})
-      return nil unless method == :post
-
-      fields = options.delete(:fields) { {} }
-      options[:field] = fields.inject({}) do |hash, (k, v)|
-        hash.merge("%#{k}%,0" => v)
-      end
-
-      options.to_query
-    end
-
-    def normalize(response)
-      return response if response.is_a? Array
-
-      keys, values = keys_values(response)
-      if keys.all? { |key| numeric?(key) }
-        response['results'] = values
-        keys.each { |key| response.delete(key) }
-      end
-
-      response
-    end
-
-    def numeric?(string)
-      string.to_s.match(/\A[+-]?\d+\Z/).nil? ? false : true
-    end
-
-    def keys_values(response)
-      results = results(response)
-      [results.keys, results.values]
-    end
-
-    def results(response)
-      response.reject { |k, _v| %w[result_code result_message result_output].include?(k) }
+    def safe_http_call # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+      response = yield
+      response.body
+    rescue ::Oj::ParseError => e
+      raise ParsingError, e
+    rescue ::Faraday::BadRequestError => e
+      raise BadRequestError, e
+    rescue ::Faraday::ConnectionFailed => e
+      raise Unreachable, e
+    rescue ::Faraday::UnauthorizedError => e
+      raise UnauthorizedError, e
+    rescue ::Faraday::ForbiddenError => e
+      raise ForbiddenError, e
+    rescue ::Faraday::ResourceNotFound => e
+      raise ResourceNotFound, e
+    rescue ::Faraday::ProxyAuthError => e
+      raise ProxyAuthError, e
+    rescue ::Faraday::ConflictError => e
+      raise ConflictError, e
+    rescue ::Faraday::UnauthorizedError => e
+      raise UnauthorizedError, e
+    rescue ::Faraday::UnprocessableEntityError => e
+      raise UnprocessableEntityError, e
+    rescue ::Faraday::ServerError => e
+      raise ServerError, e
+    rescue ::Faraday::TimeoutError => e
+      raise TimeoutError, e
+    rescue ::Faraday::NilStatusError => e
+      raise NilStatusError, e
+    rescue ::Faraday::ConnectionFailed => e
+      raise ConnectionFailed, e
+    rescue ::Faraday::SSLError => e
+      raise SSLError, e
     end
   end
 end

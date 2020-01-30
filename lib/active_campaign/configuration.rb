@@ -1,80 +1,100 @@
 # frozen_string_literal: true
 
 module ActiveCampaign
+  #
+  # Class Configuration provides configuration of ActiveCampaign
+  #
+  # @author Mikael Henriksson <mikael@zoolutions.se>
+  #
   class Configuration
-    API_ENDPOINT ||= 'https://subdomain.activehosted.com/admin/api.php'
-    USER_AGENT   ||= "ActiveCampaign Ruby Gem #{ActiveCampaign::VERSION}"
-    API_OUTPUT   ||= 'json'
+    API_URL   = 'https://account.api-us1.com/api/3'
+    API_TOKEN = 'ACCOUNT_TOKEN'
 
-    attr_accessor :api_key, :api_endpoint, :api_output, :user_agent,
-                  :log, :logger, :log_level, :mash, :debug
+    #
+    # @!attribute [r] adapter
+    #   @return [Symbol] Faraday adapter to use for http requests
+    attr_reader :adapter
+    #
+    # @!attribute [r] request_middleware
+    #   @return [Hash] hash with request middleware `(key: { options: {} })`
+    attr_reader :request_middleware
+    #
+    # @!attribute [r] response_middleware
+    #   @return [Hash] hash with response middleware `(key: { options: {} })`
+    attr_reader :response_middleware
+
+    #
+    # @!attribute [r] api_url
+    #   @return [String, URI] the URI for your personal API
+    attr_reader :api_url
+
+    #
+    # @!attribute [r] api_timeout
+    #   @return [Integer] timeout in seconds
+    attr_reader :api_timeout
+
+    #
+    # @!attribute [r] api_token
+    #   @return [String] the authorization token to use for all requests
+    attr_reader :api_token
+
+    #
+    # @!attribute [r] debug
+    #   @return [true,false] turn verbose debug info on or off
+    attr_reader :debug
+    alias debug? debug
 
     def initialize
-      @api_key = nil
-      @api_endpoint = API_ENDPOINT
-      @api_output = API_OUTPUT
-      @user_agent = USER_AGENT
-      @log = false
-      @logger = nil
-      @log_level = :info
-      @debug = false
+      self.adapter         = :net_http
+      self.api_url         = API_URL
+      self.api_timeout     = 5
+      self.api_token       = API_TOKEN
+      self.debug           = false
+      @request_middleware  = {}
+      @response_middleware = {}
+    end
+
+    def adapter=(obj)
+      raise ArgumentError, "adapter (#{obj}) needs to be a Symbol" unless obj.is_a?(Symbol)
+
+      @adapter = obj
+    end
+
+    def api_url=(obj)
+      raise ArgumentError, "api_url (#{obj}) needs to be a String or URI" unless obj.is_a?(String) || obj.is_a?(URI)
+
+      @api_url = obj
+    end
+
+    def api_timeout=(obj)
+      raise ArgumentError, "api_timeout (#{obj}) is not a number" unless obj.is_a?(Integer)
+
+      @api_timeout = obj
+    end
+
+    def api_token=(obj)
+      raise ArgumentError, "api_token (#{obj}) is not a string" unless obj.is_a?(String)
+
+      @api_token = obj
+    end
+
+    def debug=(obj)
+      unless [NilClass, TrueClass, FalseClass].include?(obj.class)
+        raise ArgumentError, "debug (#{obj}) must be nil, true or false"
+      end
+
+      @debug = obj
     end
 
     def to_h
       {
-        api_key: api_key,
-        api_endpoint: api_endpoint,
-        api_output: api_output,
-        user_agent: user_agent,
-        log: log,
-        logger: logger,
-        log_level: log_level,
-        debug: debug
+        adapter: adapter,
+        api_url: api_url,
+        api_timeout: api_timeout,
+        api_token: api_token,
+        request_middleware: request_middleware,
+        response_middleware: response_middleware
       }
-    end
-
-    def merge(other_config = {})
-      other_config.to_h.each do |k, v|
-        send("#{k}=", v) if respond_to?(k)
-      end
-      self
-    end
-
-    def ==(other)
-      other.is_a?(ActiveCampaign::Configuration) &&
-        all_api_info_equal &&
-        user_agent == other.user_agent &&
-        all_log_info_equal &&
-        debug == other.debug
-    end
-    alias eql? ==
-
-    def hash
-      [
-        api_key,
-        api_endpoint,
-        api_output,
-        user_agent,
-        log,
-        logger,
-        log_level,
-        debug,
-        ActiveCampaign::Configuration
-      ].hash
-    end
-
-    private
-
-    def all_api_info_equal
-      api_key == other.api_key &&
-        api_endpoint == other.api_endpoint &&
-        api_output == other.api_output
-    end
-
-    def all_log_info_equal
-      log == other.log &&
-        logger == other.logger &&
-        log_level == other.log_level
     end
   end
 end
