@@ -15,7 +15,7 @@ AllCops:
 Metrics/BlockLength:
   Enabled: true
   Exclude:
-    - 'spec/**/*_spec.rb'
+    - 'spec/**/*.rb'
 
 Metrics/MethodLength:
   CountComments: false  # count full line comments?

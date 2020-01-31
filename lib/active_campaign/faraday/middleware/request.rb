@@ -31,7 +31,7 @@ module ActiveCampaign
 
         def normalize_body(env)
           body = env[:request_body]
-          body = transform_keys(body, :camelcase, :lower)
+          body = transform_keys(body, :camelcase, :lower) unless body.key?(:address)
           env[:request_body] = ::Oj.dump(body, mode: :compat)
         end
       end

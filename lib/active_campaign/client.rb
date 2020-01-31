@@ -13,6 +13,7 @@ module ActiveCampaign
     endpoint :accounts
     endpoint :contacts
     endpoint :account_contacts
+    endpoint :addresses
 
     attr_reader :config
 
