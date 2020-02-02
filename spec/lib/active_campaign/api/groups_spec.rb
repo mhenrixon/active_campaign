@@ -32,7 +32,6 @@ RSpec.describe ActiveCampaign::API::Groups, :vcr do
     it 'returns a group hash' do
       expect(response).to include_json(
         group: {
-          id: group_id,
           title: group_title,
           descript: group_description
         }
@@ -69,7 +68,7 @@ RSpec.describe ActiveCampaign::API::Groups, :vcr do
     end
   end
 
-  fdescribe '#show_groups' do
+  describe '#show_groups' do
     subject(:response) { client.show_groups }
 
     let(:search) { 'Mikael' }
