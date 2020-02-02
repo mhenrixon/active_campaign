@@ -37,6 +37,10 @@ RSpec.describe ActiveCampaign::API::AccountContacts, :vcr do
       }
     end
 
+    after do
+      client.delete_account_contact(response[:account_contact][:id])
+    end
+
     it 'returns a account_contact hash' do
       expect(response).to include_json(
         account_contact: {
@@ -45,10 +49,6 @@ RSpec.describe ActiveCampaign::API::AccountContacts, :vcr do
           job_title: job_title
         }
       )
-    end
-
-    after(:each) do
-      client.delete_account_contact(response[:account_contact][:id])
     end
   end
 
@@ -82,6 +82,10 @@ RSpec.describe ActiveCampaign::API::AccountContacts, :vcr do
 
     include_context 'with existing account_contact'
 
+    after do
+      client.delete_account(account_id)
+    end
+
     it 'returns a account_contacts array' do
       expect(response).to include_json(
         account_contacts: [{
@@ -90,10 +94,6 @@ RSpec.describe ActiveCampaign::API::AccountContacts, :vcr do
           job_title: job_title
         }]
       )
-    end
-
-    after do
-      client.delete_account(account_id)
     end
   end
 end

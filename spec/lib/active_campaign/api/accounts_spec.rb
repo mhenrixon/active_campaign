@@ -26,7 +26,11 @@ RSpec.describe ActiveCampaign::API::Accounts, :vcr do
 
     let(:account_params) { { name: account_name, account_url: account_url } }
     let(:account_name) { 'Bogus' }
-    let(:account_url) { 'https://hokus.pokus.io' }
+    let(:account_url)  { 'https://hokus.pokus.io' }
+
+    after do
+      client.delete_account(response[:account][:id])
+    end
 
     it 'returns a account hash' do
       expect(response).to include_json(
@@ -35,10 +39,6 @@ RSpec.describe ActiveCampaign::API::Accounts, :vcr do
           account_url: account_url
         }
       )
-    end
-
-    after do
-      client.delete_account(response[:account][:id])
     end
   end
 

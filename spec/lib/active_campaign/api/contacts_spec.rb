@@ -39,6 +39,10 @@ RSpec.describe ActiveCampaign::API::Contacts, :vcr do
       }
     end
 
+    after do
+      client.delete_contact(response[:contact][:id])
+    end
+
     it 'returns a contact hash' do
       expect(response).to include_json(
         contact: {
@@ -48,10 +52,6 @@ RSpec.describe ActiveCampaign::API::Contacts, :vcr do
           phone: contact_phone
         }
       )
-    end
-
-    after do
-      client.delete_contact(response[:contact][:id])
     end
   end
 
@@ -91,7 +91,7 @@ RSpec.describe ActiveCampaign::API::Contacts, :vcr do
 
     let(:new_contact_first_name) { 'Henrik' }
     let(:new_contact_last_name)  { 'Mikaelsson' }
-    let(:new_contact_phone) { '+46730393204' }
+    let(:new_contact_phone)      { '+46730393204' }
     let(:sync_params) do
       {
         first_name: new_contact_first_name,
