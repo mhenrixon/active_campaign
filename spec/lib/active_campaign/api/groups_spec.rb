@@ -79,14 +79,14 @@ RSpec.describe ActiveCampaign::API::Groups, :vcr do
       expect(response).to include_json(
         groups: [
           {
-            id: "3",
-            title: "Admin",
-            descript: "This is a group for admin users (people that can manage content)"
+            id: '3',
+            title: 'Admin',
+            descript: 'This is a group for admin users (people that can manage content)'
           },
           {
             title: group_title,
             descript: group_description
-          },
+          }
         ]
       )
     end
