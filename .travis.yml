@@ -14,7 +14,7 @@ cache:
 before_install:
   - gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
   - gem update --system
-  - gem install bundler
+  - gem install bundler rubocop-mhenrixon
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
 
