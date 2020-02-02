@@ -44,7 +44,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec-nc', '~> 0.3'
   spec.add_development_dependency 'factory_bot'
   spec.add_development_dependency 'rspec-json_expectations', '~> 2.2'
-  spec.add_development_dependency 'rubocop-mhenrixon', '~> 0.79.3'
+  spec.add_development_dependency 'rubocop-mhenrixon', '~> 0.79.4'
   spec.add_development_dependency 'webmock', '~> 3.8'
   spec.add_development_dependency 'simplecov', '~> 0.17'
   spec.add_development_dependency 'simplecov-material'
