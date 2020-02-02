@@ -15,6 +15,7 @@ module ActiveCampaign
     endpoint :account_contacts
     endpoint :addresses
     endpoint :groups
+    endpoint :lists
 
     attr_reader :config
 

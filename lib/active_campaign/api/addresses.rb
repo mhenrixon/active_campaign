@@ -45,7 +45,7 @@ module ActiveCampaign
       #
       # Get a list of address
       #
-      # @return [Array<Hash>] <description>
+      # @return [Array<Hash>]
       #
       def show_addresses(*params)
         get('addresses', *params)

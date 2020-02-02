@@ -93,7 +93,7 @@ module ActiveCampaign
       #
       # @param [String] search Filter groups that match the given value in the group attributes
       #
-      # @return [Array<Hash>] <description>
+      # @return [Array<Hash>]
       #
       def show_groups(search = nil)
         get('groups', search: search)
