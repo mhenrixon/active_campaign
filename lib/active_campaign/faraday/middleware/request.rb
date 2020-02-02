@@ -31,8 +31,19 @@ module ActiveCampaign
 
         def normalize_body(env)
           body = env[:request_body]
-          body = transform_keys(body, :camelcase, :lower) unless body.key?(:address)
+          if body.key?(:group)
+            logger.debug("Using body as is because group #{body}")
+          elsif body.key?(:list)
+            logger.debug("Using body as is because list #{body}")
+          else
+            body = transform_keys(body, :camelcase, :lower)
+          end
+
           env[:request_body] = ::Oj.dump(body, mode: :compat)
+        end
+
+        def logger
+          @logger ||= Logger.new(STDOUT)
         end
       end
     end
