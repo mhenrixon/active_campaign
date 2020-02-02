@@ -1,6 +1,3 @@
 --require spec_helper
---require fuubar
---format Fuubar
---format Nc
 --color
 --order random
