@@ -37,7 +37,7 @@ module ActiveCampaign
       #
       # @param [String] search Filter accounts that match the given value in the account attributes
       #
-      # @return [Array<Hash>] <description>
+      # @return [Array<Hash>]
       #
       def show_accounts(search = nil)
         get('accounts', search: search)
