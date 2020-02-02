@@ -17,7 +17,7 @@ RSpec.shared_context 'with existing account' do
   end
 
   after(:each) do
-    client.delete_account(account_id)
+    client.delete_account(account_id) if account_id
   end
 end
 
@@ -42,7 +42,7 @@ RSpec.shared_context 'with existing contact' do
   end
 
   after(:each) do
-    client.delete_contact(contact_id)
+    client.delete_contact(contact_id) if contact_id
   end
 end
 
@@ -66,7 +66,7 @@ RSpec.shared_context 'with existing account_contact' do
   end
 
   after(:each) do
-    client.delete_account_contact(account_contact[:id])
+    client.delete_account_contact(account_contact_id) if account_contact_id
   end
 end
 
@@ -100,7 +100,30 @@ RSpec.shared_context 'with existing address' do
   end
 
   after(:each) do
-    client.update_address(address[:id], is_default: false)
-    client.delete_address(address[:id])
+    if address_id
+      client.update_address(address_id, is_default: false)
+      client.delete_address(address_id)
+    end
+  end
+end
+
+RSpec.shared_context 'with existing group' do
+  let!(:group) do
+    response = client.create_group(group_params)
+    response.fetch(:group) { raise "HELL (group creation failed) #{response}" }
+  end
+
+  let(:group_id)          { group[:id] }
+  let(:group_title)       { 'Awesome' }
+  let(:group_description) { 'My really awesome group' }
+  let(:group_params) do
+    {
+      title: group_title,
+      descript: group_description
+    }
+  end
+
+  after do
+    client.delete_group(group_id) if group_id
   end
 end
