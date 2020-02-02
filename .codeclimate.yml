@@ -54,7 +54,7 @@ plugins:
     enabled: true
     channel: rubocop-0-79
     config:
-      file: climatecop.yml
+      file: .climatecop.yml
 
 exclude_patterns:
   - "Gemfile"
