@@ -5,7 +5,7 @@ gemspec
 
 if respond_to?(:install_if)
   install_if -> { RUBY_PLATFORM =~ /darwin/ } do
-    gem "fuubar"
-    gem "rspec-nc"
+    gem 'fuubar'
+    gem 'rspec-nc'
   end
 end

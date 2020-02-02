@@ -8,12 +8,12 @@ RSpec.describe ActiveCampaign::API::Lists, :vcr do
   describe '#create_list', :with_list_params do
     subject(:response) { client.create_list(list_params) }
 
-    it 'returns a list hash' do
-      expect(response).to include_json(list: list_params)
-    end
-
     after do
       client.delete_list(response.dig(:list, :id))
+    end
+
+    it 'returns a list hash' do
+      expect(response).to include_json(list: list_params)
     end
   end
 

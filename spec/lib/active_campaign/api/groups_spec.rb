@@ -5,45 +5,46 @@ require 'spec_helper'
 RSpec.describe ActiveCampaign::API::Groups, :vcr do
   let(:client) { ActiveCampaign.client }
 
-  describe '#show_group' do
-    subject(:response) { client.show_group(group_id) }
+  describe '#create_group', :with_group_params do
+    subject(:response) { client.create_group(group_params) }
 
-    include_context 'with existing group'
+    let(:expected_response) do
+      {
+        group: {
+          title: group_title,
+          descript: group_description
+        }
+      }
+    end
+
+    after do
+      client.delete_group(response.dig(:group, :id))
+    end
 
     it 'returns a group hash' do
-      expect(response).to include_json(
+      expect(response).to include_json(expected_response)
+    end
+  end
+
+  describe '#show_group', :with_existing_group do
+    subject(:response) { client.show_group(group_id) }
+
+    let(:expected_response) do
+      {
         group: {
           id: group_id,
           title: group_title,
           descript: group_description
         }
-      )
+      }
     end
-  end
-
-  describe '#create_group' do
-    subject(:response) { client.create_group(group_params) }
-
-    let(:group_params)      { { title: group_title, descript: group_description } }
-    let(:group_id)          { response[:id] }
-    let(:group_title)       { 'Awesome' }
-    let(:group_description) { 'My really awesome group' }
 
     it 'returns a group hash' do
-      expect(response).to include_json(
-        group: {
-          title: group_title,
-          descript: group_description
-        }
-      )
-    end
-
-    after do
-      client.delete_group(group_id)
+      expect(response).to include_json(expected_response)
     end
   end
 
-  describe '#update_group' do
+  describe '#update_group', :with_existing_group do
     subject(:response) { client.update_group(group_id, update_params) }
 
     let(:new_group_title) { 'mhenrixon Consulting' }
@@ -54,29 +55,26 @@ RSpec.describe ActiveCampaign::API::Groups, :vcr do
         descript: new_description
       }
     end
-
-    include_context 'with existing group'
-
-    it 'returns a group hash' do
-      expect(response).to include_json(
+    let(:expected_response) do
+      {
         group: {
           id: group_id,
           title: new_group_title,
           descript: new_description
         }
-      )
+      }
+    end
+
+    it 'returns a group hash' do
+      expect(response).to include_json(expected_response)
     end
   end
 
-  describe '#show_groups' do
+  describe '#show_groups', :with_existing_group do
     subject(:response) { client.show_groups }
 
-    let(:search) { 'Mikael' }
-
-    include_context 'with existing group'
-
-    it 'returns a group hash' do
-      expect(response).to include_json(
+    let(:expected_response) do
+      {
         groups: [
           {
             id: '3',
@@ -88,7 +86,11 @@ RSpec.describe ActiveCampaign::API::Groups, :vcr do
             descript: group_description
           }
         ]
-      )
+      }
+    end
+
+    it 'returns a group hash' do
+      expect(response).to include_json(expected_response)
     end
   end
 end
