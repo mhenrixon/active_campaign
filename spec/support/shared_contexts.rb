@@ -3,7 +3,7 @@
 RSpec.shared_context 'with existing account' do
   let!(:account) do
     response = client.create_account(account_params)
-    response.fetch(:account) { raise 'HELL (account creation failed)' }
+    response.fetch(:account) { raise "HELL (account creation failed) #{response}" }
   end
 
   let(:account_id)   { account[:id] }
@@ -24,7 +24,7 @@ end
 RSpec.shared_context 'with existing contact' do
   let!(:contact) do
     response = client.create_contact(contact_params)
-    response.fetch(:contact) { raise 'HELL (contact creation failed)' }
+    response.fetch(:contact) { raise "HELL (contact creation failed) #{response}" }
   end
 
   let(:contact_id)         { contact[:id] }
@@ -52,7 +52,7 @@ RSpec.shared_context 'with existing account_contact' do
 
   let!(:account_contact) do
     response = client.create_account_contact(account_contact_params)
-    response.fetch(:account_contact) { raise 'HELL (account_contact creation failed)' }
+    response.fetch(:account_contact) { raise "HELL (account_contact creation failed) #{response}" }
   end
 
   let(:account_contact_id) { account_contact[:id] }
@@ -73,7 +73,7 @@ end
 RSpec.shared_context 'with existing address' do
   let!(:address) do
     response = client.create_address(address_params)
-    response.fetch(:address) { raise 'HELL (address creation failed)' }
+    response.fetch(:address) { raise "HELL (address creation failed) #{response}" }
   end
 
   let(:address_id) { address[:id] }
