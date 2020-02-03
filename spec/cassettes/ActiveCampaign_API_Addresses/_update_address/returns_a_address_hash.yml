@@ -1,67 +1,6 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: "<API_ENDPOINT>/addresses"
-    body:
-      encoding: UTF-8
-      string: '{"address":{"company_name":"mhenrixon Consulting","address_1":"Seestr.
-        5","city":"Zeuthen","state":"Brandenburg","zip":"15738","country":"DE","allgroup":false,"is_default":false},"change_case":false}'
-    headers:
-      User-Agent:
-      - ActiveCampaign Ruby Client (v3.0.0)
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-      Api-Token:
-      - "<API_KEY>"
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 201
-      message: Created
-    headers:
-      Date:
-      - Thu, 30 Jan 2020 21:20:45 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '490'
-      Connection:
-      - keep-alive
-      Set-Cookie:
-      - PHPSESSID=a4b591cb813d0833793da6cc9e0a352a; path=/; HttpOnly
-      - __cfduid=d0b862ed389bfa836cef78bf190b3edf81580419244; expires=Sat, 29-Feb-20
-        21:20:44 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
-      - em_acp_globalauth_cookie=014cbe10-3a92-4651-a732-5ac60a7065e9; path=/; domain=.mhenrixonconsulting1570091019.api-us1.com;
-        secure; httponly
-      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
-        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
-      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
-        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
-      Expires:
-      - Thu, 19 Nov 1981 08:52:00 GMT
-      Cache-Control:
-      - no-store, no-cache, must-revalidate
-      Pragma:
-      - no-cache
-      Cf-Cache-Status:
-      - DYNAMIC
-      Expect-Ct:
-      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 55d67dd7ad7f979c-FRA
-    body:
-      encoding: UTF-8
-      string: '{"address":{"companyName":"mhenrixon Consulting","address1":"Seestr.
-        5","city":"Zeuthen","state":"Brandenburg","zip":"15738","country":"DE","allgroup":0,"isDefault":1,"links":{"addressGroup":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/addresses\/19\/addressGroup","addressList":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/addresses\/19\/addressList","forms":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/addresses\/19\/forms"},"id":"19"}}'
-    http_version: 
-  recorded_at: Thu, 30 Jan 2020 21:20:45 GMT
-- request:
     method: put
     uri: "<API_ENDPOINT>/addresses/19"
     body:
@@ -245,4 +184,249 @@ http_interactions:
       string: "{}"
     http_version: 
   recorded_at: Thu, 30 Jan 2020 21:20:46 GMT
+- request:
+    method: post
+    uri: "<API_ENDPOINT>/addresses"
+    body:
+      encoding: UTF-8
+      string: '{"address":{"companyName":"mhenrixon Consulting","address1":"Seestr.
+        5","city":"Zeuthen","state":"Brandenburg","zip":"15738","country":"DE"},"changeCase":false}'
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Api-Token:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Sun, 02 Feb 2020 21:05:50 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '477'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=d58e337c09231a43fca3ea8c5e5161d6; path=/; HttpOnly
+      - __cfduid=d47bca5218c9222447a80dbd3b2bb2f561580677550; expires=Tue, 03-Mar-20
+        21:05:50 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=69c95d85-1bfb-498b-a7aa-fa84d6b1a422; path=/; domain=.mhenrixonconsulting1570091019.api-us1.com;
+        secure; httponly
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Pragma:
+      - no-cache
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 55ef201fb9e1bf23-FRA
+    body:
+      encoding: UTF-8
+      string: '{"address":{"city":"Zeuthen","state":"Brandenburg","zip":"15738","country":"DE","companyName":"mhenrixon
+        Consulting","address1":"Seestr. 5","isDefault":1,"links":{"addressGroup":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/addresses\/26\/addressGroup","addressList":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/addresses\/26\/addressList","forms":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/addresses\/26\/forms"},"id":"26"}}'
+    http_version: 
+  recorded_at: Sun, 02 Feb 2020 21:05:50 GMT
+- request:
+    method: put
+    uri: "<API_ENDPOINT>/addresses/26"
+    body:
+      encoding: UTF-8
+      string: '{"address":{"address1":"Freaky friday fork 69","city":"Funky Freak
+        Town"},"changeCase":false}'
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Api-Token:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 02 Feb 2020 21:05:51 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=5b218292f272f20801801a034508b6f0; path=/; HttpOnly
+      - __cfduid=d934f67b72a0c57f6252c0fb181f2f1c91580677551; expires=Tue, 03-Mar-20
+        21:05:51 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=8ec2c3c2-cb3b-4b00-9a0b-3305505f82cc; path=/; domain=.mhenrixonconsulting1570091019.api-us1.com;
+        secure; httponly
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Pragma:
+      - no-cache
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 55ef20255f8863c5-FRA
+    body:
+      encoding: ASCII-8BIT
+      string: '{"address":{"companyName":"mhenrixon Consulting","address1":"Freaky
+        friday fork 69","address2":"","city":"Funky Freak Town","state":"Brandenburg","district":"","zip":"15738","country":"DE","allgroup":"0","isDefault":"1","created_timestamp":"2020-02-02
+        15:05:50","updated_timestamp":"2020-02-02 15:05:50","created_by":null,"updated_by":null,"links":{"addressGroup":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/addresses\/26\/addressGroup","addressList":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/addresses\/26\/addressList","forms":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/addresses\/26\/forms"},"id":"26"}}'
+    http_version: 
+  recorded_at: Sun, 02 Feb 2020 21:05:51 GMT
+- request:
+    method: put
+    uri: "<API_ENDPOINT>/addresses/26"
+    body:
+      encoding: UTF-8
+      string: '{"address":{"isDefault":false},"changeCase":false}'
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Api-Token:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 02 Feb 2020 21:05:52 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=488e9be6fe0c9f703f0579744bc3a512; path=/; HttpOnly
+      - __cfduid=d8c10b2d20c6fb70c2a22036b1c6544d61580677552; expires=Tue, 03-Mar-20
+        21:05:52 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=c5e331a9-6113-475f-ae4e-348ffce936a2; path=/; domain=.mhenrixonconsulting1570091019.api-us1.com;
+        secure; httponly
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Pragma:
+      - no-cache
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 55ef202cae65c2ea-FRA
+    body:
+      encoding: ASCII-8BIT
+      string: '{"address":{"companyName":"mhenrixon Consulting","address1":"Freaky
+        friday fork 69","address2":"","city":"Funky Freak Town","state":"Brandenburg","district":"","zip":"15738","country":"DE","allgroup":"0","isDefault":0,"created_timestamp":"2020-02-02
+        15:05:50","updated_timestamp":"2020-02-02 15:05:50","created_by":"0","updated_by":"0","links":{"addressGroup":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/addresses\/26\/addressGroup","addressList":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/addresses\/26\/addressList","forms":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/addresses\/26\/forms"},"id":"26"}}'
+    http_version: 
+  recorded_at: Sun, 02 Feb 2020 21:05:52 GMT
+- request:
+    method: delete
+    uri: "<API_ENDPOINT>/addresses/26"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Api-Token:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 02 Feb 2020 21:05:53 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=12444a357858196b31c01a39f7926b0c; path=/; HttpOnly
+      - __cfduid=dbb89db40e1ecceb976c7c939daf4b3691580677552; expires=Tue, 03-Mar-20
+        21:05:52 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=68b9dd81-2a50-4715-a992-55b995b140b4; path=/; domain=.mhenrixonconsulting1570091019.api-us1.com;
+        secure; httponly
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Pragma:
+      - no-cache
+      Accept-Ranges:
+      - bytes
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 55ef20317a1e96e0-FRA
+    body:
+      encoding: UTF-8
+      string: "{}"
+    http_version: 
+  recorded_at: Sun, 02 Feb 2020 21:05:53 GMT
 recorded_with: VCR 5.0.0

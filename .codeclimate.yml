@@ -51,10 +51,8 @@ plugins:
     config:
       file: .reek.yml
   rubocop:
-    enabled: true
-    channel: rubocop-0-76
-    config:
-      file: .rubocop.yml
+    enabled: false
+    channel: rubocop-0-79
 
 exclude_patterns:
   - "Gemfile"

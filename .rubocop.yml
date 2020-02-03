@@ -1,31 +1,9 @@
+inherit_gem:
+  rubocop-mhenrixon:
+    - config/default.yml
+
 AllCops:
-  Include:
-    - 'Rakefile'
-    - 'lib/**/*'
-    - 'bin/**/*'
-    - 'spec/**/*'
+  TargetRubyVersion: 2.5'
   Exclude:
-    - 'Gemfile.lock'
-    - 'Gemfile'
     - 'gemfiles/**/*'
     - '**/*.json'
-    - '**/*.yml'
-  TargetRubyVersion: 2.5
-
-Metrics/BlockLength:
-  Enabled: true
-  Exclude:
-    - 'spec/**/*.rb'
-
-Metrics/MethodLength:
-  CountComments: false  # count full line comments?
-  Max: 12
-
-Metrics/ParameterLists:
-  Enabled: true
-  Max: 5
-  CountKeywordArgs: false
-
-Layout/LineLength:
-  Enabled: true
-  Max: 125

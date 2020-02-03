@@ -32,6 +32,7 @@ RuboCop::RakeTask.new(:rubocop) do |task|
   task.options = %w[-DEP --require fuubar --format fuubar]
 end
 
+desc 'Validate ruby style'
 task style: %i[reek rubocop]
 
 RSpec::Core::RakeTask.new(:rspec) do |t|
@@ -56,6 +57,7 @@ YARD::Rake::YardocTask.new(:yard) do |t|
   ]
 end
 
+desc 'Release new version of the gem'
 task :release do
   sh('./update_docs.sh')
   sh('gem release --tag --push')
