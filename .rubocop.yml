@@ -1,9 +1,0 @@
-inherit_gem:
-  rubocop-mhenrixon:
-    - config/default.yml
-
-AllCops:
-  TargetRubyVersion: 2.5'
-  Exclude:
-    - 'gemfiles/**/*'
-    - '**/*.json'

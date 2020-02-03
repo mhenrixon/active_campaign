@@ -1,0 +1,2117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: ActiveCampaign::API::Groups
+  
+    &mdash; Documentation by YARD 0.9.24
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "ActiveCampaign::API::Groups";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (G)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../ActiveCampaign.html" title="ActiveCampaign (module)">ActiveCampaign</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../API.html" title="ActiveCampaign::API (module)">API</a></span></span>
+     &raquo; 
+    <span class="title">Groups</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: ActiveCampaign::API::Groups
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/active_campaign/api/groups.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Interface to group endpoints</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Author:</p>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>Mikael Henriksson <a href="mailto:mikael@mhenrixon.com">mikael@mhenrixon.com</a></p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bulk_delete_groups-instance_method" title="#bulk_delete_groups (instance method)">#<strong>bulk_delete_groups</strong>(ids)  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Deletes a group with given ids.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_group-instance_method" title="#create_group (instance method)">#<strong>create_group</strong>(params)  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Create a new group.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete_group-instance_method" title="#delete_group (instance method)">#<strong>delete_group</strong>(id)  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Deletes a group with given id.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#show_group-instance_method" title="#show_group (instance method)">#<strong>show_group</strong>(id)  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get a single group.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#show_groups-instance_method" title="#show_groups (instance method)">#<strong>show_groups</strong>(search = nil)  &#x21d2; Array&lt;Hash&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get a list of groups.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update_group-instance_method" title="#update_group (instance method)">#<strong>update_group</strong>(id, params)  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Update an existing group with given id.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="bulk_delete_groups-instance_method">
+  
+    #<strong>bulk_delete_groups</strong>(ids)  &#x21d2; <tt>Hash</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Deletes a group with given ids</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>ids</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>a collection of ids to delete</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+193
+194
+195</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/active_campaign/api/groups.rb', line 193</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bulk_delete_groups'>bulk_delete_groups</span><span class='lparen'>(</span><span class='id identifier rubyid_ids'>ids</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>groups/bulk_delete</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>ids:</span> <span class='id identifier rubyid_ids'>ids</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_group-instance_method">
+  
+    #<strong>create_group</strong>(params)  &#x21d2; <tt>Hash</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Create a new group</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>create a new group with this data</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>params</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:title</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Title of the group to be created</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:descript</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Group description</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_message_add</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for adding messages</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:unsubscribelink</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Whether or not to force unsubscribe links</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:optinconfirm</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Whether or not to force optin confirm for this group</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_list_add</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for adding lists</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_list_edit</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for editing lists</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_list_delete</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for deleting lists</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_list_headers</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for managing custom email headers</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_list_emailaccount</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for managing Unsubscribe By Email</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_list_bounce</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for accessing list bounce settings</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_message_edit</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for editing messages</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_message_delete</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for deleting messages</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_message_send</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for sending messages</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_add</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for adding contacts</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_edit</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for editing contacts</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_delete</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for deleting contacts</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_merge</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for merging contacts</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_import</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for importing contacts</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_approve</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for approving contacts</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_export</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for exporting contacts</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_sync</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for syncing contacts</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_filters</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for managing contact list segments</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_actions</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for managing contact actions</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_fields</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for managing contact custom fields</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_user_add</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for adding users</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_user_edit</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for editing users</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_user_delete</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for deleting users</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_group_add</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for adding groups</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_group_edit</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for editing groups</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_group_delete</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for deleting groups</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_template_add</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for adding templates</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_template_edit</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for editing templates</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_template_delete</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for deleting templates</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_personalization_add</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for adding personalization tags</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_personalization_edit</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for editing personalization tags</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_personalization_delete</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for deleting personalization tags</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_automation_manage</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_form_edit</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for editing subscription forms</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_reports_campaign</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for viewing campaign reports</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_reports_list</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for viewing list reports</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_reports_user</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for viewing user reports</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_startup_reports</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Campaign ID of last campaign report viewed to decide
+whether to show link on startup</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_reports_trend</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for viewing trend reports</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_startup_gettingstarted</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Whether or not to show the &quot;getting started&quot;
+tutorial on overview page</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_deal</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for viewing deals</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_deal_delete</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for deleting deals</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_deal_reassign</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for reassigning deals</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_deal_group_add</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for adding deal groups</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_deal_group_edit</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for editing deal groups</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_deal_group_delete</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for deleting deals groups</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_saved_responses_manage</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for managing saved responses</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:req_approval</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Whether or not this group requires all campaigns to be approved</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:req_approval1st</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Whether or not this group requires first campaign to be approved</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:req_approval_notify</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Who to notify for approval related issues (email)</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:socialdata</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Whether or not to show social links in campaigns sent from this group</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>a hash with information about the newly created group</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/active_campaign/api/groups.rb', line 76</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_group'>create_group</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>groups</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>group:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete_group-instance_method">
+  
+    #<strong>delete_group</strong>(id)  &#x21d2; <tt>Hash</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Deletes a group with given id</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the id of a group to delete</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+182
+183
+184</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/active_campaign/api/groups.rb', line 182</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_delete_group'>delete_group</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>groups/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="show_group-instance_method">
+  
+    #<strong>show_group</strong>(id)  &#x21d2; <tt>Hash</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get a single group</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the id of a group to show</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+87
+88
+89</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/active_campaign/api/groups.rb', line 87</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_show_group'>show_group</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>groups/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="show_groups-instance_method">
+  
+    #<strong>show_groups</strong>(search = nil)  &#x21d2; <tt>Array&lt;Hash&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get a list of groups</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>search</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Filter groups that match the given value in the group attributes</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Hash&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+98
+99
+100</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/active_campaign/api/groups.rb', line 98</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_show_groups'>show_groups</span><span class='lparen'>(</span><span class='id identifier rubyid_search'>search</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>groups</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>search:</span> <span class='id identifier rubyid_search'>search</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update_group-instance_method">
+  
+    #<strong>update_group</strong>(id, params)  &#x21d2; <tt>Hash</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Update an existing group with given id</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the id of a group to update</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>update an existing group with this data</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>params</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:title</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Title of the group to be created</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:descript</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Group description</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_message_add</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for adding messages</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:unsubscribelink</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Whether or not to force unsubscribe links</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:optinconfirm</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Whether or not to force optin confirm for this group</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_list_add</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for adding lists</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_list_edit</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for editing lists</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_list_delete</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for deleting lists</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_list_headers</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for managing custom email headers</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_list_emailaccount</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for managing Unsubscribe By Email</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_list_bounce</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for accessing list bounce settings</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_message_edit</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for editing messages</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_message_delete</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for deleting messages</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_message_send</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for sending messages</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_add</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for adding contacts</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_edit</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for editing contacts</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_delete</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for deleting contacts</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_merge</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for merging contacts</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_import</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for importing contacts</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_approve</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for approving contacts</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_export</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for exporting contacts</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_sync</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for syncing contacts</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_filters</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for managing contact list segments</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_actions</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for managing contact actions</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_contact_fields</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for managing contact custom fields</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_user_add</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for adding users</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_user_edit</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for editing users</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_user_delete</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for deleting users</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_group_add</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for adding groups</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_group_edit</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for editing groups</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_group_delete</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for deleting groups</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_template_add</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for adding templates</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_template_edit</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for editing templates</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_template_delete</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for deleting templates</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_personalization_add</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for adding personalization tags</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_personalization_edit</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for editing personalization tags</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_personalization_delete</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for deleting personalization tags</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_automation_manage</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_form_edit</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for editing subscription forms</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_reports_campaign</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for viewing campaign reports</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_reports_list</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for viewing list reports</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_reports_user</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for viewing user reports</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_startup_reports</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Campaign ID of last campaign report viewed to decide
+whether to show link on startup</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_reports_trend</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for viewing trend reports</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_startup_gettingstarted</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Whether or not to show the &quot;getting started&quot;
+tutorial on overview page</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_deal</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for viewing deals</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_deal_delete</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for deleting deals</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_deal_reassign</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for reassigning deals</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_deal_group_add</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for adding deal groups</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_deal_group_edit</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for editing deal groups</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_deal_group_delete</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for deleting deals groups</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pg_saved_responses_manage</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Permission for managing saved responses</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:req_approval</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Whether or not this group requires all campaigns to be approved</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:req_approval1st</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Whether or not this group requires first campaign to be approved</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:req_approval_notify</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Who to notify for approval related issues (email)</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:socialdata</span>
+          <span class="type">(<tt>true</tt>, <tt>false</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Whether or not to show social links in campaigns sent from this group</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>a hash with information about the newly created group</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>a hash with information about the newly created group</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+171
+172
+173</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/active_campaign/api/groups.rb', line 171</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_update_group'>update_group</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>groups/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>group:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Feb  3 13:17:35 2020 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.24 (ruby-2.6.5).
+</div>
+
+    </div>
+  </body>
+</html>
