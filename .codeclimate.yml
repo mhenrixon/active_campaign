@@ -1,5 +1,11 @@
 ---
-version: "2"         # required to adjust maintainability checks
+version: "2"
+
+prepare:
+  fetch:
+  - url: "https://raw.githubusercontent.com/mhenrixon/rubocop-mhenrixon/master/config/default.yml"
+    path: ".rubocop.yml"
+            # required to adjust maintainability checks
 checks:
   argument-count:
     config:
@@ -51,7 +57,7 @@ plugins:
     config:
       file: .reek.yml
   rubocop:
-    enabled: false
+    enabled: true
     channel: rubocop-0-79
 
 exclude_patterns:

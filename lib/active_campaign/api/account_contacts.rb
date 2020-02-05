@@ -3,15 +3,15 @@
 module ActiveCampaign
   module API
     #
-    # Interface to account endpoints
+    # Interface to account contact endpoints
     #
     # @author Mikael Henriksson <mikael@mhenrixon.com>
     #
     module AccountContacts
       #
-      # Create a new account
+      # Create a new account contact
       #
-      # @param [Hash] params create a new account with this data
+      # @param [Hash] params create a new account contact with this data
       # @option params [String] :contact the id of the contact
       # @option params [String] :account the id of the account
       # @option params [String] :job_title job title of the account contact
@@ -23,7 +23,7 @@ module ActiveCampaign
       end
 
       #
-      # Get a single account
+      # Get a single account contact
       #
       # @param [Integer] id the id of a account to show
       #
@@ -34,9 +34,9 @@ module ActiveCampaign
       end
 
       #
-      # Get a list of accounts
+      # Get a list of account contacts
       #
-      # @param [String] search Filter accounts that match the given value in the account attributes
+      # @param [String] search Filter account contacts that match the given value in the account attributes
       #
       # @return [Array<Hash>]
       #
@@ -45,24 +45,24 @@ module ActiveCampaign
       end
 
       #
-      # Update an existing account with given id
+      # Update an existing account contact with given id
       #
-      # @param [String] id the id of a account to update
-      # @param [Hash] params create a new account with this data
+      # @param [String] id the id of a account contact to update
+      # @param [Hash] params create a new account contact with this data
       # @option params [String] :contact the id of the contact
       # @option params [String] :account the id of the account
       # @option params [String] :job_title job title of the account contact
       #
-      # @return [Hash] a hash with information about the newly created account
+      # @return [Hash] a hash with information about the newly created account contact
       #
       def update_account_contact(id, params)
         put("accountContacts/#{id}", account_contact: params)
       end
 
       #
-      # Deletes a account with given id
+      # Deletes a account contact with given id
       #
-      # @param [String] id the id of a account to delete
+      # @param [String] id the id of a account contact to delete
       #
       # @return [Hash]
       #
