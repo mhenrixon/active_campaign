@@ -1,11 +1,11 @@
 ---
 version: "2"
 
-prepare:
-  fetch:
-  - url: "https://raw.githubusercontent.com/mhenrixon/rubocop-mhenrixon/master/config/default.yml"
-    path: ".rubocop.yml"
-            # required to adjust maintainability checks
+# prepare:
+#   fetch:
+#   - url: "https://raw.githubusercontent.com/mhenrixon/rubocop-mhenrixon/master/config/default.yml"
+#     path: ".rubocop.yml" # required to adjust maintainability checks
+
 checks:
   argument-count:
     config:
