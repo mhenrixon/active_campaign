@@ -44,7 +44,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-mhenrixon', '~> 0.79.4'
   spec.add_development_dependency 'simplecov', '~> 0.17'
   spec.add_development_dependency 'simplecov-material'
-  spec.add_development_dependency 'simplecov-oj', '~> 0.18'
+  spec.add_development_dependency 'simplecov-oj', '~> 0.18', '>= 0.18.3'
   spec.add_development_dependency 'vcr', '~> 5.0'
   spec.add_development_dependency 'webmock', '~> 3.8'
 end
