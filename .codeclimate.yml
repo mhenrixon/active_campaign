@@ -57,7 +57,7 @@ plugins:
     config:
       file: .reek.yml
   rubocop:
-    enabled: true
+    enabled: false
     channel: rubocop-0-79
 
 exclude_patterns:
