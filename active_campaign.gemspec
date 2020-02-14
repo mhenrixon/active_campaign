@@ -42,9 +42,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.9'
   spec.add_development_dependency 'rspec-json_expectations', '~> 2.2'
   spec.add_development_dependency 'rubocop-mhenrixon', '~> 0.79.4'
-  spec.add_development_dependency 'simplecov', '~> 0.17'
+  spec.add_development_dependency 'simplecov', '~> 0.18'
   spec.add_development_dependency 'simplecov-material'
-  spec.add_development_dependency 'simplecov-oj', '~> 0.18'
   spec.add_development_dependency 'vcr', '~> 5.0'
   spec.add_development_dependency 'webmock', '~> 3.8'
 end
