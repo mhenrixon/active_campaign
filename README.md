@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/mhenrixon/active_campaign.svg?branch=master)](https://travis-ci.org/mhenrixon/active_campaign)[![Code Climate](https://codeclimate.com/github/mhenrixon/active_campaign/badges/gpa.svg)](https://codeclimate.com/github/mhenrixon/active_campaign)[![Test Coverage](https://codeclimate.com/github/mhenrixon/active_campaign/badges/coverage.svg)](https://codeclimate.com/github/mhenrixon/active_campaign/coverage)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmhenrixon%2Factive_campaign.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmhenrixon%2Factive_campaign?ref=badge_shield)
 # Active::Campaign::Ruby
 
 A simple wrapper for the ActiveCampaign API. Since their API seems to be
@@ -67,3 +68,7 @@ ActiveCampaign.sync_contact(
 4. Rebase against master we want 1 commit per feature please
 5. Push to the branch (`git push origin my-new-feature`)
 6. Create new Pull Request
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmhenrixon%2Factive_campaign.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmhenrixon%2Factive_campaign?ref=badge_large)

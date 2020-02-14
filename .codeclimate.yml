@@ -1,10 +1,10 @@
 ---
 version: "2"
 
-prepare:
-  fetch:
-  - url: "https://raw.githubusercontent.com/mhenrixon/rubocop-mhenrixon/master/config/default.yml"
-    path: ".rubocop.yml"
+# prepare:
+#   fetch:
+#   - url: "https://raw.githubusercontent.com/mhenrixon/rubocop-mhenrixon/master/config/default.yml"
+#     path: ".rubocop.yml"
             # required to adjust maintainability checks
 checks:
   argument-count:
@@ -57,8 +57,8 @@ plugins:
     config:
       file: .reek.yml
   rubocop:
-    enabled: true
-    channel: rubocop-0-79
+    enabled: false
+    # channel: rubocop-0-79
 
 exclude_patterns:
   - "Gemfile"
