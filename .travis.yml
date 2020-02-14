@@ -36,9 +36,6 @@ after_script:
     ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
     fi;
 
-# after_success:
-#   - fossa test
-
 rvm:
   - 2.5.7
   - 2.7.0
