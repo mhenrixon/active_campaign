@@ -17,7 +17,6 @@ before_install:
   - gem install bundler rubocop-mhenrixon
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
-  - "curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | sudo bash"
 
 install:
   - bundle install -j8 -r3
@@ -29,8 +28,6 @@ script:
   - if [[ "${COV}" = "true" ]]; then bundle exec reek .; fi;
   - if [[ "${COV}" = "true" ]]; then bundle exec rubocop -P .; fi;
   - bundle exec rspec spec
-  - fossa init
-  - fossa analyze
 
 after_script:
   - >
@@ -42,6 +39,7 @@ after_script:
 #   - fossa test
 
 rvm:
+  - 2.7.0
   - jruby-9.1.8.0
 env: COV=false
 
