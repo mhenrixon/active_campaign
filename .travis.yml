@@ -11,9 +11,6 @@ cache:
   directories:
      - /home/travis/.rvm/
 
-jdk:
- - openjdk8
-
 before_install:
   - gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
   -  gem update --system
@@ -43,8 +40,8 @@ after_script:
 #   - fossa test
 
 rvm:
+  - 2.5.7
   - 2.7.0
-  - jruby-9.2.9.0
 env: COV=false
 
 matrix:
