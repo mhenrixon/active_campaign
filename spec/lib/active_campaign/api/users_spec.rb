@@ -46,11 +46,11 @@ RSpec.describe ActiveCampaign::API::Users, :vcr do
 
     let(:expected_user_response) do
       {
-        username:"admin",
-        first_name: "Mikael",
-        last_name: "Henriksson",
-        email: "mikael@mhenrixon.com",
-        local_zoneid: "Europe/Berlin",
+        username: 'admin',
+        first_name: 'Mikael',
+        last_name: 'Henriksson',
+        email: 'mikael@mhenrixon.com',
+        local_zoneid: 'Europe/Berlin'
       }
     end
 
