@@ -152,7 +152,7 @@ module ActiveCampaign
   #
   # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
-  class TimeoutError < ServerError
+  class TimeoutError < ErrorProxy
     def initialize(exc = 'timeout', response = nil)
       super(response, exc)
     end
