@@ -15,15 +15,21 @@ before_install:
   - gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
   -  gem update --system
   - gem install bundler rubocop-mhenrixon
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
+  - >
+    if [[ "${COV}" = "true" ]]; then
+    curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+    chmod +x ./cc-test-reporter
+    fi;
 
 install:
   - bundle install -j8 -r3
 
 before_script:
   - env
-  - ./cc-test-reporter before-build
+  - >
+    if [[ "${COV}" = "true" ]]; then
+    ./cc-test-reporter before-build
+    fi;
 
 script:
   - if [[ "${COV}" = "true" ]]; then bundle exec reek .; fi;
@@ -39,7 +45,6 @@ after_script:
 rvm:
   - 2.5.7
   - 2.7.0
-env: COV=false
 
 matrix:
   fast_finish: true
@@ -54,6 +59,5 @@ notifications:
   slack:
     rooms:
       secure: B05ZUPdHrhxVnz7Mlpd5KhFH2bdE9ykFRgqLFHV3EcdyWKm85PPgbfl4cNPTFXHHhzk/5E9h5hwEXpicJYSsq6lhU8i3WesidrA+GHzrpesowTHpvtJMxIjsE1Tavug0xQs/bca72yN2t51m8UiD1scOSIuvSOCNkuKkn3+rSIo=
-    on_start: never
     on_failure: always
     on_success: change
