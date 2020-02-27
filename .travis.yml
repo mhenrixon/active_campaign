@@ -17,8 +17,8 @@ before_install:
   - gem install bundler rubocop-mhenrixon
   - >
     if [[ "${COV}" = "true" ]]; then
-    curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-    chmod +x ./cc-test-reporter
+    curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter;
+    chmod +x ./cc-test-reporter;
     fi;
 
 install:
@@ -28,18 +28,18 @@ before_script:
   - env
   - >
     if [[ "${COV}" = "true" ]]; then
-    ./cc-test-reporter before-build
+    ./cc-test-reporter before-build;
     fi;
 
 script:
   - if [[ "${COV}" = "true" ]]; then bundle exec reek .; fi;
   - if [[ "${COV}" = "true" ]]; then bundle exec rubocop -P .; fi;
-  - bundle exec rspec spec
+  - bundle exec rspec spec;
 
 after_script:
   - >
     if [[ "${COV}" = "true" ]]; then
-    ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+    ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT;
     fi;
 
 rvm:
