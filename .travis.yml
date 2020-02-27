@@ -1,4 +1,6 @@
 env:
+  - ACTIVE_CAMPAIGN_URL=https://account.api-us1.com/api/3
+  - API_TOKEN=ACCOUNT_TOKEN
   matrix:
     - COV=false
   global:
