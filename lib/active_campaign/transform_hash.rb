@@ -50,7 +50,7 @@ module ActiveCampaign
       when Hash
         transform_keys(value, *new_case)
       when Array
-        value.map { |item| transform_keys(item, *new_case) }
+        value.map { |item| transform_value(item, *new_case) }
       else
         value
       end
