@@ -34,7 +34,7 @@ client = ::ActiveCampaign::Client.new(
 
 # or configure globally for all clients
 ::ActiveCampaign.configure do |config|
-  config.api_url = 'YOUR-ENDPOINT', # e.g. 'https://youraccount.api-us1.com/api/3'
+  config.api_url = 'YOUR-ENDPOINT' # e.g. 'https://youraccount.api-us1.com/api/3'
   config.api_token = 'YOUR-API-KEY' # e.g. 'a4e60a1ba200595d5cc37ede5732545184165e'
 end
 
