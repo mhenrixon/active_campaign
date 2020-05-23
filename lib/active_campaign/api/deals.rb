@@ -35,6 +35,32 @@ module ActiveCampaign
       end
 
       #
+      # Create a new deal note
+      #
+      # @param [Integer] id the id of a deal to show
+      # @param [String] note Deal note's content
+      #
+      # @return [Hash] a hash with information about the newly created deal
+      #
+
+      def create_deal_note(deal_id, note)
+        post("deals/#{deal_id}/notes", note: { note: note })
+      end
+
+      #
+      # Create a new deal note
+      #
+      # @param [Integer] id the id of a deal to show
+      # @param [String] note Deal note's content
+      #
+      # @return [Hash] a hash with information about the newly created deal
+      #
+
+      def update_deal_note(deal_id, note_id, note)
+        post("deals/#{deal_id}/notes/#{note_id}", note: { note: note })
+      end
+
+      #
       # Get a single deal
       #
       # @param [Integer] id the id of a deal to show

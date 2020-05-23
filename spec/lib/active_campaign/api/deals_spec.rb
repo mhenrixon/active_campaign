@@ -106,4 +106,37 @@ RSpec.describe ActiveCampaign::API::Deals, :vcr do
       )
     end
   end
+
+  describe '#create_deal_note' do
+    subject(:response) { client.create_deal_note(deal_id, note) }
+
+    include_context 'with existing deal'
+
+    let(:note) { 'Bogus note' }
+
+    it 'returns a deal hash' do
+      expect(response).to include_json(
+        deals: [{ id: deal_id }],
+        note: { note: note }
+      )
+    end
+  end
+
+  describe '#update_deal_note' do
+    subject(:response) { client.update_deal_note(deal_id, note_id, new_note) }
+
+    let!(:deal_note) { client.create_deal_note(deal_id, note) }
+    let(:note_id)    { deal_note.dig(:note, :id) }
+    let(:note)       { 'Bogus note' }
+    let(:new_note)   { 'This note is awesome' }
+
+    include_context 'with existing deal'
+
+    it 'returns a deal hash' do
+      expect(response).to include_json(
+        deals: [{ id: deal_id }],
+        note: { note: new_note }
+      )
+    end
+  end
 end
