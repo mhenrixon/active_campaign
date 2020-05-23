@@ -5,28 +5,30 @@ require 'spec_helper'
 RSpec.describe ActiveCampaign::API::Deals, :vcr do
   let(:client) { ActiveCampaign.client }
 
-  fdescribe '#create_deal' do
+  describe '#create_deal' do
     subject(:response) { client.create_deal(deal_params) }
 
-    include_context "with deal params"
+    include_context 'with deal params'
 
     after do
       client.delete_deal(response.dig(:deal, :id))
     end
 
+    # rubocop:disable RSpec/ExampleLength
     it 'returns a deal hash' do
       expect(response).to include_json(
+        contacts: [
+          { id: contact_id }
+        ],
+        deal_groups: [
+          { id: pipeline_id }
+        ],
         deal: {
-          name: deal_name,
-          title: deal_title,
-          description: deal_description,
-          deal: deal_deal,
-          deal_url: deal_deal_url,
-          percent: deal_percent,
-          status: deal_status,
+          title: deal_title
         }
       )
     end
+    # rubocop:enable RSpec/ExampleLength
   end
 
   describe '#show_deal' do
@@ -34,40 +36,57 @@ RSpec.describe ActiveCampaign::API::Deals, :vcr do
 
     include_context 'with existing deal'
 
+    # rubocop:disable RSpec/ExampleLength
     it 'returns a deal hash' do
       expect(response).to include_json(
         deal: {
           id: deal_id,
-          name: deal_name,
-          deal_url: deal_url
+          title: deal_title,
+          description: deal_description,
+          contact: deal_contact,
+          value: deal_value.to_i.to_s,
+          currency: deal_currency,
+          group: deal_group.to_s,
+          percent: deal_percent.to_s,
+          status: deal_status.to_s,
+          is_disabled: false
         }
       )
     end
+    # rubocop:enable RSpec/ExampleLength
   end
 
   describe '#update_deal' do
     subject(:response) { client.update_deal(deal_id, update_params) }
 
-    let(:new_deal_name) { 'mhenrixon Consulting' }
-    let(:new_deal_url)  { 'https://www.mhenrixon.com' }
-    let(:update_params) do
-      {
-        name: new_deal_name,
-        deal_url: new_deal_url
-      }
-    end
-
     include_context 'with existing deal'
 
+    let(:new_deal_title) { 'Awesome Deal' }
+    let(:new_deal_description) { 'This deal is fucking awesome' }
+    let(:update_params) do
+      deal_params.merge(
+        title: new_deal_title,
+        description: new_deal_description
+      )
+    end
+
+    # rubocop:disable RSpec/ExampleLength
     it 'returns a deal hash' do
       expect(response).to include_json(
         deal: {
           id: deal_id,
-          name: new_deal_name,
-          deal_url: new_deal_url
+          title: new_deal_title,
+          description: new_deal_description,
+          contact: deal_contact,
+          currency: deal_currency,
+          group: deal_group.to_s,
+          percent: deal_percent,
+          status: deal_status,
+          is_disabled: false
         }
       )
     end
+    # rubocop:enable RSpec/ExampleLength
   end
 
   describe '#show_deals' do
@@ -81,8 +100,8 @@ RSpec.describe ActiveCampaign::API::Deals, :vcr do
       expect(response).to include_json(
         deals: [{
           id: deal_id,
-          name: deal_name,
-          deal_url: deal_url
+          title: deal_title,
+          description: deal_description
         }]
       )
     end
