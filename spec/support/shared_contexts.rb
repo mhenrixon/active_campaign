@@ -3,6 +3,7 @@
 require_relative 'shared_contexts/with_address'
 require_relative 'shared_contexts/with_group'
 require_relative 'shared_contexts/with_list'
+require_relative 'shared_contexts/with_pipeline'
 require_relative 'shared_contexts/with_user'
 
 RSpec.shared_context 'with existing account' do

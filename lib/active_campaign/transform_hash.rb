@@ -9,6 +9,8 @@ module ActiveCampaign
   # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
   module TransformHash
+    module_function
+
     #
     # Transforms case of all hash keys
     # @note this is used to always output a hash response
@@ -50,9 +52,20 @@ module ActiveCampaign
       when Hash
         transform_keys(value, *new_case)
       when Array
-        value.map { |item| transform_keys(item, *new_case) }
+        transform_array(value, *new_case)
       else
         value
+      end
+    end
+
+    def transform_array(value, *new_case)
+      value.map do |element|
+        case element
+        when Hash
+          transform_keys(element, *new_case)
+        else
+          element
+        end
       end
     end
   end
