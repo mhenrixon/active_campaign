@@ -3,6 +3,20 @@
 source 'https://rubygems.org'
 gemspec
 
+gem 'codeclimate-test-reporter'
+gem 'factory_bot'
+gem 'gem-release'
+gem 'pry'
+gem 'rake'
+gem 'reek'
+gem 'rspec'
+gem 'rspec-json_expectations'
+gem 'rubocop-mhenrixon'
+gem 'simplecov'
+gem 'simplecov-material'
+gem 'vcr'
+gem 'webmock'
+
 platform :mri do
   gem 'simplecov-oj'
 end
