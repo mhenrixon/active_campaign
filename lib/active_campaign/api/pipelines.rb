@@ -3,7 +3,7 @@
 module ActiveCampaign
   module API
     #
-    # Interface to deal endpoints
+    # Interface to pipline endpoints (dealGroups)
     #
     # @author Mikael Henriksson <mikael@mhenrixon.com>
     #
