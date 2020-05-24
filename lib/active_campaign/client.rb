@@ -15,6 +15,7 @@ module ActiveCampaign
     endpoint :addresses
     endpoint :contacts
     endpoint :deals
+    endpoint :deal_stages
     endpoint :groups
     endpoint :lists
     endpoint :pipelines

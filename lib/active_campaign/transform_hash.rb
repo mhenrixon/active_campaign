@@ -58,8 +58,8 @@ module ActiveCampaign
       end
     end
 
-    def transform_array(value, *new_case)
-      value.map do |element|
+    def transform_array(collection, *new_case)
+      collection.map do |element|
         case element
         when Hash
           transform_keys(element, *new_case)

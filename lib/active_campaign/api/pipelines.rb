@@ -10,7 +10,7 @@ module ActiveCampaign
     module Pipelines
       # rubocop:disable Layout/LineLength
       #
-      # Create a new deal
+      # Create a new pipeline (dealGroup)
       #
       # @param [Hash] params create a new pipeline with this data
       # @option params [String] :title Pipeline's title.
@@ -27,9 +27,10 @@ module ActiveCampaign
       def create_pipeline(params)
         post('dealGroups', deal_group: params)
       end
+      alias create_deal_group create_pipeline
 
       #
-      # Get a single deal
+      # Get a single pipeline (dealGroup)
       #
       # @param [Integer] id the id of a deal to show
       #
@@ -38,9 +39,10 @@ module ActiveCampaign
       def show_pipeline(id)
         get("dealGroups/#{id}")
       end
+      alias show_deal_group show_pipeline
 
       #
-      # Get a list of pipelines
+      # Get a list of pipelines (dealGroups)
       #
       # @param [String] search Filter pipelines that match the given value in the pipeline attributes
       #
@@ -49,10 +51,11 @@ module ActiveCampaign
       def show_pipelines(search = nil)
         get('dealGroups', search: search)
       end
+      alias show_deal_groups show_pipelines
 
       # rubocop:disable Layout/LineLength
       #
-      # Update an existing pipeline with given id
+      # Update an existing pipeline (dealGroup) with given id
       #
       # @param [String] id the id of a pipeline to update
       # @param [Hash] params create a new pipeline with this data
@@ -70,9 +73,10 @@ module ActiveCampaign
       def update_pipeline(id, params)
         put("dealGroups/#{id}", deal_group: params)
       end
+      alias update_deal_group update_pipeline
 
       #
-      # Deletes a pipeline with given id
+      # Deletes a pipeline (dealGroup) with given id
       #
       # @param [String] id the id of a pipeline to delete
       #
@@ -81,6 +85,7 @@ module ActiveCampaign
       def delete_pipeline(id)
         delete("dealGroups/#{id}")
       end
+      alias delete_deal_group delete_pipeline
     end
   end
 end

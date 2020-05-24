@@ -6,7 +6,7 @@ module ActiveCampaign
   #
   # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
-  class DependencyMissing < StandardError
+  class DependencyMissing < RuntimeError
     def initialize(endpoint)
       @endpoint = endpoint
       super("The endpoint :#{endpoint} couldn't be loaded")
@@ -18,7 +18,7 @@ module ActiveCampaign
   #
   # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
-  class Error < StandardError
+  class Error < RuntimeError
     def initialize(response = nil, exception = nil)
       self.response = response
       @exception    = exception
@@ -53,7 +53,7 @@ module ActiveCampaign
   #
   # @author Mikael Henriksson <mikael@mhenrixon.com>
   #
-  class ErrorProxy < StandardError
+  class ErrorProxy < RuntimeError
     def initialize(error = nil)
       self.error = error
     end
