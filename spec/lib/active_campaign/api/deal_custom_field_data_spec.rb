@@ -25,7 +25,9 @@ RSpec.describe ActiveCampaign::API::DealCustomFieldData, :vcr do
     end
 
     it 'returns a message hash' do
-      expect(response).to include_json(message: "DealCustomFieldDatas with ID(s): #{deal_custom_field_datum_id} successfully bulk updated.")
+      expect(response).to include_json(
+        message: "DealCustomFieldDatas with ID(s): #{deal_custom_field_datum_id} successfully bulk updated."
+      )
     end
   end
 
