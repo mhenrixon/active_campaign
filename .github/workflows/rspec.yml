@@ -1,4 +1,4 @@
-name: Execute Tests
+name: RSpec
 on: [push, pull_request]
 jobs:
   tests:
