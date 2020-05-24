@@ -3,6 +3,7 @@
 require_relative 'shared_contexts/with_address'
 require_relative 'shared_contexts/with_deal'
 require_relative 'shared_contexts/with_deal_custom_field_meta'
+require_relative 'shared_contexts/with_deal_custom_field_data'
 require_relative 'shared_contexts/with_deal_stage'
 require_relative 'shared_contexts/with_group'
 require_relative 'shared_contexts/with_list'
