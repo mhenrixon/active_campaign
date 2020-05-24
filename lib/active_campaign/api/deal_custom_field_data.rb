@@ -3,16 +3,16 @@
 module ActiveCampaign
   module API
     #
-    # Interface to dealCustomMetum endpoints
+    # Interface to dealCustomDatum endpoints
     #
     # @author Mikael Henriksson <mikael@mhenrixon.com>
     #
     module DealCustomFieldData
       # rubocop:disable Layout/LineLength
       #
-      # Create a new dealCustomMetum
+      # Create a new dealCustomDatum
       #
-      # @param [Hash] params create a new dealCustomMetum with this data
+      # @param [Hash] params create a new dealCustomDatum with this data
       # @option params [String] field_label Name of the field (required)
       # @option params [String] :field_type Type of field. Possible values are: text, textarea, date, dropdown, multiselect, radio, checkbox, hidden, currency, or number. (required)
       # @option params [Array<String>] :field_options Options for the field. Only necessary if field_type is dropdown, multiselect, radio, or checkbox.
@@ -30,7 +30,7 @@ module ActiveCampaign
       end
 
       #
-      # Get a single dealCustomMetum
+      # Get a single dealCustomDatum
       #
       # @param [Integer] id the id of a deal to show
       #
@@ -41,7 +41,7 @@ module ActiveCampaign
       end
 
       #
-      # Get a list of dealCustomMetum
+      # Get a list of dealCustomDatum
       #
       # @param [String] search Filter pipelines that match the given value in the pipeline attributes
       #
@@ -53,10 +53,10 @@ module ActiveCampaign
 
       # rubocop:disable Layout/LineLength
       #
-      # Update an existing dealCustomMetum with given id
+      # Update an existing dealCustomDatum with given id
       #
-      # @param [String] id the id of a dealCustomMetum to update
-      # @param [Hash] params update the dealCustomMetum with this data
+      # @param [String] id the id of a dealCustomDatum to update
+      # @param [Hash] params update the dealCustomDatum with this data
       # @option params [String] field_label Name of the field (required)
       # @option params [Array<String>] :field_options Options for the field. Only necessary if field_type is dropdown, multiselect, radio, or checkbox.
       # @option params [String] :field_default Default value of the field
@@ -64,7 +64,7 @@ module ActiveCampaign
       # @option params [true, false] :is_required Whether or not the field is required on forms
       # @option params [Integer] :display_order Order for displaying the field on Manage Fields page and deal profiles
       #
-      # @return [Hash] a hash with information about the newly updated dealCustomMetum
+      # @return [Hash] a hash with information about the newly updated dealCustomDatum
       #
       # rubocop:enable Layout/LineLength
       def update_deal_custom_field_data(id, params)
@@ -72,9 +72,9 @@ module ActiveCampaign
       end
 
       #
-      # Deletes a dealCustomMetum with given id
+      # Deletes a dealCustomDatum with given id
       #
-      # @param [String] id the id of a dealCustomMetum to delete
+      # @param [String] id the id of a dealCustomDatum to delete
       #
       # @return [Hash]
       #
