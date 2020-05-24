@@ -18,8 +18,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-      - name: Execute Tests
-          run: |
-            gem install bundler
-            bin/bundle install  --jobs=$(nproc) --retry=$(nproc)
-            bin/rspec
+      - run: gem install bundler
+      - run: bundle install --jobs=$(nproc) --retry=$(nproc)
+      - run: bin/rspec
+
