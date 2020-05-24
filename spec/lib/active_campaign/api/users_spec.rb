@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe ActiveCampaign::API::Users, :vcr do
   let(:client) { ActiveCampaign.client }
 

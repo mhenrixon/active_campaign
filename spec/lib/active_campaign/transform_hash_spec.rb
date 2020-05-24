@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe ActiveCampaign::TransformHash do
   let(:complex_hash) do
     {
