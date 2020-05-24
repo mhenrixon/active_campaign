@@ -4,6 +4,7 @@ require 'logger'
 require 'faraday/logging/formatter'
 
 module ActiveCampaign
+  LOGGER = ::Logger.new(STDOUT)
   module Faraday
     module Middleware
       #
@@ -37,7 +38,7 @@ module ActiveCampaign
 
         def formatter
           @formatter ||= ::Faraday::Logging::Formatter.new(
-            logger: ::Logger.new(STDOUT),
+            logger: LOGGER,
             options: { headers: true, bodies: true }
           )
         end

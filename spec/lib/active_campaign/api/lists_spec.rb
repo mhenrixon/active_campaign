@@ -28,7 +28,7 @@ RSpec.describe ActiveCampaign::API::Lists, :vcr do
   describe '#show_lists', :with_existing_list do
     subject(:response) { client.show_lists }
 
-    it 'returns a list hash' do
+    it 'returns a lists array' do
       expect(response).to include_json(lists: [list_params])
     end
   end

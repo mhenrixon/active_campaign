@@ -2,11 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: "<API_ENDPOINT>/lists"
+    uri: "<API_ENDPOINT>/accounts"
     body:
       encoding: UTF-8
-      string: '{"list":{"name":"Awesome List","stringid":"awesome-list","sender_url":"https://mhenrixon.com","sender_reminder":"This
-        is why we are sending you this"}}'
+      string: '{"account":{"name":"Mikael","accountUrl":"https://www.mhenrixon.com/"}}'
     headers:
       User-Agent:
       - ActiveCampaign Ruby Client (v3.0.0)
@@ -24,18 +23,18 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Sun, 24 May 2020 10:17:13 GMT
+      - Sun, 24 May 2020 10:17:14 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '539'
+      - '727'
       Connection:
       - keep-alive
       Set-Cookie:
-      - PHPSESSID=5e656d973547828547529dc489526fb3; path=/; HttpOnly
-      - __cfduid=d328f5747e37a679dcf15c64e480c01331590315433; expires=Tue, 23-Jun-20
-        10:17:13 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
-      - em_acp_globalauth_cookie=69dc75f1-48e0-4b1b-965c-f567269b04f5; path=/; domain=.mhenrixonconsulting1570091019.api-us1.com;
+      - PHPSESSID=238b0e95051fdde58e73a9654b47e21a; path=/; HttpOnly
+      - __cfduid=d8c31d56507601cc1409375d23571b8381590315434; expires=Tue, 23-Jun-20
+        10:17:14 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=a8d83c04-4139-46ed-9551-0ac6b87241fe; path=/; domain=.mhenrixonconsulting1570091019.api-us1.com;
         secure; httponly
       - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
         path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
@@ -48,9 +47,9 @@ http_interactions:
       Pragma:
       - no-cache
       X-Envoy-Upstream-Service-Time:
-      - '357'
+      - '87'
       X-Request-Id:
-      - '09fe95e9-605d-4e0b-8071-b8dc2ab46156'
+      - b780b042-cb3d-43de-b2d4-e8496ec5003b
       Cf-Cache-Status:
       - DYNAMIC
       Expect-Ct:
@@ -58,18 +57,17 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 59864402bc2c2d57-TXL
+      - 5986440ac8b92d69-TXL
       Cf-Request-Id:
-      - 02e7c8d5b500002d574cabd200000001
+      - 02e7c8dac000002d693fb9f200000001
     body:
       encoding: UTF-8
-      string: '{"list":{"name":"Awesome List","stringid":"awesome-list","sender_url":"https:\/\/mhenrixon.com","sender_reminder":"This
-        is why we are sending you this","cdate":"2020-05-24T05:17:13-05:00","udate":"2020-05-24T05:17:13-05:00","links":{"contactGoalLists":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/lists\/3\/contactGoalLists","user":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/lists\/3\/user","addressLists":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/lists\/3\/addressLists"},"id":"3"}}'
+      string: '{"account":{"name":"Mikael","accountUrl":"https:\/\/www.mhenrixon.com\/","createdTimestamp":"2020-05-24T05:17:14-05:00","updatedTimestamp":"2020-05-24T05:17:14-05:00","links":{"notes":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/accounts\/5\/notes","accountCustomFieldData":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/accounts\/5\/accountCustomFieldData","accountContacts":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/accounts\/5\/accountContacts","emailActivities":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/accounts\/5\/emailActivities","contactEmails":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/accounts\/5\/contactEmails"},"id":"5"}}'
     http_version: null
-  recorded_at: Sun, 24 May 2020 10:17:13 GMT
+  recorded_at: Sun, 24 May 2020 10:17:15 GMT
 - request:
     method: get
-    uri: "<API_ENDPOINT>/lists/3"
+    uri: "<API_ENDPOINT>/accounts?search"
     body:
       encoding: US-ASCII
       string: ''
@@ -90,7 +88,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 24 May 2020 10:17:14 GMT
+      - Sun, 24 May 2020 10:17:15 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -98,15 +96,15 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - PHPSESSID=5adba77e593be55fb800cb6d20bc66fa; path=/; HttpOnly
-      - __cfduid=dac12f0c828acc695ac0eb4da4041459e1590315433; expires=Tue, 23-Jun-20
-        10:17:13 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
-      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
-        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
-      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
-        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
-      - em_acp_globalauth_cookie=e4143282-ab23-4d47-8c3d-c3e33a98d267; path=/; domain=.mhenrixonconsulting1570091019.api-us1.com;
+      - PHPSESSID=4205cd7ad25a10846930b66391c78af0; path=/; HttpOnly
+      - __cfduid=d832e62471f7c9e76305416b960e88ef61590315435; expires=Tue, 23-Jun-20
+        10:17:15 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=9d870e78-ed0c-4ba5-a563-8213993c4203; path=/; domain=.mhenrixonconsulting1570091019.api-us1.com;
         secure; httponly
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
       Cache-Control:
       - no-store, no-cache, must-revalidate
       Expires:
@@ -114,9 +112,9 @@ http_interactions:
       Pragma:
       - no-cache
       X-Envoy-Upstream-Service-Time:
-      - '72'
+      - '71'
       X-Request-Id:
-      - ed29e2f9-072d-43cc-9ae3-5045d1045d53
+      - b31c1cd1-b32e-4cdd-bcf7-f957aae95a2c
       Cf-Cache-Status:
       - DYNAMIC
       Expect-Ct:
@@ -124,19 +122,17 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 598644065bb3d121-TXL
+      - 5986440d585bd11d-TXL
       Cf-Request-Id:
-      - 02e7c8d7f40000d121a4041200000001
+      - 02e7c8dc520000d11d9a3bc200000001
     body:
       encoding: ASCII-8BIT
-      string: '{"list":{"stringid":"awesome-list","userid":"0","name":"Awesome List","cdate":"2020-05-24T05:17:13-05:00","p_use_tracking":"1","p_use_analytics_read":"0","p_use_analytics_link":"0","p_use_twitter":"0","p_use_facebook":"0","p_embed_image":"1","p_use_captcha":"1","send_last_broadcast":"0","private":"0","analytics_domains":null,"analytics_source":"","analytics_ua":"","twitter_token":"","twitter_token_secret":"","facebook_session":null,"carboncopy":null,"subscription_notify":null,"unsubscription_notify":null,"require_name":"0","get_unsubscribe_reason":"0","to_name":"Subscriber","optinoptout":"1","sender_name":"","sender_addr1":"","sender_addr2":"","sender_city":"","sender_state":"","sender_zip":"","sender_country":"","sender_phone":"","sender_url":"https:\/\/mhenrixon.com","sender_reminder":"This
-        is why we are sending you this","fulladdress":null,"optinmessageid":"0","optoutconf":"0","deletestamp":null,"udate":"2020-05-24T05:17:13-05:00","created_timestamp":"2020-05-24
-        05:17:13","updated_timestamp":"2020-05-24 05:17:13","created_by":null,"updated_by":null,"links":{"contactGoalLists":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/lists\/3\/contactGoalLists","user":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/lists\/3\/user","addressLists":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/lists\/3\/addressLists"},"id":"3","user":null}}'
+      string: '{"accounts":[{"name":"Mikael","accountUrl":"https:\/\/www.mhenrixon.com\/","createdTimestamp":"2020-05-24T05:17:14-05:00","updatedTimestamp":"2020-05-24T05:17:14-05:00","contactCount":"0","dealCount":"0","links":{"notes":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/accounts\/5\/notes","accountCustomFieldData":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/accounts\/5\/accountCustomFieldData","accountContacts":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/accounts\/5\/accountContacts","emailActivities":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/accounts\/5\/emailActivities","contactEmails":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/accounts\/5\/contactEmails"},"id":"5"}],"meta":{"total":"1"}}'
     http_version: null
-  recorded_at: Sun, 24 May 2020 10:17:14 GMT
+  recorded_at: Sun, 24 May 2020 10:17:15 GMT
 - request:
     method: delete
-    uri: "<API_ENDPOINT>/lists/3"
+    uri: "<API_ENDPOINT>/accounts/5"
     body:
       encoding: US-ASCII
       string: ''
@@ -157,7 +153,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 24 May 2020 10:17:14 GMT
+      - Sun, 24 May 2020 10:17:15 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -165,10 +161,10 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - PHPSESSID=15073cbbef6fdc870663529e2684b6ce; path=/; HttpOnly
-      - __cfduid=dca00e17e2b0f79656f3d7919447e473c1590315434; expires=Tue, 23-Jun-20
-        10:17:14 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
-      - em_acp_globalauth_cookie=49ff240f-fdc1-4cdf-8567-68f9f973a093; path=/; domain=.mhenrixonconsulting1570091019.api-us1.com;
+      - PHPSESSID=b8425baa6347e3166180dc868106e1fa; path=/; HttpOnly
+      - __cfduid=def2105c9fb68be247179ccb8cd6bb4261590315435; expires=Tue, 23-Jun-20
+        10:17:15 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=8ce03e38-16b8-404d-938a-cf5b3522657e; path=/; domain=.mhenrixonconsulting1570091019.api-us1.com;
         secure; httponly
       - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
         path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
@@ -181,9 +177,9 @@ http_interactions:
       Pragma:
       - no-cache
       X-Envoy-Upstream-Service-Time:
-      - '130'
+      - '77'
       X-Request-Id:
-      - fe3b5734-544b-4676-89ab-6becf7ab4dd8
+      - 6e68eb19-6513-48e0-8763-95b88f162e6a
       Accept-Ranges:
       - bytes
       Cf-Cache-Status:
@@ -193,12 +189,12 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 598644083ce52d45-TXL
+      - 5986440f2f922d39-TXL
       Cf-Request-Id:
-      - 02e7c8d92500002d450f122200000001
+      - 02e7c8dd7a00002d39f3af3200000001
     body:
       encoding: UTF-8
       string: "{}"
     http_version: null
-  recorded_at: Sun, 24 May 2020 10:17:14 GMT
+  recorded_at: Sun, 24 May 2020 10:17:15 GMT
 recorded_with: VCR 5.1.0

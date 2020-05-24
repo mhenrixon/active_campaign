@@ -23,29 +23,33 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Sun, 02 Feb 2020 16:07:37 GMT
+      - Sun, 24 May 2020 10:15:48 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '713'
+      - '720'
       Connection:
       - keep-alive
       Set-Cookie:
-      - PHPSESSID=3045988ed843f21fcb7a914c5d5c91eb; path=/; HttpOnly
-      - __cfduid=d9acfa95f7d75934a43e9f9a6c8d4a1301580659656; expires=Tue, 03-Mar-20
-        16:07:36 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
-      - em_acp_globalauth_cookie=224ca14c-6c84-4c8e-891c-2cbe546905ac; path=/; domain=.mhenrixonconsulting1570091019.api-us1.com;
+      - PHPSESSID=15c309ca70dda1e95eab7f6b36026794; path=/; HttpOnly
+      - __cfduid=d8acd189393474de668d390cc526a555a1590315347; expires=Tue, 23-Jun-20
+        10:15:47 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
+      - em_acp_globalauth_cookie=fed2d556-322c-4288-8db0-0b322ef24bc0; path=/; domain=.mhenrixonconsulting1570091019.api-us1.com;
         secure; httponly
-      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
-        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
-      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
-        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
-      Expires:
-      - Thu, 19 Nov 1981 08:52:00 GMT
       Cache-Control:
       - no-store, no-cache, must-revalidate
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
       Pragma:
       - no-cache
+      X-Envoy-Upstream-Service-Time:
+      - '79'
+      X-Request-Id:
+      - 79d289a5-5156-491d-a833-7da4588eda51
       Cf-Cache-Status:
       - DYNAMIC
       Expect-Ct:
@@ -53,15 +57,17 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 55ed6b47caf363c5-FRA
+      - 598641ec0ef9d11d-TXL
+      Cf-Request-Id:
+      - 02e7c787860000d11da58f1200000001
     body:
       encoding: UTF-8
-      string: '{"group":{"title":"Awesome","descript":"My really awesome group","p_admin":1,"links":{"userGroups":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/groups\/8\/userGroups","groupLimit":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/groups\/8\/groupLimit","dealGroupGroups":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/groups\/8\/dealGroupGroups","listGroups":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/groups\/8\/listGroups","addressGroups":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/groups\/8\/addressGroups","automationGroups":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/groups\/8\/automationGroups"},"id":"8"}}'
-    http_version: 
-  recorded_at: Sun, 02 Feb 2020 16:07:38 GMT
+      string: '{"group":{"title":"Awesome","descript":"My really awesome group","p_admin":1,"links":{"userGroups":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/groups\/23\/userGroups","groupLimit":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/groups\/23\/groupLimit","dealGroupGroups":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/groups\/23\/dealGroupGroups","listGroups":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/groups\/23\/listGroups","addressGroups":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/groups\/23\/addressGroups","automationGroups":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/groups\/23\/automationGroups"},"id":"23"}}'
+    http_version: null
+  recorded_at: Sun, 24 May 2020 10:15:48 GMT
 - request:
     method: delete
-    uri: "<API_ENDPOINT>/groups/"
+    uri: "<API_ENDPOINT>/groups/23"
     body:
       encoding: US-ASCII
       string: ''
@@ -78,33 +84,39 @@ http_interactions:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
-      code: 404
-      message: Not Found
+      code: 200
+      message: OK
     headers:
       Date:
-      - Sun, 02 Feb 2020 16:07:39 GMT
+      - Sun, 24 May 2020 10:15:48 GMT
       Content-Type:
       - application/json
-      Transfer-Encoding:
-      - chunked
+      Content-Length:
+      - '2'
       Connection:
       - keep-alive
       Set-Cookie:
-      - PHPSESSID=5de5ad5ff1b3c8d3e0f3487825f49824; path=/; HttpOnly
-      - __cfduid=d26020235ad1c7455fd3bb3bdee2e47d41580659659; expires=Tue, 03-Mar-20
-        16:07:39 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
-      - em_acp_globalauth_cookie=24c8b4a8-5e33-40ff-bce1-a724819075bb; path=/; domain=.mhenrixonconsulting1570091019.api-us1.com;
+      - PHPSESSID=304ac44b52010879a8d1e7d0d6c6b29b; path=/; HttpOnly
+      - __cfduid=d92c56be2adac537846faddeeadc322eb1590315348; expires=Tue, 23-Jun-20
+        10:15:48 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=7d6258be-eb0c-4980-8690-645380986ef3; path=/; domain=.mhenrixonconsulting1570091019.api-us1.com;
         secure; httponly
       - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
         path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
       - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
         path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
-      Expires:
-      - Thu, 19 Nov 1981 08:52:00 GMT
       Cache-Control:
       - no-store, no-cache, must-revalidate
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
       Pragma:
       - no-cache
+      X-Envoy-Upstream-Service-Time:
+      - '95'
+      X-Request-Id:
+      - 9072644a-b133-4432-8221-8081c008a5b4
+      Accept-Ranges:
+      - bytes
       Cf-Cache-Status:
       - DYNAMIC
       Expect-Ct:
@@ -112,69 +124,12 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 55ed6b54ea70d6f5-FRA
+      - 598641edf9b9d121-TXL
+      Cf-Request-Id:
+      - 02e7c788bc0000d121a9996200000001
     body:
-      encoding: ASCII-8BIT
-      string: '{"message":"No Result found for Group with id 0"}'
-    http_version: 
-  recorded_at: Sun, 02 Feb 2020 16:07:39 GMT
-- request:
-    method: delete
-    uri: "<API_ENDPOINT>/groups/8"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - ActiveCampaign Ruby Client (v3.0.0)
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-      Api-Token:
-      - "<API_KEY>"
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 404
-      message: Not Found
-    headers:
-      Date:
-      - Sun, 02 Feb 2020 21:12:15 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Set-Cookie:
-      - PHPSESSID=c62b0c35d2c0c785fb7843253c89d35e; path=/; HttpOnly
-      - __cfduid=d83fc15410e4d2df753aaa63cf4b6aee11580677933; expires=Tue, 03-Mar-20
-        21:12:13 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
-      - em_acp_globalauth_cookie=8cd028b1-f536-4301-985a-79d4f54c7c5a; path=/; domain=.mhenrixonconsulting1570091019.api-us1.com;
-        secure; httponly
-      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
-        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
-      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
-        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
-      Expires:
-      - Thu, 19 Nov 1981 08:52:00 GMT
-      Cache-Control:
-      - no-store, no-cache, must-revalidate
-      Pragma:
-      - no-cache
-      Cf-Cache-Status:
-      - DYNAMIC
-      Expect-Ct:
-      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 55ef297a9c35dfbb-FRA
-    body:
-      encoding: ASCII-8BIT
-      string: '{"message":"No Result found for Group with id 8"}'
-    http_version: 
-  recorded_at: Sun, 02 Feb 2020 21:12:15 GMT
-recorded_with: VCR 5.0.0
+      encoding: UTF-8
+      string: "{}"
+    http_version: null
+  recorded_at: Sun, 24 May 2020 10:15:48 GMT
+recorded_with: VCR 5.1.0

@@ -122,7 +122,7 @@ RSpec.describe ActiveCampaign::API::Contacts, :vcr do
 
     include_context 'with existing contact'
 
-    it 'returns a contact hash' do
+    it 'returns a contacts array' do
       expect(response).to include_json(
         contacts: [{
           first_name: contact_first_name,
