@@ -51,6 +51,12 @@ module ActiveCampaign
       end
     end
 
+    def patch(*args)
+      safe_http_call do
+        connection.patch(*args)
+      end
+    end
+
     def put(*args)
       safe_http_call do
         connection.put(*args)

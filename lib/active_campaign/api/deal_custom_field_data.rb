@@ -29,6 +29,42 @@ module ActiveCampaign
         post('dealCustomFieldData', deal_custom_field_datum: params)
       end
 
+      # rubocop:disable Layout/LineLength
+      #
+      # Create new dealCustomDatum's in bulk
+      #
+      # @param [Array<Hash>] params create a new dealCustomDatum with this data
+      # @option params [String] :field_label Name of the field (required)
+      # @option params [String] :field_type Type of field. Possible values are: text, textarea, date, dropdown, multiselect, radio, checkbox, hidden, currency, or number. (required)
+      # @option params [Array<String>] :field_options Options for the field. Only necessary if field_type is dropdown, multiselect, radio, or checkbox.
+      # @option params [String] :field_default Default value of the field
+      # @option params [String] :field_default_currency The 3-letter currency code of the default currency for the field. Only necessary if field_type is currency.
+      # @option params [true, false] :is_form_visible Whether or not the field is visible on forms
+      # @option params [true, false] :is_required Whether or not the field is required on forms
+      # @option params [Integer] :display_order Order for displaying the field on Manage Fields page and deal profiles
+      #
+      # @return [Hash] a hash with information about the newly created pipeline
+      #
+      # rubocop:enable Layout/LineLength
+      def bulk_create_deal_custom_field_data(*params)
+        post('dealCustomFieldData/bulkCreate', params)
+      end
+
+      # rubocop:disable Layout/LineLength
+      #
+      # Update dealCustomDatum's in bulk
+      #
+      # @param [Array<Hash>] params create a new dealCustomDatum with this data
+      # @option params [String] :id Name of the field (required)
+      # @option params [String] :field_value Type of field. Possible values are: text, textarea, date, dropdown, multiselect, radio, checkbox, hidden, currency, or number. (required)
+      #
+      # @return [Hash] a hash with information about the newly created pipeline
+      #
+      # rubocop:enable Layout/LineLength
+      def bulk_update_deal_custom_field_data(*params)
+        patch('dealCustomFieldData/bulkUpdate', params)
+      end
+
       #
       # Get a single dealCustomDatum
       #
