@@ -1,0 +1,200 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<API_ENDPOINT>/dealCustomFieldMeta"
+    body:
+      encoding: UTF-8
+      string: '{"dealCustomFieldMetum":{"fieldLabel":"title","fieldType":"dropdown","fieldOptions":["option1","option2","option3"],"fieldDefault":"option2","fieldDefaultCurrency":null,"isFormVisible":true,"isRequired":true,"displayOrder":1}}'
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Api-Token:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Sun, 24 May 2020 10:15:43 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '535'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=7407a3aa3aa03ac9905b18580c17c61f; path=/; HttpOnly
+      - __cfduid=de38c5785a154cc83c7fbd51a994f05701590315343; expires=Tue, 23-Jun-20
+        10:15:43 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=1734ba46-7ee2-4d0e-8f63-1ac024e4d548; path=/; domain=.mhenrixonconsulting1570091019.api-us1.com;
+        secure; httponly
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      X-Envoy-Upstream-Service-Time:
+      - '163'
+      X-Request-Id:
+      - 0465fefb-d806-4d31-9fa1-2555c59a3191
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 598641ce7b1b2d39-TXL
+      Cf-Request-Id:
+      - 02e7c7750c00002d39f0334200000001
+    body:
+      encoding: UTF-8
+      string: '{"dealCustomFieldMetum":{"id":"18","fieldLabel":"title","fieldType":"dropdown","fieldOptions":["option1","option2","option3"],"fieldDefault":"option2","fieldDefaultCurrency":null,"isFormVisible":1,"isRequired":1,"displayOrder":1,"personalization":"DEAL_TITLE_1","knownFieldId":null,"hideFieldFlag":0,"createdTimestamp":"2020-05-24T10:15:43+00:00","updatedTimestamp":"2020-05-24T10:15:43+00:00","links":{"dealCustomFieldData":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/dealCustomFieldMeta\/18\/dealCustomFieldData"}}}'
+    http_version: null
+  recorded_at: Sun, 24 May 2020 10:15:43 GMT
+- request:
+    method: get
+    uri: "<API_ENDPOINT>/dealCustomFieldMeta?search"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Api-Token:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 24 May 2020 10:15:43 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=6be85e9164cb89dc8d125588d45f7a00; path=/; HttpOnly
+      - __cfduid=d0e7230c3db9b3d1a21c9d0b90b4cc5551590315343; expires=Tue, 23-Jun-20
+        10:15:43 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=3b1827f7-0bc0-422a-af01-5f5519a4891a; path=/; domain=.mhenrixonconsulting1570091019.api-us1.com;
+        secure; httponly
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      X-Envoy-Upstream-Service-Time:
+      - '154'
+      X-Request-Id:
+      - c74c0429-4f3a-4ecb-8423-2ce62213c619
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 598641d1c8bdd125-TXL
+      Cf-Request-Id:
+      - 02e7c7771e0000d125fd9ea200000001
+    body:
+      encoding: ASCII-8BIT
+      string: '{"dealCustomFieldMeta":[{"id":"1","fieldLabel":"Forecasted Close Date","fieldType":"date","fieldOptions":null,"fieldDefault":null,"fieldDefaultCurrency":null,"isFormVisible":0,"isRequired":0,"displayOrder":1,"personalization":"DEAL_FORECASTED_CLOSE_DATE","knownFieldId":13,"hideFieldFlag":0,"createdTimestamp":"2020-01-28T07:52:58+00:00","updatedTimestamp":"2020-01-28T07:52:58+00:00","links":{"dealCustomFieldData":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/dealCustomFieldMeta\/1\/dealCustomFieldData"}},{"id":"18","fieldLabel":"title","fieldType":"dropdown","fieldOptions":["option1","option2","option3"],"fieldDefault":"option2","fieldDefaultCurrency":null,"isFormVisible":1,"isRequired":1,"displayOrder":1,"personalization":"DEAL_TITLE_1","knownFieldId":null,"hideFieldFlag":0,"createdTimestamp":"2020-05-24T10:15:43+00:00","updatedTimestamp":"2020-05-24T10:15:43+00:00","links":{"dealCustomFieldData":"https:\/\/mhenrixonconsulting1570091019.api-us1.com\/api\/3\/dealCustomFieldMeta\/18\/dealCustomFieldData"}}]}'
+    http_version: null
+  recorded_at: Sun, 24 May 2020 10:15:43 GMT
+- request:
+    method: delete
+    uri: "<API_ENDPOINT>/dealCustomFieldMeta/18"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Api-Token:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 24 May 2020 10:15:44 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '42'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=a02d976ed7a0f72d7ea350d2477e17c6; path=/; HttpOnly
+      - __cfduid=d0ce6a5b691772da907572ea4eaecc9fb1590315344; expires=Tue, 23-Jun-20
+        10:15:44 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=a1458691-3eb6-4bf9-bb90-da0ce82accf6; path=/; domain=.mhenrixonconsulting1570091019.api-us1.com;
+        secure; httponly
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.mhenrixonconsulting1570091019.api-us1.com
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      X-Envoy-Upstream-Service-Time:
+      - '164'
+      X-Request-Id:
+      - 528ea649-c24d-4399-982f-95935205604d
+      Accept-Ranges:
+      - bytes
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 598641d46e52d125-TXL
+      Cf-Request-Id:
+      - 02e7c778bc0000d125f5880200000001
+    body:
+      encoding: UTF-8
+      string: '{"message":"DealCustomFieldMeta deleted."}'
+    http_version: null
+  recorded_at: Sun, 24 May 2020 10:15:44 GMT
+recorded_with: VCR 5.1.0
