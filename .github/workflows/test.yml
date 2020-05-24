@@ -1,5 +1,5 @@
-name: RSpec
-on: [push]
+name: Execute Tests
+on: [push, pull_request]
 jobs:
   tests:
     env:
@@ -18,5 +18,8 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-      - run: bin/bundle install  --jobs=$(nproc) --retry=$(nproc)
-      - run: bin/rspec
+      - name: Execute Tests
+          run: |
+            gem install bundler
+            bin/bundle install  --jobs=$(nproc) --retry=$(nproc)
+            bin/rspec

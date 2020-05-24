@@ -1,5 +1,5 @@
 name: Lint
-on: [push]
+on: [push, pull_request]
 jobs:
   rubocop:
     runs-on: ubuntu-latest
@@ -11,8 +11,11 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.6
-      - run: bundle install --jobs=$(nproc) --retry=$(nproc)
-      - run: bin/rubocop -P
+      - name: Rubocop
+          run: |
+            gem install bundler
+            bundle install --jobs=$(nproc) --retry=$(nproc)
+            bin/rubocop -P
 
   reek:
     runs-on: ubuntu-latest
@@ -24,5 +27,8 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.6
-      - run: bundle install --jobs=$(nproc) --retry=$(nproc)
-      - run: bin/reek .
+      - name: Reek
+          run: |
+            gem install bundler
+            bundle install --jobs=$(nproc) --retry=$(nproc)
+            bin/reek .
