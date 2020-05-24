@@ -15,7 +15,7 @@ RSpec.describe ActiveCampaign::API::DealStages, :vcr do
     end
 
     # rubocop:disable RSpec/ExampleLength
-    it 'returns a deal hash' do
+    it 'returns a deal_stage hash' do
       expect(response).to include_json(
         deal_stage: {
           card_region1: deal_stage_card_region_1,
@@ -77,7 +77,7 @@ RSpec.describe ActiveCampaign::API::DealStages, :vcr do
     end
 
     # rubocop:disable RSpec/ExampleLength
-    it 'returns a deal hash' do
+    it 'returns a deal_stage hash' do
       expect(response).to include_json(
         deal_stage: {
           card_region1: deal_stage_card_region_1,
@@ -105,10 +105,10 @@ RSpec.describe ActiveCampaign::API::DealStages, :vcr do
 
     include_context 'with existing deal_stage'
 
-    it 'returns a deal hash' do
+    it 'returns a deal_stages array' do
       expect(response).to include_json(
         deal_stages: [],
-        meta: { total: '64' }
+        meta: { total: '110' }
       )
     end
   end

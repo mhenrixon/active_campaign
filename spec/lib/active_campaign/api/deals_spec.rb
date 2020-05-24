@@ -96,15 +96,27 @@ RSpec.describe ActiveCampaign::API::Deals, :vcr do
 
     include_context 'with existing deal'
 
+    # rubocop:disable RSpec/ExampleLength
     it 'returns a deal hash' do
       expect(response).to include_json(
-        deals: [{
-          id: deal_id,
-          title: deal_title,
-          description: deal_description
-        }]
+        deals: [
+          { id: '1' },
+          { id: '5' },
+          { id: '9' },
+          { id: '2' },
+          { id: '6' },
+          { id: '10' },
+          { id: '3' },
+          { id: '7' },
+          {
+            id: deal_id,
+            title: deal_title,
+            description: deal_description
+          }
+        ]
       )
     end
+    # rubocop:enable RSpec/ExampleLength
   end
 
   describe '#create_deal_note' do

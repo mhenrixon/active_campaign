@@ -82,7 +82,7 @@ RSpec.describe ActiveCampaign::API::Pipelines, :vcr do
 
     include_context 'with existing pipeline'
 
-    it 'returns a pipeline hash' do
+    it 'returns a pipelines array' do
       expect(response).to include_json(
         deal_groups: [{
           id: pipeline_id,

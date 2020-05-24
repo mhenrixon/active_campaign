@@ -27,7 +27,7 @@ RSpec.describe ActiveCampaign::API::Addresses, :vcr do
       client.delete_address(address_id)
     end
 
-    it 'returns a address hash' do
+    it 'returns an address hash' do
       expect(response).to include_json(expected_response)
     end
   end
@@ -49,7 +49,7 @@ RSpec.describe ActiveCampaign::API::Addresses, :vcr do
       }
     end
 
-    it 'returns a address hash' do
+    it 'returns an address hash' do
       expect(response).to include_json(expected_response)
     end
   end
@@ -79,7 +79,7 @@ RSpec.describe ActiveCampaign::API::Addresses, :vcr do
       }
     end
 
-    it 'returns a address hash' do
+    it 'returns an address hash' do
       expect(response).to include_json(expected_response)
     end
   end
@@ -101,7 +101,7 @@ RSpec.describe ActiveCampaign::API::Addresses, :vcr do
       }
     end
 
-    it 'returns a address hash' do
+    it 'returns an address array' do
       expect(response).to include_json(expected_response)
     end
   end
