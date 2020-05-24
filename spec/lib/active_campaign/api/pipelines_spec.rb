@@ -5,7 +5,7 @@ require 'spec_helper'
 RSpec.describe ActiveCampaign::API::Pipelines, :vcr do
   let(:client) { ActiveCampaign.client }
 
-  describe ".alias" do
+  describe '.alias' do
     subject { client }
 
     it { is_expected.to respond_to(:create_deal_group) }
