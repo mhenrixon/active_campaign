@@ -12,10 +12,10 @@ RSpec.describe ActiveCampaign::API::DealCustomFieldData, :vcr do
 
     it 'returns a deal_custom_field_datum hash' do
       expect(response).to include_json(deal_custom_field_datum: {
-        deal_id: deal_custom_field_data_deal_id.to_i,
-        custom_field_id: deal_custom_field_data_custom_field_id.to_i,
-        field_value: deal_custom_field_data_field_value
-      })
+                                         deal_id: deal_custom_field_data_deal_id.to_i,
+                                         custom_field_id: deal_custom_field_data_custom_field_id.to_i,
+                                         field_value: deal_custom_field_data_field_value
+                                       })
     end
   end
 
@@ -24,10 +24,10 @@ RSpec.describe ActiveCampaign::API::DealCustomFieldData, :vcr do
 
     it 'returns a deal_custom_field_datum hash' do
       expect(response).to include_json(deal_custom_field_datum: {
-        deal_id: deal_custom_field_data_deal_id.to_i,
-        custom_field_id: deal_custom_field_data_custom_field_id.to_i,
-        field_value: deal_custom_field_data_field_value
-      })
+                                         deal_id: deal_custom_field_data_deal_id.to_i,
+                                         custom_field_id: deal_custom_field_data_custom_field_id.to_i,
+                                         field_value: deal_custom_field_data_field_value
+                                       })
     end
   end
 
@@ -36,30 +36,30 @@ RSpec.describe ActiveCampaign::API::DealCustomFieldData, :vcr do
 
     let(:update_params) do
       deal_custom_field_data_params.merge(
-        field_value: 'awesome value',
+        field_value: 'awesome value'
       )
     end
 
     it 'returns a deal_custom_field_datum hash' do
       expect(response).to include_json(deal_custom_field_datum: {
-        deal_id: deal_custom_field_data_deal_id.to_i,
-        custom_field_id: deal_custom_field_data_custom_field_id.to_i,
-        field_value: 'awesome value'
-      })
+                                         deal_id: deal_custom_field_data_deal_id.to_i,
+                                         custom_field_id: deal_custom_field_data_custom_field_id.to_i,
+                                         field_value: 'awesome value'
+                                       })
     end
   end
 
-  fdescribe '#show_deal_custom_field_datas', :with_existing_deal_custom_field_datum do
+  describe '#show_deal_custom_field_datas', :with_existing_deal_custom_field_datum do
     subject(:response) { client.show_deal_custom_field_datas }
 
     let(:search) { 'Mikael' }
 
     it 'returns a deal_custom_field_data hash' do
       expect(response).to include_json(deal_custom_field_data: [{
-        deal_id: deal_custom_field_data_deal_id.to_i,
-        custom_field_id: deal_custom_field_data_custom_field_id.to_i,
-        field_value: deal_custom_field_data_field_value
-      }])
+                                         deal_id: deal_custom_field_data_deal_id.to_i,
+                                         custom_field_id: deal_custom_field_data_custom_field_id.to_i,
+                                         field_value: deal_custom_field_data_field_value
+                                       }])
     end
   end
 end
