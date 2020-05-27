@@ -35,6 +35,7 @@ detectors:
       - initialize
       - ActiveCampaign::Client#connection
       - ActiveCampaign::Client#safe_http_call
+      - ActiveCampaign::Faraday::Middleware::Request#normalize_body
   UncommunicativeVariableName:
     exclude:
       - ActiveCampaign::Client#safe_http_call

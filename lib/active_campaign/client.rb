@@ -16,6 +16,7 @@ module ActiveCampaign
     endpoint :contacts
     endpoint :deals
     endpoint :deal_custom_field_meta
+    endpoint :deal_custom_field_data
     endpoint :deal_stages
     endpoint :groups
     endpoint :lists
@@ -47,6 +48,12 @@ module ActiveCampaign
     def post(*args)
       safe_http_call do
         connection.post(*args)
+      end
+    end
+
+    def patch(*args)
+      safe_http_call do
+        connection.patch(*args)
       end
     end
 

@@ -22,7 +22,7 @@ before_install:
     fi;
 
 install:
-  - bundle install -j8 -r3
+  - bundle install -j$(nproc) -r$(nproc)
 
 before_script:
   - env
@@ -32,9 +32,9 @@ before_script:
     fi;
 
 script:
-  - if [[ "${COV}" = "true" ]]; then bundle exec reek .; fi;
-  - if [[ "${COV}" = "true" ]]; then bundle exec rubocop -P .; fi;
-  - bundle exec rspec spec;
+  - if [[ "${COV}" = "true" ]]; then bin/reek .; fi;
+  - if [[ "${COV}" = "true" ]]; then bin/rubocop -P .; fi;
+  - bin/rspec spec;
 
 after_script:
   - >

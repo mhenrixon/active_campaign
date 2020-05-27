@@ -1,0 +1,24 @@
+name: RSpec
+on: [push, pull_request]
+jobs:
+  tests:
+    env:
+      COV: true
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: true
+      matrix:
+        # ruby: [2.5, 2.6, 2.7, jruby, truffleruby]
+        ruby: [2.5, 2.6, 2.7]
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - run: gem install bundler
+      - run: bundle install --jobs=$(nproc) --retry=$(nproc)
+      - run: bin/rspec
+

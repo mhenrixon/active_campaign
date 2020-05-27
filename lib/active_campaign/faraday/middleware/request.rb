@@ -31,7 +31,9 @@ module ActiveCampaign
 
         def normalize_body(env)
           body = env[:request_body]
-          if body.key?(:group)
+          if body.is_a?(Array)
+            body = transform_array(body.flatten, :camelcase, :lower)
+          elsif body.key?(:group)
             logger.debug("Using body as is because group #{body}")
           elsif body.key?(:list)
             logger.debug("Using body as is because list #{body}")
