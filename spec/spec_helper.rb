@@ -12,9 +12,12 @@ require_relative 'support/shared_contexts'
 require_relative 'support/webmock'
 require_relative 'support/vcr'
 
+ENV['ACTIVE_CAMPAIGN_URL'] ||= 'https://activehosted.com/api/v3'
+ENV['ACTIVE_CAMPAIGN_TOKEN'] ||= 'BOGUS_TOKEN'
+
 ActiveCampaign.configure do |config|
-  config.api_url   = ENV.fetch('ACTIVE_CAMPAIGN_URL') { 'https://activehosted.com/api/v3' }
-  config.api_token = ENV.fetch('ACTIVE_CAMPAIGN_TOKEN') { 'BOGUS_TOKEN' }
+  config.api_url   = ENV['ACTIVE_CAMPAIGN_URL']
+  config.api_token = ENV['ACTIVE_CAMPAIGN_TOKEN']
   config.debug     = ENV.fetch('ACTIVE_CAMPAIGN_DEBUG') { 'false' } == 'true'
 end
 
