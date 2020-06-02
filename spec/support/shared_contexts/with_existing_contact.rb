@@ -7,7 +7,7 @@ RSpec.shared_context 'with existing contact' do
   end
 
   let(:contact_params)   { build(:contact_params) }
-  let(:contact_response) { build(:contact_params, respons) }
+  let(:contact_response) { build(:contact_params, response) }
 
   after do
     client.delete_contact(contact_id)
