@@ -23,6 +23,7 @@ module ActiveCampaign
     endpoint :pipelines
     endpoint :users
     endpoint :fields
+    endpoint :field_values
 
     attr_reader :config
 
