@@ -31,6 +31,38 @@ module ActiveCampaign
       def delete_contact_tag(id)
         delete("contactTags/#{id}")
       end
+
+      # NOTE: Undocumented functionality
+      #
+      # Retrieve contact tags for a contact
+      #
+      # @param [Integer] id the id of the contact to retrieve contact tags for
+      #
+      # @return [Hash] a hash with the information of all contact tags of the contact
+      #
+      def show_contact_contact_tags(id)
+        get("contacts/#{id}/contactTags")
+      end
+
+      # NOTE: Undocumented functionality
+      #
+      # Retrieve a contact tag
+      #
+      # @return [Hash] a hash with the information of the contact tag
+      #
+      def show_contact_tag(id)
+        get("contactTags/#{id}")
+      end
+
+      # NOTE: Undocumented functionality
+      #
+      # Retrieve a list of all contact tags
+      #
+      # @return [Hash] a hash with the information of all contact tags
+      #
+      def show_contact_tags
+        get('contactTags')
+      end
     end
   end
 end
