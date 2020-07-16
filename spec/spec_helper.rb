@@ -18,7 +18,7 @@ ENV['ACTIVE_CAMPAIGN_TOKEN'] ||= 'BOGUS_TOKEN'
 ActiveCampaign.configure do |config|
   config.api_url   = ENV['ACTIVE_CAMPAIGN_URL']
   config.api_token = ENV['ACTIVE_CAMPAIGN_TOKEN']
-  config.debug     = ENV.fetch('ACTIVE_CAMPAIGN_DEBUG') { 'false' } == 'true'
+  config.debug     = ENV.fetch('ACTIVE_CAMPAIGN_DEBUG', 'false') == 'true'
 end
 
 RSpec.configure do |config|

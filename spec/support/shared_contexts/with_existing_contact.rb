@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.shared_context 'with existing contact' do
-  let!(:contact) do
+  let(:contact) do
     response = client.create_contact(contact_params)
     response.fetch(:contact) { raise 'HELL (contact creation failed)' }
   end
