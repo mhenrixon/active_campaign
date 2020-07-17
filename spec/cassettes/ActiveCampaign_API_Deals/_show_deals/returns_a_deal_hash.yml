@@ -751,4 +751,71 @@ http_interactions:
       string: "{}"
     http_version: null
   recorded_at: Sun, 24 May 2020 10:30:05 GMT
+- request:
+    method: get
+    uri: "<API_ENDPOINT>/deals"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Api-Token:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 15 Jul 2020 06:20:10 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '47'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=54d2c1e4120abe5ddaf360522ff1e3ce; path=/; HttpOnly
+      - __cfduid=d6fcd83a69ccabccd344ddf09473ca8091594794010; expires=Fri, 14-Aug-20
+        06:20:10 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=370447be-29fb-4425-95c7-523efcc4d522; path=/; domain=.camplify1592887147.api-us1.com;
+        secure; httponly
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.camplify1592887147.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.camplify1592887147.api-us1.com
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      X-Envoy-Upstream-Service-Time:
+      - '88'
+      X-Request-Id:
+      - 7d49595f-97ba-465e-92cb-9e225346c641
+      Accept-Ranges:
+      - bytes
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03f2ba7e36000016b9e6bee200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5b3160438bec16b9-SYD
+    body:
+      encoding: UTF-8
+      string: '{"deals":[],"meta":{"currencies":[],"total":0}}'
+    http_version: null
+  recorded_at: Wed, 15 Jul 2020 06:20:10 GMT
 recorded_with: VCR 5.1.0

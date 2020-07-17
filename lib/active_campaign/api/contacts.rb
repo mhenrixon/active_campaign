@@ -67,6 +67,11 @@ module ActiveCampaign
       # @option params [Integer] :seriesid Filter contacts associated with the given automation
       # @option params [Integer] :status See available values
       # @option params [Integer] :tagid Filter contacts associated with the given tag
+      # @option params [Integer] :limit The number of results to display in each page (default = 20; max = 100).
+      # @option params [Integer] :offset The starting point for the result set of a page. This is a zero-based index.
+      #   For example, if there are 39 total records and the limit is the default of 20, use offset=20 to get the second
+      #   page of results.
+      #
       # @param [Hash] filters a list of filters
       # @option filters [Date] :created_before Filter contacts that were created prior to this date
       # @option filters [Date] :created_after Filter contacts that were created after this date

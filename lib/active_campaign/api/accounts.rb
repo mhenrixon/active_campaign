@@ -36,11 +36,18 @@ module ActiveCampaign
       # Get a list of accounts
       #
       # @param [String] search Filter accounts that match the given value in the account attributes
+      # @option [Hash] params Return results based on this data
+      # @option params [Integer] :limit The number of results to display in each page (default = 20; max = 100).
+      # @option params [Integer] :offset The starting point for the result set of a page. This is a zero-based index.
+      #   For example, if there are 39 total records and the limit is the default of 20, use offset=20 to get the second
+      #   page of results.
       #
       # @return [Array<Hash>]
       #
-      def show_accounts(search = nil)
-        get('accounts', search: search)
+      def show_accounts(search = nil, **params)
+        params[:search] = search
+
+        get('accounts', params)
       end
 
       #

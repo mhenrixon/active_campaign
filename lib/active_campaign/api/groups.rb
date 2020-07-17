@@ -92,11 +92,18 @@ module ActiveCampaign
       # Get a list of groups
       #
       # @param [String] search Filter groups that match the given value in the group attributes
+      # @option [Hash] params Return results based on this data
+      # @option params [Integer] :limit The number of results to display in each page (default = 20; max = 100).
+      # @option params [Integer] :offset The starting point for the result set of a page. This is a zero-based index.
+      #   For example, if there are 39 total records and the limit is the default of 20, use offset=20 to get the second
+      #   page of results.
       #
       # @return [Array<Hash>]
       #
-      def show_groups(search = nil)
-        get('groups', search: search)
+      def show_groups(search = nil, **params)
+        params[:search] = search
+
+        get('groups', params)
       end
 
       #

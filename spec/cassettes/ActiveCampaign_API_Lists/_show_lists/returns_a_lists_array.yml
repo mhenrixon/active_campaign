@@ -199,4 +199,71 @@ http_interactions:
       string: "{}"
     http_version: null
   recorded_at: Sun, 24 May 2020 10:17:12 GMT
+- request:
+    method: get
+    uri: "<API_ENDPOINT>/lists"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Api-Token:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 15 Jul 2020 06:20:11 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '33'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=617f4182f0f979f220283b413b1e7274; path=/; HttpOnly
+      - __cfduid=d41637ce0e78ff828d34951e723ae933f1594794011; expires=Fri, 14-Aug-20
+        06:20:11 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=a823670d-946f-47c3-83d1-5acc90b8322d; path=/; domain=.camplify1592887147.api-us1.com;
+        secure; httponly
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.camplify1592887147.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.camplify1592887147.api-us1.com
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      X-Envoy-Upstream-Service-Time:
+      - '80'
+      X-Request-Id:
+      - 7da1d05e-b5f2-4aa7-b712-a120de848a9b
+      Accept-Ranges:
+      - bytes
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03f2ba83890000da462f8f9200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5b31604c0a4ada46-SYD
+    body:
+      encoding: UTF-8
+      string: '{"lists":[],"meta":{"total":"0"}}'
+    http_version: null
+  recorded_at: Wed, 15 Jul 2020 06:20:11 GMT
 recorded_with: VCR 5.1.0
