@@ -479,4 +479,92 @@ http_interactions:
       string: "{}"
     http_version: null
   recorded_at: Sun, 24 May 2020 10:15:30 GMT
+- request:
+    method: get
+    uri: "<API_ENDPOINT>/dealGroups"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Api-Token:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 15 Jul 2020 06:20:12 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=490489ed233e2df595118510b7b03bd0; path=/; HttpOnly
+      - __cfduid=d7df15e6469e9b41f338fb836b9b2fbfe1594794012; expires=Fri, 14-Aug-20
+        06:20:12 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=024f6789-0592-4cd2-b4a9-72b422449a43; path=/; domain=.camplify1592887147.api-us1.com;
+        secure; httponly
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.camplify1592887147.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.camplify1592887147.api-us1.com
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      X-Envoy-Upstream-Service-Time:
+      - '121'
+      X-Request-Id:
+      - d0142dfd-5608-40df-a9a1-b5a344eba0d8
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03f2ba8576000016bd92028200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5b31604f28c416bd-SYD
+    body:
+      encoding: ASCII-8BIT
+      string: '{"dealStages":[{"group":"17","title":"To Contact","color":"19CCA3","order":"1","width":"280","dealOrder":"next-action
+        DESC","cardRegion1":"title","cardRegion2":"next-action","cardRegion3":"show-avatar","cardRegion4":"contact-fullname-acctname","cardRegion5":"value","cdate":null,"udate":null,"links":{"group":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealStages\/53\/group"},"id":"53"},{"group":"17","title":"In
+        Contact","color":"5884EA","order":"2","width":"280","dealOrder":"next-action
+        DESC","cardRegion1":"title","cardRegion2":"next-action","cardRegion3":"show-avatar","cardRegion4":"contact-fullname-acctname","cardRegion5":"value","cdate":null,"udate":null,"links":{"group":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealStages\/54\/group"},"id":"54"},{"group":"17","title":"Follow
+        Up","color":"FBD965","order":"3","width":"280","dealOrder":"next-action DESC","cardRegion1":"title","cardRegion2":"next-action","cardRegion3":"show-avatar","cardRegion4":"contact-fullname-acctname","cardRegion5":"value","cdate":null,"udate":null,"links":{"group":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealStages\/55\/group"},"id":"55"},{"group":"37","title":"To
+        Contact","color":"19CCA3","order":"1","width":"280","dealOrder":"next-action
+        DESC","cardRegion1":"title","cardRegion2":"next-action","cardRegion3":"show-avatar","cardRegion4":"contact-fullname-acctname","cardRegion5":"value","cdate":null,"udate":null,"links":{"group":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealStages\/117\/group"},"id":"117"},{"group":"37","title":"In
+        Contact","color":"5884EA","order":"2","width":"280","dealOrder":"next-action
+        DESC","cardRegion1":"title","cardRegion2":"next-action","cardRegion3":"show-avatar","cardRegion4":"contact-fullname-acctname","cardRegion5":"value","cdate":null,"udate":null,"links":{"group":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealStages\/118\/group"},"id":"118"},{"group":"37","title":"Follow
+        Up","color":"FBD965","order":"3","width":"280","dealOrder":"next-action DESC","cardRegion1":"title","cardRegion2":"next-action","cardRegion3":"show-avatar","cardRegion4":"contact-fullname-acctname","cardRegion5":"value","cdate":null,"udate":null,"links":{"group":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealStages\/119\/group"},"id":"119"},{"group":"57","title":"To
+        Contact","color":"19CCA3","order":"1","width":"280","dealOrder":"next-action
+        DESC","cardRegion1":"title","cardRegion2":"next-action","cardRegion3":"show-avatar","cardRegion4":"contact-fullname-acctname","cardRegion5":"value","cdate":null,"udate":null,"links":{"group":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealStages\/181\/group"},"id":"181"},{"group":"57","title":"In
+        Contact","color":"5884EA","order":"2","width":"280","dealOrder":"next-action
+        DESC","cardRegion1":"title","cardRegion2":"next-action","cardRegion3":"show-avatar","cardRegion4":"contact-fullname-acctname","cardRegion5":"value","cdate":null,"udate":null,"links":{"group":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealStages\/182\/group"},"id":"182"},{"group":"57","title":"Follow
+        Up","color":"FBD965","order":"3","width":"280","dealOrder":"next-action DESC","cardRegion1":"title","cardRegion2":"next-action","cardRegion3":"show-avatar","cardRegion4":"contact-fullname-acctname","cardRegion5":"value","cdate":null,"udate":null,"links":{"group":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealStages\/183\/group"},"id":"183"},{"group":"93","title":"To
+        Contact","color":"19CCA3","order":"1","width":"280","dealOrder":"next-action
+        DESC","cardRegion1":"title","cardRegion2":"next-action","cardRegion3":"show-avatar","cardRegion4":"contact-fullname-acctname","cardRegion5":"value","cdate":null,"udate":null,"links":{"group":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealStages\/297\/group"},"id":"297"},{"group":"93","title":"In
+        Contact","color":"5884EA","order":"2","width":"280","dealOrder":"next-action
+        DESC","cardRegion1":"title","cardRegion2":"next-action","cardRegion3":"show-avatar","cardRegion4":"contact-fullname-acctname","cardRegion5":"value","cdate":null,"udate":null,"links":{"group":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealStages\/298\/group"},"id":"298"},{"group":"93","title":"Follow
+        Up","color":"FBD965","order":"3","width":"280","dealOrder":"next-action DESC","cardRegion1":"title","cardRegion2":"next-action","cardRegion3":"show-avatar","cardRegion4":"contact-fullname-acctname","cardRegion5":"value","cdate":null,"udate":null,"links":{"group":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealStages\/299\/group"},"id":"299"}],"dealGroups":[{"title":"Bogus
+        Pipeline","currency":"eur","autoassign":"1","allusers":"1","allgroups":"1","win_probability_initialize_date":null,"cdate":"2020-07-14T23:19:27-05:00","udate":"2020-07-14T23:19:27-05:00","stages":["53","54","55"],"links":{"stages":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealGroups\/17\/stages","dealGroupUsers":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealGroups\/17\/dealGroupUsers","dealGroupGroups":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealGroups\/17\/dealGroupGroups","winProbabilityFeatures":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealGroups\/17\/winProbabilityFeatures"},"id":"17"},{"title":"Bogus
+        Pipeline","currency":"eur","autoassign":"1","allusers":"1","allgroups":"1","win_probability_initialize_date":null,"cdate":"2020-07-14T23:26:49-05:00","udate":"2020-07-14T23:26:49-05:00","stages":["117","118","119"],"links":{"stages":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealGroups\/37\/stages","dealGroupUsers":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealGroups\/37\/dealGroupUsers","dealGroupGroups":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealGroups\/37\/dealGroupGroups","winProbabilityFeatures":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealGroups\/37\/winProbabilityFeatures"},"id":"37"},{"title":"Bogus
+        Pipeline","currency":"eur","autoassign":"1","allusers":"1","allgroups":"1","win_probability_initialize_date":null,"cdate":"2020-07-14T23:32:14-05:00","udate":"2020-07-14T23:32:14-05:00","stages":["181","182","183"],"links":{"stages":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealGroups\/57\/stages","dealGroupUsers":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealGroups\/57\/dealGroupUsers","dealGroupGroups":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealGroups\/57\/dealGroupGroups","winProbabilityFeatures":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealGroups\/57\/winProbabilityFeatures"},"id":"57"},{"title":"Bogus
+        Pipeline","currency":"eur","autoassign":"1","allusers":"1","allgroups":"1","win_probability_initialize_date":null,"cdate":"2020-07-14T23:59:56-05:00","udate":"2020-07-14T23:59:56-05:00","stages":["297","298","299"],"links":{"stages":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealGroups\/93\/stages","dealGroupUsers":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealGroups\/93\/dealGroupUsers","dealGroupGroups":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealGroups\/93\/dealGroupGroups","winProbabilityFeatures":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/dealGroups\/93\/winProbabilityFeatures"},"id":"93"}],"meta":{"total":"4"}}'
+    http_version: null
+  recorded_at: Wed, 15 Jul 2020 06:20:12 GMT
 recorded_with: VCR 5.1.0

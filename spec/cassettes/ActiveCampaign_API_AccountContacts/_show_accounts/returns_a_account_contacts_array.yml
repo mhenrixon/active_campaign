@@ -534,4 +534,71 @@ http_interactions:
       string: '{"message":"No Result found for CustomerAccount with id 1"}'
     http_version: null
   recorded_at: Sun, 24 May 2020 10:16:31 GMT
+- request:
+    method: get
+    uri: "<API_ENDPOINT>/accountContacts"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Api-Token:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 15 Jul 2020 06:20:07 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '43'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=3e560c9e60b8d3b35fb091f33322f241; path=/; HttpOnly
+      - __cfduid=dc441b2a285a3547373cb013d628595511594794006; expires=Fri, 14-Aug-20
+        06:20:06 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=6f379149-b358-4eb7-af0e-3788b14548d2; path=/; domain=.camplify1592887147.api-us1.com;
+        secure; httponly
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.camplify1592887147.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.camplify1592887147.api-us1.com
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      X-Envoy-Upstream-Service-Time:
+      - '93'
+      X-Request-Id:
+      - c854141a-4c1e-4df2-b527-09d84c11f0fe
+      Accept-Ranges:
+      - bytes
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03f2ba71a4000016ad761c2200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5b31602f6b3216ad-SYD
+    body:
+      encoding: UTF-8
+      string: '{"accountContacts":[],"meta":{"total":"0"}}'
+    http_version: null
+  recorded_at: Wed, 15 Jul 2020 06:20:07 GMT
 recorded_with: VCR 5.1.0

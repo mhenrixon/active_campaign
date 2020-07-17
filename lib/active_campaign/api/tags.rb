@@ -36,10 +36,16 @@ module ActiveCampaign
       #
       # List all tags
       #
+      # @option [Hash] params Return results based on this data
+      # @option params [Integer] :limit The number of results to display in each page (default = 20; max = 100).
+      # @option params [Integer] :offset The starting point for the result set of a page. This is a zero-based index.
+      #   For example, if there are 39 total records and the limit is the default of 20, use offset=20 to get the second
+      #   page of results.
+      #
       # @return [Hash] a hash the information for all tags
       #
-      def show_tags
-        get('tags')
+      def show_tags(**params)
+        get('tags', params)
       end
 
       #

@@ -199,4 +199,70 @@ http_interactions:
       string: "{}"
     http_version: null
   recorded_at: Sun, 24 May 2020 10:15:46 GMT
+- request:
+    method: get
+    uri: "<API_ENDPOINT>/groups"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Api-Token:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 15 Jul 2020 06:20:11 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=22cf394b3837d1388ced89e3c4b23fc4; path=/; HttpOnly
+      - __cfduid=d4afde2d1f33ee6c5b793b4ff82b99be51594794011; expires=Fri, 14-Aug-20
+        06:20:11 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=bc9aa9ea-7373-46bb-a1ba-7876d96115fb; path=/; domain=.camplify1592887147.api-us1.com;
+        secure; httponly
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.camplify1592887147.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.camplify1592887147.api-us1.com
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      X-Envoy-Upstream-Service-Time:
+      - '80'
+      X-Request-Id:
+      - 8c5da748-f8d3-4d5d-b070-aa8188504e98
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03f2ba8203000016b9bbbfc200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5b3160499e4816b9-SYD
+    body:
+      encoding: ASCII-8BIT
+      string: '{"groups":[{"title":"Admin","descript":"This is a group for admin users
+        (people that can manage content)","unsubscribelink":"0","optinconfirm":"0","p_admin":"1","pgListAdd":"1","pgListEdit":"1","pgListDelete":"1","pgListHeaders":"1","pgListEmailaccount":"1","pgListBounce":"1","pgMessageAdd":"1","pgMessageEdit":"1","pgMessageDelete":"1","pgMessageSend":"1","pgContactAdd":"1","pgContactEdit":"1","pgContactDelete":"1","pgContactMerge":"1","pgContactImport":"1","pgContactApprove":"1","pgContactExport":"1","pgContactSync":"1","pgContactFilters":"1","pgContactActions":"0","pgContactFields":"1","pg_user_add":"1","pg_user_edit":"1","pg_user_delete":"1","pgGroupAdd":"1","pgGroupEdit":"1","pgGroupDelete":"1","pgTemplateAdd":"1","pgTemplateEdit":"1","pgTemplateDelete":"1","pgPersonalizationAdd":"1","pgPersonalizationEdit":"1","pgPersonalizationDelete":"1","pgAutomationManage":"1","pgFormEdit":"1","pgReportsCampaign":"1","pgReportsList":"1","pgReportsUser":"1","pgReportsTrend":"1","pgReportsDeal":"1","pgStartupReports":"1","pgStartupGettingstarted":"1","pgAccountAdd":"1","pgAccountEdit":"1","pgAccountDelete":"1","pgAccountManageCustomField":"1","pgDeal":"1","pgDealDelete":"1","pgDealReassign":"1","pgDealFields":"1","pgDealGroupAdd":"1","pgDealGroupEdit":"1","pgDealGroupDelete":"1","pgSavedResponsesManage":"1","sdate":"2020-06-22T23:39:25-05:00","reqApproval":"0","reqApproval1st":"2","reqApprovalNotify":"","socialdata":"0","pgMfaAdmin":"1","pgDealExport":"1","pgDealManageRoles":"1","pgAccountNoteAdd":"0","pgAccountNoteEdit":"0","pgAccountNoteDelete":"0","pgDealNoteAdd":"0","pgDealNoteEdit":"0","pgDealNoteDelete":"0","pgDealListAll":"1","pgTagManage":"1","pgContactResubscribe":"1","pgDealImport":"1","pgAccountImport":"1","pgAccountExport":"1","links":{"userGroups":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/groups\/3\/userGroups","groupLimit":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/groups\/3\/groupLimit","dealGroupGroups":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/groups\/3\/dealGroupGroups","listGroups":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/groups\/3\/listGroups","addressGroups":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/groups\/3\/addressGroups","automationGroups":"https:\/\/camplify1592887147.api-us1.com\/api\/3\/groups\/3\/automationGroups"},"id":"3"}],"meta":{"total":"1"}}'
+    http_version: null
+  recorded_at: Wed, 15 Jul 2020 06:20:11 GMT
 recorded_with: VCR 5.1.0

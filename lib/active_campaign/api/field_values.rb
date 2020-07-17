@@ -66,10 +66,16 @@ module ActiveCampaign
       # @option [Hash] filters filter the list of custom field values with this data
       # @option filter [String] :fieldid the id of the field the value belongs to
       # @option filter [String] :val the value of the custom field for a specify contact
+      # @option [Hash] params Return results based on this data
+      # @option params [Integer] :limit The number of results to display in each page (default = 20; max = 100).
+      # @option params [Integer] :offset The starting point for the result set of a page. This is a zero-based index.
+      #   For example, if there are 39 total records and the limit is the default of 20, use offset=20 to get the second
+      #   page of results.
       #
       # @return [Hash] a hash with the information of field values that match the filters
-      def show_field_values(filters: {}, **params)
-        params[:filters] = filters if filters.any?
+      def show_field_values(filters: nil, **params)
+        params[:filters] = filters if filters
+
         get('fieldValues', params)
       end
     end

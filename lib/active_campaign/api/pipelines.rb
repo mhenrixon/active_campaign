@@ -45,11 +45,18 @@ module ActiveCampaign
       # Get a list of pipelines (dealGroups)
       #
       # @param [String] search Filter pipelines that match the given value in the pipeline attributes
+      # @option [Hash] params Return results based on this data
+      # @option params [Integer] :limit The number of results to display in each page (default = 20; max = 100).
+      # @option params [Integer] :offset The starting point for the result set of a page. This is a zero-based index.
+      #   For example, if there are 39 total records and the limit is the default of 20, use offset=20 to get the second
+      #   page of results.
       #
       # @return [Array<Hash>]
       #
-      def show_pipelines(search = nil)
-        get('dealGroups', search: search)
+      def show_pipelines(search = nil, **params)
+        params[:search] = search
+
+        get('dealGroups', params)
       end
       alias show_deal_groups show_pipelines
 

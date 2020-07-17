@@ -79,10 +79,15 @@ module ActiveCampaign
 
       #
       # List all custom fields
+      # @option [Hash] params Return results based on this data
+      # @option params [Integer] :limit The number of results to display in each page (default = 20; max = 100).
+      # @option params [Integer] :offset The starting point for the result set of a page. This is a zero-based index.
+      #   For example, if there are 39 total records and the limit is the default of 20, use offset=20 to get the second
+      #   page of results.
       #
       # @return [Hash] a hash with information on all custom fields
-      def show_fields
-        get('fields')
+      def show_fields(**params)
+        get('fields', params)
       end
 
       #

@@ -197,4 +197,71 @@ http_interactions:
       string: "{}"
     http_version: null
   recorded_at: Sun, 24 May 2020 10:17:15 GMT
+- request:
+    method: get
+    uri: "<API_ENDPOINT>/accounts"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Api-Token:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 15 Jul 2020 06:20:07 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '36'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=ec05ea673e93217b4f551445afc89012; path=/; HttpOnly
+      - __cfduid=d6f0d5d98aace71e22fcc5b4504839c2a1594794007; expires=Fri, 14-Aug-20
+        06:20:07 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=c470a223-548c-48c8-9130-b95880a35af6; path=/; domain=.camplify1592887147.api-us1.com;
+        secure; httponly
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.camplify1592887147.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.camplify1592887147.api-us1.com
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      X-Envoy-Upstream-Service-Time:
+      - '81'
+      X-Request-Id:
+      - 4aab38ff-2a1c-448d-9ec9-ff93ca8185f8
+      Accept-Ranges:
+      - bytes
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03f2ba73680000fe74e28d5200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5b3160324816fe74-SYD
+    body:
+      encoding: UTF-8
+      string: '{"accounts":[],"meta":{"total":"0"}}'
+    http_version: null
+  recorded_at: Wed, 15 Jul 2020 06:20:07 GMT
 recorded_with: VCR 5.1.0
