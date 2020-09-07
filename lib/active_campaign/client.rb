@@ -30,7 +30,7 @@ module ActiveCampaign
     attr_reader :config
 
     def initialize(conf = {})
-      @config = conf
+      @config = Configuration.new.to_h.merge(conf)
     end
 
     def connection # rubocop:disable Metrics/AbcSize
