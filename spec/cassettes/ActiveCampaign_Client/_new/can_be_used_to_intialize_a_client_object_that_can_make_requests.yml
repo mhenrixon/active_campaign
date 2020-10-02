@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://fake.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Mon, 07 Sep 2020 18:21:12 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=3600
+      Expires:
+      - Mon, 07 Sep 2020 19:21:12 GMT
+      Location:
+      - https://fake.com/
+      Cf-Request-Id:
+      - 050b66066a0000fec293a40200000001
+      Vary:
+      - Accept-Encoding
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5cf272b71f2bfec2-IAH
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Mon, 07 Sep 2020 18:21:12 GMT
+recorded_with: VCR 6.0.0
