@@ -23,7 +23,6 @@ module ActiveCampaign
           when :post, :patch, :put
             normalize_body(env)
           end
-          binding.pry
 
           env[:request_headers].merge!(@headers)
           @app.call(env)
