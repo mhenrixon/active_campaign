@@ -91,7 +91,7 @@ module ActiveCampaign
       #
       def show_contacts(filters: {}, orders: {}, **params)
         params[:filters] = filters if filters.any?
-        params[:orders]  = orders  if orders.any?
+        params[:orders] = orders if orders.any?
 
         get('contacts', params)
       end
@@ -121,6 +121,23 @@ module ActiveCampaign
       #
       def update_contact(id, params)
         put("contacts/#{id}", contact: params)
+      end
+
+      #
+      # Update list status for a contact
+      #
+      # @param [Array] params to import contact list
+      # @option params [Hash]
+      # @option params [String] :email the contacts email
+      # @option params [String] :first_name the first name of the contact
+      # @option params [String] :last_name the last name of the contact
+      # @option params [String] :phone the number to call the contact with
+      #
+      # @return [Hash] a hash with information about success/failure of the import
+      #
+
+      def bulk_import_contacts(params)
+        post('import/bulk_import', contacts: params)
       end
     end
   end
