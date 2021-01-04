@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<API_ENDPOINT>/import/bulk_import"
+    body:
+      encoding: UTF-8
+      string: '{"contacts":[{"email":"test_user_1@test.com","firstName":"test_user_1","lastName":"test_user_1","phone":123123123,"tags":"test_tag1"},{"email":"test_user_2@test.com","firstName":"test_user_2","lastName":"test_user_2","phone":123123123,"tags":"test_tag2"}]}'
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Api-Token:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Mon, 04 Jan 2021 14:52:26 GMT
+      Content-Type:
+      - text/html
+      Content-Length:
+      - '341'
+      Connection:
+      - keep-alive
+      Server:
+      - lighttpd/1.4.53
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="iso-8859-1"?>
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+         <head>
+          <title>404 Not Found</title>
+         </head>
+         <body>
+          <h1>404 Not Found</h1>
+         </body>
+        </html>
+  recorded_at: Mon, 04 Jan 2021 14:52:26 GMT
+recorded_with: VCR 6.0.0
