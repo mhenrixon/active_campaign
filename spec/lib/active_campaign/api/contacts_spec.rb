@@ -152,7 +152,8 @@ RSpec.describe ActiveCampaign::API::Contacts, :vcr do
   #     end
   #
   #     it 'returns success message' do
-  #       expect(response).to include_json('{"Success":1,"queued_contacts":2,"batchId":"0641fbdd-f62f-4c2c-ba02-3a83d5d11ac9",
+  #       expect(response).to include_json(
+  # '{"Success":1,"queued_contacts":2,"batchId":"0641fbdd-f62f-4c2c-ba02-3a83d5d11ac9",
   # "message":"Contact import queued"}')
   #     end
   #   end
