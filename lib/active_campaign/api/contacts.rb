@@ -135,7 +135,7 @@ module ActiveCampaign
       #
 
       def update_contact_list(params)
-        post('contactList', contact_list: params)
+        post('contactLists', contact_list: params)
       end
 
       #
