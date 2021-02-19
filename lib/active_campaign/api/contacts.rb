@@ -133,9 +133,9 @@ module ActiveCampaign
       #
       # @return [Hash] a hash with information about the newly created contact
       #
-      
+
       def update_contact_list(params)
-        post('contactList', contact: params)
+        post('contactList', contact_list: params)
       end
 
       #
