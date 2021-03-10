@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'shared_contexts/with_address'
+require_relative 'shared_contexts/with_contact_list'
 require_relative 'shared_contexts/with_contact_tag'
 require_relative 'shared_contexts/with_deal'
 require_relative 'shared_contexts/with_deal_custom_field_meta'
