@@ -22,6 +22,7 @@ RSpec.shared_context 'with existing list', with_existing_list: true do
     response = client.create_list(list_params)
     response.fetch(:list) { raise "HELL (list creation failed) #{response}" }
   end
+
   let(:list_id) { list[:id] }
 
   after do

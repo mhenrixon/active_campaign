@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_context 'with existing contact' do
+RSpec.shared_context 'with existing contact', :with_existing_contact do
   let(:contact) do
     response = client.create_contact(contact_params)
     response.fetch(:contact) { raise 'HELL (contact creation failed)' }
