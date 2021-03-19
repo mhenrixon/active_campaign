@@ -29,6 +29,10 @@ module ActiveCampaign
 
           body = ::Oj.load(body, mode: :compat)
           transform_keys(body, :underscore)
+
+        rescue ::EncodingError => e
+          LOGGER.error "Api is not responding: #{e.inspect}"
+          raise Faraday::ServerError
         end
 
         def debug(env)
