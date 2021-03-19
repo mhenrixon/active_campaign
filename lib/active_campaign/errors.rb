@@ -28,13 +28,9 @@ module ActiveCampaign
       if response.nil?
         super
       else
+        _response = response.response
         <<~MESSAGE
-          STATUS: #{response.status}
-          URL: #{env.url}
-          REQUEST HEADERS: #{env.request_headers}
-          RESPONSE_HEADERS: #{env.response_headers}
-          REQUEST_BODY: #{env.request_body}\n\n"
-          RESPONSE_BODY: #{response.body}\n\n"
+          STATUS: #{_response[:status]}
         MESSAGE
       end
     end

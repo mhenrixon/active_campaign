@@ -32,7 +32,7 @@ module ActiveCampaign
 
         rescue ::EncodingError => e
           LOGGER.error "Api is not responding: #{e.inspect}"
-          raise Faraday::ServerError
+          raise ::Faraday::ServerError.new(e, status: 503)
         end
 
         def debug(env)
