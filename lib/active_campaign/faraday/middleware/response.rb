@@ -4,7 +4,7 @@ require 'logger'
 require 'faraday/logging/formatter'
 
 module ActiveCampaign
-  LOGGER = ::Logger.new(STDOUT)
+  LOGGER = ::Logger.new($stdout)
   module Faraday
     module Middleware
       #

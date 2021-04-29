@@ -52,7 +52,7 @@ module ActiveCampaign
       # @return [Logger] any object that responds to :debug, :info, :warn, :error and :fatal
       #
       def logger
-        @logger ||= ActiveCampaign.logger
+        @logger ||= ActiveCampaign.logger # rubocop:disable ThreadSafety/InstanceVariableInClassMethod - should be a fixme
       end
     end
   end

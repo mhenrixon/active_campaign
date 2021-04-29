@@ -55,7 +55,7 @@ module ActiveCampaign
       self.api_timeout     = 5
       self.api_token       = API_TOKEN
       self.debug           = false
-      self.logger          = Logger.new(STDOUT)
+      self.logger          = Logger.new($stdout)
       @request_middleware  = {}
       @response_middleware = {}
     end
