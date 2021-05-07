@@ -6,11 +6,11 @@
 RSpec.shared_context 'with deal_stage params', :with_deal_params do
   include_context 'with existing pipeline'
 
-  let(:deal_stage_card_region_1) { 'title' }
-  let(:deal_stage_card_region_2) { 'next-action' }
-  let(:deal_stage_card_region_3) { 'show-avatar' }
-  let(:deal_stage_card_region_4) { 'contact-fullname-orgname' }
-  let(:deal_stage_card_region_5) { 'value' }
+  let(:deal_stage_card_region1) { 'title' }
+  let(:deal_stage_card_region2) { 'next-action' }
+  let(:deal_stage_card_region3) { 'show-avatar' }
+  let(:deal_stage_card_region4) { 'contact-fullname-orgname' }
+  let(:deal_stage_card_region5) { 'value' }
   let(:deal_stage_color)         { 'ffffff' }
   let(:deal_stage_deal_order)    { 'next-action DESC' }
   let(:deal_stage_group)         { pipeline_id }
@@ -19,11 +19,11 @@ RSpec.shared_context 'with deal_stage params', :with_deal_params do
   let(:deal_stage_width)         { 360 }
   let(:deal_stage_params) do
     {
-      card_region1: deal_stage_card_region_1,
-      card_region2: deal_stage_card_region_2,
-      card_region3: deal_stage_card_region_3,
-      card_region4: deal_stage_card_region_4,
-      card_region5: deal_stage_card_region_5,
+      card_region1: deal_stage_card_region1,
+      card_region2: deal_stage_card_region2,
+      card_region3: deal_stage_card_region3,
+      card_region4: deal_stage_card_region4,
+      card_region5: deal_stage_card_region5,
       color: deal_stage_color,
       deal_order: deal_stage_deal_order,
       group: deal_stage_group,

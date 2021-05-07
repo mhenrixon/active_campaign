@@ -16,11 +16,11 @@ RSpec.describe ActiveCampaign::API::DealStages, :vcr do
     it 'returns a deal_stage hash' do
       expect(response).to include_json(
         deal_stage: {
-          card_region1: deal_stage_card_region_1,
-          card_region2: deal_stage_card_region_2,
-          card_region3: deal_stage_card_region_3,
-          card_region4: deal_stage_card_region_4,
-          card_region5: deal_stage_card_region_5,
+          card_region1: deal_stage_card_region1,
+          card_region2: deal_stage_card_region2,
+          card_region3: deal_stage_card_region3,
+          card_region4: deal_stage_card_region4,
+          card_region5: deal_stage_card_region5,
           color: deal_stage_color,
           deal_order: deal_stage_deal_order,
           group: deal_stage_group,
@@ -42,11 +42,11 @@ RSpec.describe ActiveCampaign::API::DealStages, :vcr do
     it 'returns a deal_stage hash' do
       expect(response).to include_json(
         deal_stage: {
-          card_region1: deal_stage_card_region_1,
-          card_region2: deal_stage_card_region_2,
-          card_region3: deal_stage_card_region_3,
-          card_region4: deal_stage_card_region_4,
-          card_region5: deal_stage_card_region_5,
+          card_region1: deal_stage_card_region1,
+          card_region2: deal_stage_card_region2,
+          card_region3: deal_stage_card_region3,
+          card_region4: deal_stage_card_region4,
+          card_region5: deal_stage_card_region5,
           color: deal_stage_color,
           deal_order: deal_stage_deal_order,
           group: deal_stage_group,
@@ -78,11 +78,11 @@ RSpec.describe ActiveCampaign::API::DealStages, :vcr do
     it 'returns a deal_stage hash' do
       expect(response).to include_json(
         deal_stage: {
-          card_region1: deal_stage_card_region_1,
-          card_region2: deal_stage_card_region_2,
-          card_region3: deal_stage_card_region_3,
-          card_region4: deal_stage_card_region_4,
-          card_region5: deal_stage_card_region_5,
+          card_region1: deal_stage_card_region1,
+          card_region2: deal_stage_card_region2,
+          card_region3: deal_stage_card_region3,
+          card_region4: deal_stage_card_region4,
+          card_region5: deal_stage_card_region5,
           color: new_deal_stage_color,
           deal_order: deal_stage_deal_order,
           group: deal_stage_group,
