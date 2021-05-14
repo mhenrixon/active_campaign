@@ -21,16 +21,19 @@ module ActiveCampaign
   class Error < RuntimeError
     def initialize(response = nil, exception = nil)
       self.response = response
-      @exception    = exception
+      @exception = exception
     end
 
     def message
       if response.nil?
         super
-      else
-        _response = response.response
+      elsif response.response
         <<~MESSAGE
-          STATUS: #{_response[:status]}
+          STATUS: #{response.response[:status]}
+        MESSAGE
+      else
+        <<~MESSAGE
+          STATUS: #{response.status}
         MESSAGE
       end
     end
