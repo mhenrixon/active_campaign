@@ -27,6 +27,14 @@ module ActiveCampaign
     def message
       if response.nil?
         super
+      elsif response.is_a?(Exception)
+        <<~MESSAGE
+          ERROR: #{response.class.name}: #{response}
+          URL: #{env.url}
+          REQUEST HEADERS: #{env.request_headers}
+          RESPONSE_HEADERS: #{env.response_headers}
+          REQUEST_BODY: #{env.request_body}\n\n"
+        MESSAGE
       else
         <<~MESSAGE
           STATUS: #{response.status}
