@@ -22,6 +22,7 @@ module ActiveCampaign
     endpoint :fields
     endpoint :field_values
     endpoint :groups
+    endpoint :import
     endpoint :lists
     endpoint :pipelines
     endpoint :tags
