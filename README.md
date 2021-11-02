@@ -1,5 +1,11 @@
 [![Build Status](https://travis-ci.org/mhenrixon/active_campaign.svg?branch=master)](https://travis-ci.org/mhenrixon/active_campaign)[![Code Climate](https://codeclimate.com/github/mhenrixon/active_campaign/badges/gpa.svg)](https://codeclimate.com/github/mhenrixon/active_campaign)[![Test Coverage](https://codeclimate.com/github/mhenrixon/active_campaign/badges/coverage.svg)](https://codeclimate.com/github/mhenrixon/active_campaign/coverage)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmhenrixon%2Factive_campaign.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmhenrixon%2Factive_campaign?ref=badge_shield)
+# WARNING
+
+The master branch has documentation and an API that is not consistent with the version published on RubyGems.
+
+For the latest Rubygems published version, please see https://github.com/mhenrixon/active_campaign/tree/v0.1.16
+
 # Active::Campaign::Ruby
 
 A simple wrapper for the ActiveCampaign API. Since their API seems to be
