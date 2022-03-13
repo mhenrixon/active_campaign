@@ -4,15 +4,20 @@ jobs:
   tests:
     env:
       COV: true
+      BUNDLE_GEMFILE: "gemfiles/faraday_${{ matrix.faraday_version }}.gemfile"
 
     runs-on: ubuntu-latest
+    name: Ruby ${{ matrix.ruby }} on Faraday ${{ matrix.faraday_version }}
 
     strategy:
       fail-fast: true
       matrix:
         # ruby: [2.5, 2.6, 2.7, jruby, truffleruby]
-        ruby: [2.5, 2.6, 2.7]
-
+        ruby: [2.5, 2.6, 2.7, "3.0", 3.1]
+        faraday_version: [1, 2]
+        exclude:
+          - ruby: 2.5
+            faraday_version: 2
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1

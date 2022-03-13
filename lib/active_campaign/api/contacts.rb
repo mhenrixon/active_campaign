@@ -53,7 +53,8 @@ module ActiveCampaign
       # Get a list of contacts
       #
       # @param [Hash] params
-      # @option params param [String] :ids Filter contacts by ID. Can be repeated for multiple IDs. Example: ids: [42, 43, 1]
+      # @option params param [String] :ids Filter contacts by ID. Can be repeated for multiple IDs.
+      #   Example: ids: [42, 43, 1]
       # @option params [Date] :datetime Contacts created on the specified date
       # @option params [String] :email Email address of the contact you want to get
       # @option params [String] :email_like Filter contacts that contain the given value in the email address

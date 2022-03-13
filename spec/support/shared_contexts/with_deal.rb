@@ -13,7 +13,7 @@ RSpec.shared_context 'with deal params', :with_deal_params do
   let(:deal_value)       { 156.24 }
   let(:deal_currency)    { 'eur' }
   let(:deal_group)       { pipeline_id }
-  let(:deal_stage)       {}
+  let(:deal_stage)       { nil }
   let(:deal_owner)       { user_id }
   let(:deal_percent)     { 50 }
   let(:deal_status)      { 0 }

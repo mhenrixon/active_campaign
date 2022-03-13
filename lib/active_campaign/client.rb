@@ -100,8 +100,6 @@ module ActiveCampaign
       raise ProxyAuthError, e
     rescue ::Faraday::ConflictError => e
       raise ConflictError, e
-    rescue ::Faraday::UnauthorizedError => e
-      raise UnauthorizedError, e
     rescue ::Faraday::UnprocessableEntityError => e
       raise UnprocessableEntityError, e
     rescue ::Faraday::ServerError => e
@@ -110,8 +108,6 @@ module ActiveCampaign
       raise TimeoutError, e
     rescue ::Faraday::NilStatusError => e
       raise NilStatusError, e
-    rescue ::Faraday::ConnectionFailed => e
-      raise ConnectionFailed, e
     rescue ::Faraday::SSLError => e
       raise SSLError, e
     end

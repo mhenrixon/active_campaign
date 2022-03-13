@@ -22,6 +22,7 @@ module ActiveCampaign
     def initialize(response = nil, exception = nil)
       self.response = response
       @exception    = exception
+      super
     end
 
     def message
@@ -56,6 +57,7 @@ module ActiveCampaign
   class ErrorProxy < RuntimeError
     def initialize(error = nil)
       self.error = error
+      super
     end
 
     def message

@@ -3,7 +3,13 @@ inherit_gem:
     - config/default.yml
 
 AllCops:
-  TargetRubyVersion: 2.5'
+  TargetRubyVersion: 2.5
   Exclude:
     - 'gemfiles/**/*'
     - '**/*.json'
+
+Naming/VariableNumber:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false

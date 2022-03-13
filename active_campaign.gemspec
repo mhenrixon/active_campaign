@@ -14,14 +14,17 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/mhenrixon/active_campaign'
   spec.license       = 'MIT'
 
+  spec.required_ruby_version = '>= 2.5'
+
   if spec.respond_to?(:metadata)
     spec.metadata['allowed_push_host'] = 'https://rubygems.org'
     spec.metadata['homepage_uri'] = spec.homepage
     spec.metadata['source_code_uri'] = 'https://github.com/mhenrixon/rubocop-mhenrixon'
     spec.metadata['changelog_uri'] = 'https://github.com/mhenrixon/rubocop-mhenrixon'
+    spec.metadata['rubygems_mfa_required'] = 'true'
   else
     raise 'RubyGems 2.0 or newer is required to protect against ' \
-      'public gem pushes.'
+          'public gem pushes.'
   end
 
   spec.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
@@ -32,4 +35,16 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'activesupport',  '>= 4.0', '< 8.0'
   spec.add_dependency 'faraday',        '>= 1.0', '< 3.0'
   spec.add_dependency 'oj',             '>= 3.0', '< 4.0'
+
+  spec.add_development_dependency 'factory_bot', '~> 6'
+  spec.add_development_dependency 'pry', '~> 0.14'
+  spec.add_development_dependency 'rake', '~> 13'
+  spec.add_development_dependency 'reek', '~> 6'
+  spec.add_development_dependency 'rspec', '~> 3.11'
+  spec.add_development_dependency 'rspec-json_expectations', '~> 2.2'
+  spec.add_development_dependency 'rubocop-mhenrixon', '~> 1'
+  spec.add_development_dependency 'simplecov', '~> 0.21'
+  spec.add_development_dependency 'simplecov-material', '~> 1'
+  spec.add_development_dependency 'vcr', '~> 6'
+  spec.add_development_dependency 'webmock', '~> 3'
 end

@@ -45,6 +45,8 @@ module ActiveCampaign
         raise DependencyMissing, endpoint
       end
 
+      # rubocop:disable ThreadSafety/InstanceVariableInClassMethod
+
       #
       # Memoized logger for convenience
       #
@@ -54,6 +56,8 @@ module ActiveCampaign
       def logger
         @logger ||= ActiveCampaign.logger
       end
+
+      # rubocop:enable ThreadSafety/InstanceVariableInClassMethod
     end
   end
 end
