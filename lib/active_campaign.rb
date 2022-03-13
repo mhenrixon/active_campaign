@@ -77,6 +77,8 @@ module ActiveCampaign
     yield config if block_given?
   end
 
+  # rubocop:disable Lint/MissingSuper
+
   # @private
   def respond_to_missing?(method_name, include_private = false)
     client.respond_to?(method_name, include_private)
@@ -106,4 +108,6 @@ module ActiveCampaign
       client.respond_to?(method_name, include_private)
     end
   end
+
+  # rubocop:enable Lint/MissingSuper
 end

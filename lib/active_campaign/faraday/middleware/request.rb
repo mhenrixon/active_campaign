@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'faraday'
+require 'oj'
+
 module ActiveCampaign
   module Faraday
     module Middleware
@@ -9,7 +12,7 @@ module ActiveCampaign
       # @author Mikael Henriksson <mikael@mhenrixon.com>
       #
       class Request < ::Faraday::Middleware
-        dependency 'oj'
+        dependency 'oj' if respond_to?(:dependency)
 
         include TransformHash
 
@@ -45,7 +48,7 @@ module ActiveCampaign
         end
 
         def logger
-          @logger ||= Logger.new(STDOUT)
+          @logger ||= Logger.new($stdout)
         end
       end
     end

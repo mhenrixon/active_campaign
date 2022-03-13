@@ -2,9 +2,10 @@
 
 require 'logger'
 require 'faraday/logging/formatter'
+require 'oj'
 
 module ActiveCampaign
-  LOGGER = ::Logger.new(STDOUT)
+  LOGGER = ::Logger.new($stdout)
   module Faraday
     module Middleware
       #
@@ -12,8 +13,8 @@ module ActiveCampaign
       #
       # @author Mikael Henriksson <mikael@mhenrixon.com>
       #
-      class Response < ::Faraday::Response::Middleware
-        dependency 'oj'
+      class Response < ::Faraday::Middleware
+        dependency 'oj' if respond_to?(:dependency)
 
         include TransformHash
 
