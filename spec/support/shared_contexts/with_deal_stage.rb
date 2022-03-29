@@ -6,11 +6,11 @@
 RSpec.shared_context 'with deal_stage params', :with_deal_params do
   include_context 'with existing pipeline'
 
-  let(:deal_stage_card_region1) { 'title' }
-  let(:deal_stage_card_region2) { 'next-action' }
-  let(:deal_stage_card_region3) { 'show-avatar' }
-  let(:deal_stage_card_region4) { 'contact-fullname-orgname' }
-  let(:deal_stage_card_region5) { 'value' }
+  let(:deal_stage_card_region1)  { 'title' }
+  let(:deal_stage_card_region2)  { 'next-action' }
+  let(:deal_stage_card_region3)  { 'show-avatar' }
+  let(:deal_stage_card_region4)  { 'contact-fullname-orgname' }
+  let(:deal_stage_card_region5)  { 'value' }
   let(:deal_stage_color)         { 'ffffff' }
   let(:deal_stage_deal_order)    { 'next-action DESC' }
   let(:deal_stage_group)         { pipeline_id }

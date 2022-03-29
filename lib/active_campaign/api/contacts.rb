@@ -50,11 +50,11 @@ module ActiveCampaign
       end
 
       def subscribe_contact_to_list(contact_id, list_id)
-        post("contactLists", contactList: {
-          contact: contact_id,
-          list: list_id,
-          status: 1
-        })
+        post('contactLists', contactList: {
+               contact: contact_id,
+               list: list_id,
+               status: 1
+             })
       end
 
       #

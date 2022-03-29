@@ -9,8 +9,6 @@ module ActiveCampaign
       # @author Mikael Henriksson <mikael@mhenrixon.com>
       #
       class Request < ::Faraday::Middleware
-        dependency 'oj'
-
         include TransformHash
 
         def initialize(app, headers)
