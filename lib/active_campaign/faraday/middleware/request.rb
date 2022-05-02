@@ -37,6 +37,8 @@ module ActiveCampaign
             logger.debug("Using body as is because group #{body}")
           elsif body.key?(:list)
             logger.debug("Using body as is because list #{body}")
+          elsif body.key?(:contacts) && body.key?(:callback)
+            logger.debug("Using body as is because contacts+callback #{body}")
           else
             body = transform_keys(body, :camelcase, :lower)
           end
