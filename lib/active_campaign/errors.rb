@@ -29,7 +29,7 @@ module ActiveCampaign
         super
       else
         <<~MESSAGE
-          STATUS: #{response.status}
+          STATUS: #{response.try(:status)}
           URL: #{env.url}
           REQUEST HEADERS: #{env.request_headers}
           RESPONSE_HEADERS: #{env.response_headers}
