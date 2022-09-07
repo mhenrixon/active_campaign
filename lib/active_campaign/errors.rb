@@ -28,14 +28,18 @@ module ActiveCampaign
       if response.nil?
         super
       else
-        <<~MESSAGE
-          STATUS: #{response.try(:status)}
-          URL: #{env.url}
-          REQUEST HEADERS: #{env.request_headers}
-          RESPONSE_HEADERS: #{env.response_headers}
-          REQUEST_BODY: #{env.request_body}\n\n"
-          RESPONSE_BODY: #{response.body}\n\n"
-        MESSAGE
+        begin
+          <<~MESSAGE
+            STATUS: #{response.try(:status)}
+            URL: #{env.url}
+            REQUEST HEADERS: #{env.request_headers}
+            RESPONSE_HEADERS: #{env.response_headers}
+            REQUEST_BODY: #{env.request_body}\n\n"
+            RESPONSE_BODY: #{response.body}\n\n"
+          MESSAGE
+        rescue StandardError => e
+          super
+        end
       end
     end
 
