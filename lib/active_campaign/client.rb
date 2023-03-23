@@ -26,6 +26,7 @@ module ActiveCampaign
     endpoint :import
     endpoint :lists
     endpoint :pipelines
+    endpoint :segments
     endpoint :tags
     endpoint :users
 
