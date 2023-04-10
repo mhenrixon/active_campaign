@@ -10,7 +10,7 @@ RSpec.describe ActiveCampaign::API::Addresses, :vcr do
       {
         address: {
           company_name: address_company_name,
-          address1: address_address_1,
+          address1: address_address1,
           city: address_city,
           state: address_state,
           zip: address_zip,
@@ -38,7 +38,7 @@ RSpec.describe ActiveCampaign::API::Addresses, :vcr do
         address: {
           id: address_id,
           company_name: address_company_name,
-          address1: address_address_1,
+          address1: address_address1,
           city: address_city,
           state: address_state,
           zip: address_zip,
@@ -90,7 +90,7 @@ RSpec.describe ActiveCampaign::API::Addresses, :vcr do
         addresses: [{
           id: address_id,
           company_name: address_company_name,
-          address1: address_address_1,
+          address1: address_address1,
           city: address_city,
           state: address_state,
           zip: address_zip,

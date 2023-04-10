@@ -2,7 +2,7 @@
 
 RSpec.shared_context 'with address params', :with_address_params do
   let(:address_company_name) { 'mhenrixon Consulting' }
-  let(:address_address_1)    { 'Seestr. 5' }
+  let(:address_address1)     { 'Seestr. 5' }
   let(:address_city)         { 'Zeuthen' }
   let(:address_state)        { 'Brandenburg' }
   let(:address_zip)          { '15738' }
@@ -10,7 +10,7 @@ RSpec.shared_context 'with address params', :with_address_params do
   let(:address_params) do
     {
       company_name: address_company_name,
-      address_1: address_address_1,
+      address_1: address_address1,
       city: address_city,
       state: address_state,
       zip: address_zip,

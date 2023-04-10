@@ -49,6 +49,14 @@ module ActiveCampaign
         post('contact/sync', contact: params)
       end
 
+      def subscribe_contact_to_list(contact_id, list_id)
+        post('contactLists', contactList: {
+               contact: contact_id,
+               list: list_id,
+               status: 1
+             })
+      end
+
       #
       # Get a list of contacts
       #
