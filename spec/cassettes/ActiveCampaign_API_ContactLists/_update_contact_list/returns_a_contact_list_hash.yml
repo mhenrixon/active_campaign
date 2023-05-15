@@ -1,0 +1,411 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<API_ENDPOINT>/contacts"
+    body:
+      encoding: UTF-8
+      string: '{"contact":{"email":"mikael@mhenrixon.com","firstName":"Mikael","lastName":"Henriksson","phone":"+491735728523"}}'
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Api-Token:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Wed, 10 Mar 2021 19:29:42 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1766'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=aa78414290d8ff9e3b4186d040703fd7; path=/; HttpOnly
+      - __cfduid=da8478bc95beb10080463549e05ab785e1615404582; expires=Fri, 09-Apr-21
+        19:29:42 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=7c9ae051-fa0b-4c49-a883-3dc3dc8a6a46; path=/; domain=.inveniobr.api-us1.com;
+        secure; httponly
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.inveniobr.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.inveniobr.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.inveniobr.api-us1.com
+      Access-Control-Allow-Headers:
+      - Content-Type, origin, x-requested-with
+      Access-Control-Allow-Methods:
+      - POST, GET
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      X-Envoy-Upstream-Service-Time:
+      - '238'
+      X-Request-Id:
+      - 03db6c57-812f-4113-961f-49afdd44f47c
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - '08bf36dcd60000f3cfe7b22000000001'
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 62def40e2ae8f3cf-GRU
+    body:
+      encoding: UTF-8
+      string: '{"contact":{"email":"mikael@mhenrixon.com","phone":"+491735728523","firstName":"Mikael","lastName":"Henriksson","email_empty":false,"cdate":"2021-03-10T13:29:42-06:00","udate":"2021-03-10T13:29:42-06:00","orgid":"","orgname":"","accountContacts":[],"links":{"bounceLogs":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/bounceLogs","contactAutomations":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/contactAutomations?limit=1000&orders%5Blastdate%5D=DESC","contactData":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/contactData","contactGoals":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/contactGoals","contactLists":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/contactLists","contactLogs":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/contactLogs","contactTags":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/contactTags","contactDeals":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/contactDeals","deals":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/deals","fieldValues":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/fieldValues","geoIps":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/geoIps","notes":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/notes","organization":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/organization","plusAppend":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/plusAppend","trackingLogs":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/trackingLogs","scoreValues":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/scoreValues","automationEntryCounts":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/automationEntryCounts"},"hash":"45ad71261e9d4f250da7cae121ce059c","id":"5","organization":""}}'
+  recorded_at: Wed, 10 Mar 2021 19:29:42 GMT
+- request:
+    method: post
+    uri: "<API_ENDPOINT>/lists"
+    body:
+      encoding: UTF-8
+      string: '{"list":{"name":"Awesome List","stringid":"awesome-list","sender_url":"https://mhenrixon.com","sender_reminder":"This
+        is why we are sending you this"}}'
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Api-Token:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Wed, 10 Mar 2021 19:29:43 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '479'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=695cbcd669f8640e6a9f47ba360d320f; path=/; HttpOnly
+      - __cfduid=d22117441c96b1ec0d530831a3e37a9931615404582; expires=Fri, 09-Apr-21
+        19:29:42 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=1d9b50d4-0a97-4e18-ac58-af1094d2ad67; path=/; domain=.inveniobr.api-us1.com;
+        secure; httponly
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.inveniobr.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.inveniobr.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.inveniobr.api-us1.com
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      X-Envoy-Upstream-Service-Time:
+      - '692'
+      X-Request-Id:
+      - '0488a3f6-7820-4ffc-b1d1-5b62dcba710e'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - '08bf36dec400004b2f5a343000000001'
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 62def41139204b2f-GRU
+    body:
+      encoding: UTF-8
+      string: '{"list":{"name":"Awesome List","stringid":"awesome-list","sender_url":"https:\/\/mhenrixon.com","sender_reminder":"This
+        is why we are sending you this","cdate":"2021-03-10T13:29:42-06:00","udate":"2021-03-10T13:29:42-06:00","links":{"contactGoalLists":"https:\/\/inveniobr.api-us1.com\/api\/3\/lists\/4\/contactGoalLists","user":"https:\/\/inveniobr.api-us1.com\/api\/3\/lists\/4\/user","addressLists":"https:\/\/inveniobr.api-us1.com\/api\/3\/lists\/4\/addressLists"},"id":"4"}}'
+  recorded_at: Wed, 10 Mar 2021 19:29:43 GMT
+- request:
+    method: post
+    uri: "<API_ENDPOINT>/contactLists"
+    body:
+      encoding: UTF-8
+      string: '{"contactList":{"contact":"5","list":"4"}}'
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Api-Token:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Wed, 10 Mar 2021 19:29:43 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '3137'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=f2a67f6fafb2fcc32b752fe756ca3e42; path=/; HttpOnly
+      - __cfduid=d44445f69b57ff182120d3b6988ae374a1615404583; expires=Fri, 09-Apr-21
+        19:29:43 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=4f39b0ec-b246-43f6-8dc8-fa41b0d4c4ea; path=/; domain=.inveniobr.api-us1.com;
+        secure; httponly
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.inveniobr.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.inveniobr.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.inveniobr.api-us1.com
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      X-Envoy-Upstream-Service-Time:
+      - '125'
+      X-Request-Id:
+      - 6cb3e74e-a3f6-444b-a4c7-ff6517dff0eb
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - '08bf36e25600004b2f5c3fd000000001'
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 62def416fed74b2f-GRU
+    body:
+      encoding: UTF-8
+      string: '{"contacts":[{"cdate":"2021-03-10T13:29:42-06:00","email":"mikael@mhenrixon.com","phone":"+491735728523","firstName":"Mikael","lastName":"Henriksson","orgid":"0","orgname":"","segmentio_id":"","bounced_hard":"0","bounced_soft":"0","bounced_date":null,"ip":"0","ua":null,"hash":"45ad71261e9d4f250da7cae121ce059c","socialdata_lastcheck":null,"email_local":"","email_domain":"","sentcnt":"0","rating_tstamp":null,"gravatar":"0","deleted":"0","anonymized":"0","adate":null,"udate":"2021-03-10T13:29:42-06:00","edate":null,"deleted_at":null,"created_utc_timestamp":"2021-03-10
+        13:29:42","updated_utc_timestamp":"2021-03-10 13:29:42","created_timestamp":"2021-03-10
+        13:29:42","updated_timestamp":"2021-03-10 13:29:42","created_by":null,"updated_by":null,"email_empty":false,"accountContacts":[],"links":{"bounceLogs":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/bounceLogs","contactAutomations":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/contactAutomations?limit=1000&orders%5Blastdate%5D=DESC","contactData":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/contactData","contactGoals":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/contactGoals","contactLists":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/contactLists","contactLogs":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/contactLogs","contactTags":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/contactTags","contactDeals":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/contactDeals","deals":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/deals","fieldValues":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/fieldValues","geoIps":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/geoIps","notes":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/notes","organization":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/organization","plusAppend":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/plusAppend","trackingLogs":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/trackingLogs","scoreValues":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/scoreValues","automationEntryCounts":"https:\/\/inveniobr.api-us1.com\/api\/3\/contacts\/5\/automationEntryCounts"},"id":"5","organization":null}],"contactList":{"list":"4","contact":"5","sdate":"2021-03-10T13:29:43-06:00","first_name":"Mikael","last_name":"Henriksson","sourceid":3,"unsubreason":"","unsubscribeAutomation":null,"links":{"automation":"https:\/\/inveniobr.api-us1.com\/api\/3\/contactLists\/5\/automation","list":"https:\/\/inveniobr.api-us1.com\/api\/3\/contactLists\/5\/list","contact":"https:\/\/inveniobr.api-us1.com\/api\/3\/contactLists\/5\/contact","form":"https:\/\/inveniobr.api-us1.com\/api\/3\/contactLists\/5\/form","autosyncLog":"https:\/\/inveniobr.api-us1.com\/api\/3\/contactLists\/5\/autosyncLog","campaign":"https:\/\/inveniobr.api-us1.com\/api\/3\/contactLists\/5\/campaign","unsubscribeAutomation":"https:\/\/inveniobr.api-us1.com\/api\/3\/contactLists\/5\/unsubscribeAutomation","message":"https:\/\/inveniobr.api-us1.com\/api\/3\/contactLists\/5\/message"},"status":"","id":"5"}}'
+  recorded_at: Wed, 10 Mar 2021 19:29:43 GMT
+- request:
+    method: delete
+    uri: "<API_ENDPOINT>/lists/4"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Api-Token:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 10 Mar 2021 19:29:44 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=8af7368c8348baf51043b90d37b077f1; path=/; HttpOnly
+      - __cfduid=d63b400427a9edc1cd8e7616fae8a2c851615404583; expires=Fri, 09-Apr-21
+        19:29:43 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=0355c0ad-0337-48b4-b2d9-1ffe09ad1425; path=/; domain=.inveniobr.api-us1.com;
+        secure; httponly
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.inveniobr.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.inveniobr.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.inveniobr.api-us1.com
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      X-Envoy-Upstream-Service-Time:
+      - '242'
+      X-Request-Id:
+      - 2da8254e-4311-4454-98a3-863674e535ed
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - '08bf36e3b5000051f2bd3c0000000001'
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 62def4192dba51f2-GRU
+    body:
+      encoding: UTF-8
+      string: "{}"
+  recorded_at: Wed, 10 Mar 2021 19:29:44 GMT
+- request:
+    method: delete
+    uri: "<API_ENDPOINT>/lists/4"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Api-Token:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Wed, 10 Mar 2021 19:29:44 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=5fe475c0184ef3b5e97ed00ad1098719; path=/; HttpOnly
+      - __cfduid=d6f516fc75bbe258e66621df6502f43041615404584; expires=Fri, 09-Apr-21
+        19:29:44 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=61379498-50a7-4a6c-8340-80144575fde1; path=/; domain=.inveniobr.api-us1.com;
+        secure; httponly
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.inveniobr.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.inveniobr.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.inveniobr.api-us1.com
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      X-Envoy-Upstream-Service-Time:
+      - '110'
+      X-Request-Id:
+      - caf63798-51a2-4a86-9498-9798bc430c79
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - '08bf36e58a0000d01ce6859000000001'
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 62def41c1fbdd01c-GRU
+    body:
+      encoding: ASCII-8BIT
+      string: '{"message":"No Result found for _List with id 4"}'
+  recorded_at: Wed, 10 Mar 2021 19:29:44 GMT
+- request:
+    method: delete
+    uri: "<API_ENDPOINT>/contacts/5"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - ActiveCampaign Ruby Client (v3.0.0)
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Api-Token:
+      - "<API_KEY>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Wed, 10 Mar 2021 19:29:45 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=078005f44950a3ccf6a8ea8c5a173771; path=/; HttpOnly
+      - __cfduid=de68f26aafd8532ac3545e358b42683fb1615404585; expires=Fri, 09-Apr-21
+        19:29:45 GMT; path=/; domain=.api-us1.com; HttpOnly; SameSite=Lax
+      - em_acp_globalauth_cookie=3c1fc9ce-7a25-48be-846c-0c4e72794e2e; path=/; domain=.inveniobr.api-us1.com;
+        secure; httponly
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.inveniobr.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.inveniobr.api-us1.com
+      - em_acp_globalauth_cookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/; domain=.inveniobr.api-us1.com
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      X-Envoy-Upstream-Service-Time:
+      - '148'
+      X-Request-Id:
+      - fd0b2576-0fb2-4f4d-aef4-e9b879935dbd
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - '08bf36e84d0000f6b3ae105000000001'
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 62def4207ce1f6b3-GRU
+    body:
+      encoding: ASCII-8BIT
+      string: '{"message":"No Result found for Subscriber with id 5"}'
+  recorded_at: Wed, 10 Mar 2021 19:29:45 GMT
+recorded_with: VCR 6.0.0
