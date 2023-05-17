@@ -3,7 +3,7 @@
 module ActiveCampaign
   module API
     #
-    # Interface to contact tag endpoints
+    # Interface to contact tracking log endpoint
     #
     # @author Stuart Auld <sja@marsupialmusic.net>
     #
