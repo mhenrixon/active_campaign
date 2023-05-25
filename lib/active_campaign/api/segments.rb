@@ -13,8 +13,8 @@ module ActiveCampaign
       #
       # @return [Hash] a hash with a list of segments
       #
-      def segments
-        get("segments")
+      def segments(limit: 20, offset: 0)
+        get("segments", limit: limit, offset: offset)
       end
 
       #
