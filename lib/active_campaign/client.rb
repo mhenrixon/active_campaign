@@ -16,6 +16,7 @@ module ActiveCampaign
     endpoint :account_custom_field_data
     endpoint :addresses
     endpoint :contacts
+    endpoint :contact_lists
     endpoint :contact_tags
     endpoint :deals
     endpoint :deal_custom_field_meta
@@ -102,8 +103,6 @@ module ActiveCampaign
       raise ProxyAuthError, e
     rescue ::Faraday::ConflictError => e
       raise ConflictError, e
-    rescue ::Faraday::UnauthorizedError => e
-      raise UnauthorizedError, e
     rescue ::Faraday::UnprocessableEntityError => e
       raise UnprocessableEntityError, e
     rescue ::Faraday::ServerError => e
@@ -112,8 +111,6 @@ module ActiveCampaign
       raise TimeoutError, e
     rescue ::Faraday::NilStatusError => e
       raise NilStatusError, e
-    rescue ::Faraday::ConnectionFailed => e
-      raise ConnectionFailed, e
     rescue ::Faraday::SSLError => e
       raise SSLError, e
     end

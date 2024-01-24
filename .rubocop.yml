@@ -7,3 +7,28 @@ AllCops:
   Exclude:
     - 'gemfiles/**/*'
     - '**/*.json'
+    - bin/**/*
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+Lint/MissingSuper:
+  Exclude:
+    - 'lib/active_campaign.rb'
+    - 'lib/active_campaign/*'
+
+Naming/VariableNumber:
+  Exclude:
+    - 'spec/**/*'
+
+Layout/ExtraSpacing:
+  Exclude:
+    - 'spec/support/shared_contexts/*'
+
+Lint/EmptyBlock:
+  Exclude:
+    - 'spec/support/shared_contexts/*'
+
+RSpec/AlignLeftLetBrace:
+  Exclude:
+    - 'spec/support/shared_contexts/*'
